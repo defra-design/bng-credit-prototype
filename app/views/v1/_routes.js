@@ -23,11 +23,9 @@ router.post('/start-page', function (req, res) {
      res.redirect('sign-in');
    }
 });
-router.get('/sign-in', function (req, res) {
-    if(req.query.instigate == 'email'){
-      req.session.data['journey'] = 'developer-handshake'
-    }
-    res.render(version+'/sign-in');
+router.get('/purchase-credits', function (req, res) {
+    req.session.data['journey'] = 'developer-handshake'
+    res.redirect('sign-in');
 });
 router.post('/sign-in', function (req, res) {
    if(req.session.data['journey'] == 'handshake'){
