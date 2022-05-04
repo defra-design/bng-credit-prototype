@@ -18,4 +18,17 @@ router.post('/set-credit-amounts', function (req, res) {
     res.redirect('/'+req.query.version+'/start-page?journey='+req.query.journey);
 });
 
+router.get('/confirm-payment', function (req, res) {
+  // uses GOV.UK notify
+  // uses GOV.UK notify
+  var NotifyClient = require('notifications-node-client').NotifyClient;
+  var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
+
+  notifyClient.sendEmail('03170ad9-02f5-4ae2-8163-c833ee5e10fc', 'bng.developer@hotmail.com', {
+
+  }).then(response => console.log(response)).catch(err => console.error(err))
+
+  res.render('/confirm-payment');
+});
+
 module.exports = router
