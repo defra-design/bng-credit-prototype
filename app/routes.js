@@ -28,7 +28,7 @@ router.get('/confirm-payment', function (req, res) {
 
   }).then(response => console.log(response)).catch(err => console.error(err))
 
-  res.render('/confirm-payment');
+  res.render('confirm-payment');
 });
 
 module.exports = router
