@@ -47,6 +47,11 @@
     serviceUrl: "/",
     containerClasses: "govuk-width-container"
   }) }}
+
+  <div class="govuk-width-container">
+   {% include "includes/phase-banner.html" %}
+  </div>
+
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}

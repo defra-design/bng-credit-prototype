@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% set pageH1 = "The number of credits needed" %}
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageH1 }}
+      </h1>
+
+      <p class="govuk-body">This shows how many credits the developer needs to meet 10% biodiversity net gain.</p>
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">
+        Payment breakdown
+      </h2>
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" >Credits needed</th>
+              <th scope="col" class="govuk-table__header" >Type</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">
+                {{ data['habitatCredits'] }}
+              </td>
+              <td class="govuk-table__cell">
+                  {{data['habitat']}}
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                  {{data['habitat-description']}}
+                </span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">
+                {{ data['hedgerowCredits'] }}
+              </td>
+              <td class="govuk-table__cell">
+                  {{ data['hedgerow'] }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+
+
+        {{ govukButton({ text: 'Continue', href: 'development-location' }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

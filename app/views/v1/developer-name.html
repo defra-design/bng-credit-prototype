@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% if data['journey'] == 'developer' %}
+  {% set pageH1 = "Enter your company name" %}
+{% elif data['journey'] == 'handshake' %}
+  {% set pageH1 = "Please add the developer's contact details" %}
+{% endif %}
+
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageH1 }}
+      </h1>
+
+      <form method="post" action="">
+
+        {% if data['journey'] == 'developer' %}
+          {{ govukInput({
+            id: "developer-name",
+            name: "developer-name",
+            value: data['developer-name']
+          }) }}
+
+        {% elif data['journey'] == 'handshake' %}
+        {{ govukInput({
+          label: {
+          text: "Name",
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+          id: "developer-name",
+          name: "developer-name",
+          value: data['developer-name']
+        }) }}
+
+          {{ govukInput({
+            label: {
+            text: "Email address",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          },
+            id: "developer-email",
+            name: "developer-email",
+            value: data['developer-email']
+          }) }}
+        {% endif %}
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

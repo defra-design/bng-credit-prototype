@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+
+{% set pageH1 = "Set data amounts" %}
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        {{ pageH1 }}
+      </h1>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+        <div class="govuk-form-group">
+          <span class="govuk-caption-xl">Metric data</span>
+
+            {{ govukInput({
+              id: "habitat-unit",
+              name: "habitat-unit",
+              value: data['habitat-unit'],
+              label: {
+                text: "How many habitat units to calculate?",
+                classes: "govuk-label--s",
+                isPageHeading: true
+              },
+
+              classes: "govuk-input--width-5    ",
+              spellcheck: false
+            }) }}
+
+            {{ govukInput({
+              id: "habitat-ha",
+              name: "habitat-ha",
+              value: data['habitat-ha'],
+              label: {
+                text: "What is the hectare size of the habitat?",
+                classes: "govuk-label--s",
+                isPageHeading: true
+              },
+              suffix: {
+                text: "ha"
+              },
+
+              classes: "govuk-input--width-3",
+              spellcheck: false
+            }) }}{{ govukInput({
+              id: "hedgerow-unit",
+              name: "hedgerow-unit",
+              value: data['hedgerow-unit'],
+              label: {
+                text: "How many hedgerow units to calculate?",
+                classes: "govuk-label--s",
+                isPageHeading: true
+              },
+
+
+              classes: "govuk-input--width-5",
+              spellcheck: false
+            }) }}{{ govukInput({
+              id: "hedgerow-ha",
+              name: "hedgerow-ha",
+              value: data['hedgerow-ha'],
+              label: {
+                text: "What is the length of the hedgerow?",
+                classes: "govuk-label--s",
+                isPageHeading: true
+              },
+              suffix: {
+                text: "km"
+              },
+
+              classes: "govuk-input--width-3",
+              spellcheck: false
+            }) }}
+
+        </div>
+        <br/>
+        <br/>
+
+        <div class="govuk-form-group">
+          <p class="govuk-caption-xl">Calculation data</p>
+        {{ govukInput({
+          id: "habitat-credit-price",
+          name: "habitat-credit-price",
+          value: data['habitat-credit-price'],
+          label: {
+            text: "What is the cost of a habitat credit?",
+            classes: "govuk-label--s",
+            isPageHeading: true
+          },
+          prefix: {
+            text: "£"
+          },
+
+          classes: "govuk-input--width-10",
+          spellcheck: false
+        }) }}
+
+        {{ govukInput({
+          id: "hedgerow-credit-price",
+          name: "hedgerow-credit-price",
+          value: data['hedgerow-credit-price'],
+          label: {
+            text: "What is the cost of a hedgerow credit?",
+            classes: "govuk-label--s",
+            isPageHeading: true
+          },
+          prefix: {
+            text: "£"
+          },
+
+          classes: "govuk-input--width-10",
+          spellcheck: false
+        }) }}
+
+          {{ govukInput({
+            id: "credit-ratio",
+            name: "credit-ratio",
+            value: data['credit-ratio'],
+            label: {
+              text: "What is the credit ratio?",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            },
+            hint: {
+              text: "For example, if 1 unit is equal to 2 credits then enter 2"
+            },
+            prefix: {
+              text: "1 :"
+            },
+
+
+          classes: "govuk-input--width-5",
+          spellcheck: false
+        }) }}
+        </div>
+
+        {{ govukButton({ text: 'Continue' }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

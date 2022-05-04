@@ -1,0 +1,208 @@
+{% extends "layout.html" %}
+
+{% set pageH1 = "Check your answers" %}
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageH1 }}
+      </h1>
+
+
+      <h2 class="govuk-heading-m">The metric calculation</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        {% if data['journey'] == 'developer' %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Filename
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['metric-file']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="metric-upload">
+              Change<span class="govuk-visually-hidden"> file</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Project name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Emmer Green Golf Course
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Local Authority
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Reading Borough Council
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            22/01976/RJL
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Amount to pay
+          </dt>
+          <dd class="govuk-summary-list__value">
+            &pound;{{data['creditAmount']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">The developer</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['developer-name']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {% if data['journey'] == 'developer' %}
+            <a class="govuk-link" href="developer-name">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+            {% endif %}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['developer-email']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="developer-contact-details">
+              Change<span class="govuk-visually-hidden"> email</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['address-line-1']}}<br>
+            {{data['address-line-2']}}<br>
+            {{data['address-town']}}<br>
+            {{data['address-county']}}<br>
+            {{data['address-postcode']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="developer-contact-details">
+              Change<span class="govuk-visually-hidden"> address</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Telephone
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['telephone-number']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="developer-contact-details">
+              Change<span class="govuk-visually-hidden"> telephone</span>
+            </a>
+          </dd>
+        </div>
+
+      </dl>
+
+      <h2 class="govuk-heading-m">Your details</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['purchaser-name']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="purchaser">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Role within the company
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['purchaser-role']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="purchaser">
+              Change<span class="govuk-visually-hidden"> role</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Your payment</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            How would you like to pay for your credits?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['payment-method']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="payment-method">
+              Change<span class="govuk-visually-hidden"> payment type</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+
+
+      <form method="post">
+
+        {{ govukButton({ text: 'Continue' }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

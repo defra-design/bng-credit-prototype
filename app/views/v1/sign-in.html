@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% set pageH1 = "Sign in" %}
+
+{% if data['journey'] == 'developer-handshake' %}
+  {% set pageH1 = "Enter your details" %}
+  {% set Q1 = "Planning application number" %}
+  {% set Q2 = "Security code" %}
+
+{% elif data['journey'] == 'handshake' %}
+  {% set pageH1 = "Sign in" %}
+  {% set Q1 = "Email address" %}
+  {% set Q2 = "Password" %}
+
+{% endif %}
+
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageH1 }}
+      </h1>
+
+      <form method="post" action="">
+        {{ govukInput({
+          label: {
+          text: Q1,
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+          classes: "govuk-input--width-20",
+          id: "signin",
+          name: "signin"
+        }) }}
+
+        {{ govukInput({
+          label: {
+          text: Q2,
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+          classes: "govuk-input--width-20",
+          id: "password",
+          name: "password",
+          type: "password"
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

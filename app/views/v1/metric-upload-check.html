@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% set pageH1 = "Check your file before you upload it" %}
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageH1 }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added",
+              classes: "app-summary-list__key--narrow",
+              classes: "govuk-!-width-one-quarter"
+            },
+            value: {
+              html: '<a download href="#">'+data['metric-file']+'</a>, 4.1MB'
+            }
+          }
+        ]
+      }) }}
+
+      <form method="post">
+
+        {{ govukRadios({
+          idPrefix: "metric-correct",
+          name: "metric-correct",
+          fieldset: {
+            legend: {
+              text: "Is this file correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, choose a different file"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({ text: 'Upload file' }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

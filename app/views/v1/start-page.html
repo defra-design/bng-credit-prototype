@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% if data['journey'] == 'developer' %}
+  {% set pageH1 = "Buy Biodiverstiy Net Gain Statutory Credits" %}
+{% elif data['journey'] == 'handshake' %}
+  {% set pageH1 = "Approve the sale of Biodiversity Net Gain Statutory Credits for developers" %}
+{% endif %}
+
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+
+{% block content %}
+
+<form method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{ pageH1 }}
+      </h1>
+
+      {% if data['journey'] == 'developer' %}
+        <p class="govuk-body">Buy credits to meet the agreed terms of your Biodiversity Gain Plan, and  enable your Local Planning Authoroity to discharge planning conditions for your development.</p>
+      {% elif data['journey'] == 'handshake' %}
+        <p class="govuk-body">If you work for a Local Planning Authority you can approve the sale of Biodiversity Net Gain Statutory Credits for developers - when they need them to make a  mandatory 10% biodiversity net gain, as part of their planning application.</p>
+      {% endif %}
+
+      <p class="govuk-body">You'll need:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your full Metric 3.1 calculation</li>
+      </ul>
+
+      <form method="post">
+
+
+        {{ govukButton({ text: 'Start now', isStartButton: true }) }}
+      </form>
+
+      <h2 class="govuk-heading-m">
+        Before your start
+      </h2>
+
+      {% if data['journey'] == 'developer' %}
+        <p class="govuk-body">You’ll need full approval from your Local Planning Authority to use credits  - and you’ll only be eligible for a refund if they approve the use of them as a last resort in meeting a mandatory 10% biodiversity net gain.</p>
+      {% elif data['journey'] == 'handshake' %}
+        <p class="govuk-body">Please note, credits are only to be used as a last resort, when developers can not meet a minimum 10% biodiversity net gain - either on their development site or with local offsite units.</p>
+      {% endif %}
+
+
+
+    </div>
+  </div>
+</form>
+{% endblock %}
