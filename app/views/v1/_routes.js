@@ -23,6 +23,12 @@ router.post('/start-page', function (req, res) {
      res.redirect('sign-in');
    }
 });
+router.get('/sign-in', function (req, res) {
+    if(req.query.instigate == 'email'){
+      req.session.data['journey'] = 'developer-handshake'
+    }
+    res.render(version+'/sign-in');
+});
 router.post('/sign-in', function (req, res) {
    if(req.session.data['journey'] == 'handshake'){
      res.redirect('metric-upload');
@@ -146,10 +152,22 @@ router.get('/check-answers', function (req, res) {
     req.session.data['gotToCheckAnswers']='yes';
     res.render(version+'/check-answers');
 });
-router.post('/lpa-confirm', function (req, res) {
-    req.session.data['journey'] = "developer-handshake";
-    res.redirect('sign-in'); // just for test. remove after flow complete
+router.get('/lpa-confirm', function (req, res) {
+
+  // uses GOV.UK notify
+  var NotifyClient = require('notifications-node-client').NotifyClient;
+  var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
+
+  notifyClient.sendEmail('03170ad9-02f5-4ae2-8163-c833ee5e10fc', 'bng.developer@hotmail.com', {
+
+  }).then(response => console.log(response)).catch(err => console.error(err))
+
+  res.render(version+'/lpa-confirm');
 });
+// router.post('/lpa-confirm', function (req, res) {
+//     req.session.data['journey'] = "developer-handshake";
+//     res.redirect('sign-in'); // just for test. remove after flow complete
+// });
 router.post('/calculate-credits', function (req, res) {
   if(req.session.data['journey'] == 'developer-handshake'){
     res.redirect('developer-contact-details');
@@ -158,7 +176,5 @@ router.post('/calculate-credits', function (req, res) {
     res.redirect('development-location');
   }
 });
-
-
 
 module.exports = router

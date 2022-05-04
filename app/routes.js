@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
+
 // SET GLOBAL PREVIOUS PAGE
 router.use('/', (req, res, next) => {
     req.session.data.gPreviousLocation = req.get('Referrer');

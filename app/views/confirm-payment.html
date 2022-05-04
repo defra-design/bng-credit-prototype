@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% set pageH1 = "Your payment has been made" %}
+
+
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+
+  {% include "v1/developer-confirm.html" %}
+
+{% endblock %}

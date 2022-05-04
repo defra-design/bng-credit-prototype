@@ -198,8 +198,13 @@
 
       <form method="post">
 
-        {{ govukButton({ text: 'Continue' }) }}
-
+        {% if data['payment-method'] == 'Using a credit or debit card' %}
+          {{ govukButton({ text: 'Pay now', href: 'https://products.payments.service.gov.uk/pay/8e3ad93717ab4239b79010b38e1a653a' }) }}
+        {% elif data['payment-method'] == 'Generate an invoice' %}
+          {{ govukButton({ text: 'Continue'}) }}
+        {% else %}
+          {{ govukButton({ text: 'Pay now'}) }}
+        {% endif %}
       </form>
 
     </div>
