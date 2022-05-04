@@ -10,7 +10,13 @@ var formatter = new Intl.NumberFormat('en-US', {
   //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
   //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 });
-
+router.get('/developer-scenario', function (req, res) {
+  // uses GOV.UK notify
+  var NotifyClient = require('notifications-node-client').NotifyClient;
+  var notifyClient = new NotifyClient("pp_key-318bd8b2-a7aa-4d45-8993-3c5c440ae23d-4ef08fff-d5d1-446a-aa7b-1ea0b21abdc0");
+  notifyClient.sendEmail('587db073-5e73-432a-83e6-32e6045f620c', 'bng.developer@hotmail.com', {}).then(response => console.log(response)).catch(err => console.error(err))
+  res.render(version+'/developer-scenario');
+});
 router.get('/start-page', function (req, res) {
     req.session.data['journey']= req.query.journey;
     res.render(version+'/start-page');
