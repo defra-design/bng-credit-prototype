@@ -1,6 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
+
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 const version = 'v1';
 var formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -181,5 +185,20 @@ router.post('/calculate-credits', function (req, res) {
     res.redirect('development-location');
   }
 });
+router.post('/dd-date', function (req, res) {
+    req.session.data['dd-date'] = req.body.ddday + " " + monthNames[(req.body.ddmonth - 1)] + " " + req.body.ddyear;
+    res.redirect('dd-mandate');
+});
+router.get('/developer-confirm-dd', function (req, res) {
+  // uses GOV.UK notify
+  // uses GOV.UK notify
+  var NotifyClient = require('notifications-node-client').NotifyClient;
+  var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
 
+  notifyClient.sendEmail('10c2a5c8-735b-4e51-97eb-6bcd20081ad2', 'bng.developer@hotmail.com', {
+
+  }).then(response => console.log(response)).catch(err => console.error(err))
+
+  res.render('developer-confirm-dd');
+});
 module.exports = router

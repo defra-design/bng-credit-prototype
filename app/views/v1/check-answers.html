@@ -202,6 +202,8 @@
           {{ govukButton({ text: 'Pay now', href: 'https://products.payments.service.gov.uk/pay/446c7eb19be641e68ca01867fc02f765' }) }}
         {% elif data['payment-method'] == 'Generate an invoice' %}
           {{ govukButton({ text: 'Continue'}) }}
+          {% elif data['payment-method'] == 'A one time Direct Debit' %}
+            {{ govukButton({ text: 'Create direct debit mandate', href: 'dd-account-details'}) }}
         {% else %}
           {{ govukButton({ text: 'Pay now'}) }}
         {% endif %}
