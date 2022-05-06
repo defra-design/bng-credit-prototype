@@ -22,6 +22,13 @@ router.get('/developer-scenario', function (req, res) {
   notifyClient.sendEmail('587db073-5e73-432a-83e6-32e6045f620c', 'bng.developer@hotmail.com', {}).then(response => console.log(response)).catch(err => console.error(err))
   res.render(version+'/developer-scenario');
 });
+router.get('/handshake-scenario', function (req, res) {
+  // uses GOV.UK notify
+  var NotifyClient = require('notifications-node-client').NotifyClient;
+  var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
+  notifyClient.sendEmail('03170ad9-02f5-4ae2-8163-c833ee5e10fc', 'bng.developer@hotmail.com', {}).then(response => console.log(response)).catch(err => console.error(err))
+  res.render(version+'/handshake-scenario');
+});
 router.get('/start-page', function (req, res) {
     req.session.data['journey']= req.query.journey;
     res.render(version+'/start-page');
@@ -35,7 +42,24 @@ router.post('/start-page', function (req, res) {
    }
 });
 router.get('/purchase-credits', function (req, res) {
-    req.session.data['journey'] = 'developer-handshake'
+    req.session.data['journey'] = 'developer-handshake';
+    req.session.data['habitat'] = "Woodland and forest";
+    req.session.data['habitat-description'] = "Lowland mixed decidous woodland";
+
+    if(req.session.data['habitat-ha']){}
+    else{
+
+      req.session.data['habitat-ha'] = 0.16;
+      req.session.data['habitat-unit'] = 0.2;
+    }
+
+    req.session.data['hedgerow'] = "Native species rich hedgerow";
+
+    if(req.session.data['hedgerow-ha']){}
+    else{
+      req.session.data['hedgerow-ha'] = 0.08;
+      req.session.data['hedgerow-unit'] = 0.3;
+    }
     res.redirect('sign-in');
 });
 router.post('/sign-in', function (req, res) {
@@ -112,6 +136,8 @@ router.post('/metric-check-data', function (req, res) {
   }
 });
 router.post('/development-location', function (req, res) {
+
+
     if(req.session.data['development-data']=='yes'){
       if(req.session.data['gotToCheckAnswers']=='yes'){
         res.redirect('check-answers');
