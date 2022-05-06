@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageH1 = "When would you like the payment to be taken?" %}
+{% set pageH1 = "Instruction to your bank or building society to pay by Direct Debit" %}
 
 {% block pageTitle %}
   {{ pageH1 }}
@@ -12,10 +12,93 @@
 
     <div class="govuk-grid-column-two-thirds">
 
+      <img width="25%" src="/public/images/dd-logo.png" alt="direct debit logo" >
+
+
+      <h1 class="govuk-heading-l">
+        {{pageH1}}
+      </h1>
+
+      <p class="govuk-body govuk-!-font-weight-bold">
+        The Department for Environment, Food and Rural Affairs (DEFRA)<br>
+        <span class="govuk-body">
+          Electra Way, Crewe Business Park, Crewe CW1 6GJ
+        </span>
+      </p>
+
+      <p class="govuk-body govuk-!-font-weight-bold">
+        Name of account holder<br>
+        <span class="govuk-body">
+          {{ data['dd-payee'] }}
+        </span>
+      </p>
+
+      <p class="govuk-body govuk-!-font-weight-bold">
+        Bank or building society account number<br>
+        <span class="govuk-body">
+          {{ data['dd-account'] }}
+        </span>
+      </p>
+
+      <p class="govuk-body govuk-!-font-weight-bold">
+        Branch number<br>
+        <span class="govuk-body">
+          {{ data['dd-sortcode'] }}
+        </span>
+      </p>
+
+      <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+        Name and full posatl address of your bank or building society<br>
+        <span class="govuk-body">
+          HSBC, 1 Colmore Square, Birmingham B1 1BS
+        </span>
+      </p>
+
+      <p class="govuk-body govuk-!-font-weight-bold">
+        Service user number<br>
+        <span class="govuk-body">
+          270563
+        </span>
+      </p>
+
+      <p class="govuk-body govuk-!-font-weight-bold">
+        Reference<br>
+        <span class="govuk-body">
+          22/01976/RJL
+        </span>
+      </p>
+
+      <p class="govuk-body govuk-!-font-weight-bold">
+        Date<br>
+        <span class="govuk-body">
+          {{ data['dd-date'] }}
+        </span>
+      </p>
+
+      <h2 class="govuk-heading-m">
+        Direct Debit Guarantee <img style="vertical-align:middle; padding-left:60px"   width="15%" src="/public/images/dd-logo.png" alt="direct debit logo" >
+      </h2>
+
+      <p class="govuk-body">
+        This Guarantee is offered by all banks and building societies that accept instructions to pay Direct Debits
+      </p>
+
+      <ul class="govuk-list">
+       <li>
+         If there are any changes to the amount, date or frequency of your Direct Debit DEFRA will notify you 30 working days in advance of your account being debited, or as otherwise agreed. If you request DEFRA to collect a payment, confirmation of the amount and date will be given to you at the time of the request
+       </li>
+       <li>
+         If an error is made in the payment of your Direct Debit, by DEFRA or your bank or building society, you’re entitled to a full and immediate refund of the amount paid from your bank or building society. If you receive a refund you’re not entitled to, you must pay it back when DEFRA asks you to.
+       </li>
+       <li>
+         You can cancel a Direct Debit at any time by simply contacting your bank or building society. Written confirmation may be required. Please also notify us
+       </li>
+      </ul>
+
       <form method="post" action="">
 
         {{ govukButton({
-          text: "Continue", href: "developer-confirm-dd"
+          text: "Confirm direct debit mandate", href: "developer-confirm-dd"
         }) }}
 
       </form>
