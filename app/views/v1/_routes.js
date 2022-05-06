@@ -60,6 +60,26 @@ router.get('/purchase-credits', function (req, res) {
       req.session.data['hedgerow-ha'] = 0.08;
       req.session.data['hedgerow-unit'] = 0.3;
     }
+
+    //temporary data
+    if(req.session.data['habitat-credit-price'] == undefined){
+      req.session.data['habitat-credit-price'] = 27301.65;
+      req.session.data['hedgerow-credit-price'] = 34083;
+      req.session.data['credit-ratio'] = 1;
+    }
+
+    // calculation
+    req.session.data['habitatCredits'] = (req.session.data['habitat-unit']*req.session.data['credit-ratio']).toFixed(2);
+    req.session.data['habitatTotal'] = (req.session.data['habitat-credit-price']*req.session.data['habitat-unit'])*req.session.data['credit-ratio'];
+
+    req.session.data['hedgerowCredits'] = (req.session.data['hedgerow-unit']*req.session.data['credit-ratio']).toFixed(2);
+    req.session.data['hedgerowTotal'] = (req.session.data['hedgerow-credit-price']*req.session.data['hedgerow-unit'])*req.session.data['credit-ratio'];
+
+    req.session.data['creditAmount'] = (req.session.data['habitatTotal'] + req.session.data['hedgerowTotal']).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+
+    req.session.data['habitatTotal'] = req.session.data['habitatTotal'].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+    req.session.data['hedgerowTotal'] = req.session.data['hedgerowTotal'].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+
     res.redirect('sign-in');
 });
 router.post('/sign-in', function (req, res) {
