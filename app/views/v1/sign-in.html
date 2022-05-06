@@ -25,6 +25,20 @@
 
     <div class="govuk-grid-column-two-thirds">
 
+      {% if data['login-error'] == true %}
+
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "The details you have given do not match our records",
+            href: "#signin"
+          }
+        ]
+      }) }}
+
+      {% endif %}
+
       <h1 class="govuk-heading-l">
         {{ pageH1 }}
       </h1>

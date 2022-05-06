@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 const version = 'v1';
+
 var formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
@@ -87,7 +87,14 @@ router.post('/sign-in', function (req, res) {
      res.redirect('metric-upload');
    }
    else if(req.session.data['journey'] == 'developer-handshake'){
-     res.redirect('development-location');
+     if(req.body.signin == "22/01976/RJL" && req.body.password == "734867"){
+       req.session.data['login-error'] = false;
+       res.redirect('development-location');
+     }
+     else{
+       req.session.data['login-true'] = false;
+       res.redirect('sign-in');
+     }
    }
 });
 router.post('/metric-upload', function (req, res) {
