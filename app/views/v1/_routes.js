@@ -88,11 +88,11 @@ router.post('/sign-in', function (req, res) {
    }
    else if(req.session.data['journey'] == 'developer-handshake'){
      if(req.body.signin == "22/01976/RJL" && req.body.password == "734867"){
-       req.session.data['login-error'] = false;
+       req.session.data['login-error'] = "false";
        res.redirect('development-location');
      }
      else{
-       req.session.data['login-true'] = false;
+       req.session.data['login-error'] = "true";
        res.redirect('sign-in');
      }
    }
