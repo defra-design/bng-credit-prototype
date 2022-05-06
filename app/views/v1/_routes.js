@@ -199,6 +199,30 @@ router.get('/developer-confirm-dd', function (req, res) {
 
   }).then(response => console.log(response)).catch(err => console.error(err))
 
-  res.render('developer-confirm-dd');
+  res.render(version+'/developer-confirm-dd');
+});
+
+router.get('/developer-confirm-invoice', function (req, res) {
+  // uses GOV.UK notify
+  // uses GOV.UK notify
+  var NotifyClient = require('notifications-node-client').NotifyClient;
+  var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
+
+  notifyClient.sendEmail('08991d64-b093-40ff-b29e-c83ec5ffb57a', 'bng.developer@hotmail.com', {
+
+  }).then(response => console.log(response)).catch(err => console.error(err))
+
+  res.render(version+'/developer-confirm-invoice');
+});
+
+router.post('/developer-confirm-invoice', function (req, res) {
+  var NotifyClient = require('notifications-node-client').NotifyClient;
+  var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
+
+  notifyClient.sendEmail('10c2a5c8-735b-4e51-97eb-6bcd20081ad2', 'bng.developer@hotmail.com', {
+
+  }).then(response => console.log(response)).catch(err => console.error(err));
+
+  res.redirect('index');
 });
 module.exports = router
