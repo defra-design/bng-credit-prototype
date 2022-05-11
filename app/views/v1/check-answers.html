@@ -203,7 +203,7 @@
         {% elif data['payment-method'] == 'Generate an invoice' %}
           {{ govukButton({ text: 'Generate invoice', href: 'developer-confirm-invoice'}) }}
         {% elif data['payment-method'] == 'A one time Direct Debit' %}
-          {{ govukButton({ text: 'Create direct debit mandate', href: 'dd-account-details'}) }}
+          {{ govukButton({ text: 'Create Direct Debit mandate', href: 'dd-account-details'}) }}
         {% else %}
           {{ govukButton({ text: 'Pay now'}) }}
         {% endif %}
