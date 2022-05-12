@@ -193,10 +193,10 @@ router.post('/developer-name', function (req, res) {
 });
 router.post('/developer-contact-details', function (req, res) {
     if(req.session.data['gotToCheckAnswers']=='yes'){
-      res.redirect('lpa-check-answers');
+        res.redirect('check-answers');
     }
     else{
-    res.redirect('purchaser');
+    r es.redirect('purchaser');
     }
 });
 router.post('/purchaser', function (req, res) {
