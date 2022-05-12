@@ -196,7 +196,7 @@ router.post('/developer-contact-details', function (req, res) {
         res.redirect('check-answers');
     }
     else{
-    r es.redirect('purchaser');
+      res.redirect('purchaser');
     }
 });
 router.post('/purchaser', function (req, res) {
