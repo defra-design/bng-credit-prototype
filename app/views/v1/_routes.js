@@ -20,6 +20,7 @@ router.get('/developer-scenario', function (req, res) {
   var NotifyClient = require('notifications-node-client').NotifyClient;
   var notifyClient = new NotifyClient("pp_key-318bd8b2-a7aa-4d45-8993-3c5c440ae23d-4ef08fff-d5d1-446a-aa7b-1ea0b21abdc0");
   notifyClient.sendEmail('587db073-5e73-432a-83e6-32e6045f620c', 'bng.developer@hotmail.com', {}).then(response => console.log(response)).catch(err => console.error(err))
+  req.session.destroy();
   res.render(version+'/developer-scenario');
 });
 router.get('/handshake-scenario', function (req, res) {
@@ -27,6 +28,7 @@ router.get('/handshake-scenario', function (req, res) {
   var NotifyClient = require('notifications-node-client').NotifyClient;
   var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
   notifyClient.sendEmail('03170ad9-02f5-4ae2-8163-c833ee5e10fc', 'bng.developer@hotmail.com', {}).then(response => console.log(response)).catch(err => console.error(err))
+  req.session.destroy();
   res.render(version+'/handshake-scenario');
 });
 router.get('/start-page', function (req, res) {
