@@ -113,7 +113,7 @@ router.get('/developer-confirm-request', function (req, res) {
 
   }).then(response => console.log(response)).catch(err => console.error(err))
 
-  res.render(version+'/developer-confirm-invoice');
+  res.render(version+'/developer-confirm-request');
 });
 
 router.post('/halt-page', function (req, res) {
