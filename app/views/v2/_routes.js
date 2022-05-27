@@ -103,7 +103,7 @@ router.get('/developer-confirm-dd', function (req, res) {
 
   res.render(version+'/developer-confirm-dd');
 });
-router.get('/developer-confirm-invoice', function (req, res) {
+router.get('/developer-confirm-request', function (req, res) {
   // uses GOV.UK notify
   // uses GOV.UK notify
   var NotifyClient = require('notifications-node-client').NotifyClient;
@@ -232,7 +232,7 @@ router.post('/dd-date', function (req, res) {
     req.session.data['dd-date'] = req.body.ddday + " " + monthNames[(req.body.ddmonth - 1)] + " " + req.body.ddyear;
     res.redirect('dd-mandate');
 });
-router.post('/developer-confirm-invoice', function (req, res) {
+router.post('/developer-confirm-request', function (req, res) {
   var NotifyClient = require('notifications-node-client').NotifyClient;
   var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
 
