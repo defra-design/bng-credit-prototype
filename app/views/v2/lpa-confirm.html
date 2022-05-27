@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% set pageH1 = "A payment request has been sent to the developer" %}
+
+
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+          titleText: pageH1
+        }) }}
+
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p class="govuk-body">
+          Once a payment has been made, the developer will be able to supply you with proof of payment.
+        </p>
+
+      <form method="post" action="">
+
+
+        {{ govukButton({
+          text: "Finish"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

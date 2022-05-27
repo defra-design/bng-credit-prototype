@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% set pageH1 = "View a Biodiversity Net Gain Statutory Credit purchase certificate" %}
+{% set serviceName = "View a Biodiversity Net Gain Statutory Credit purchase certificate" %}
+
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+
+{% block content %}
+
+<form method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ pageH1 }}
+      </h1>
+
+
+      <p class="govuk-body">
+        View and share a proof of purchase certificate for Biodiversity Net Gain Statutory Credits you have bought.
+      </p>
+
+
+      <p class="govuk-body ">You'll need:</p>
+      <ul class="govuk-list govuk-list--bullet  govuk-!-margin-bottom-9">
+        <li>the planning application number for the development</li>
+        <li>the access code issued by Defra when they confirmed they had received the payment</li>
+      </ul>
+
+      <form method="post">
+      {{ govukButton({ href: 'view-sign-in',text: 'Start now', isStartButton: true }) }}
+      </form>
+
+
+    </div>
+  </div>
+</form>
+{% endblock %}

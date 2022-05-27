@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% set pageH1 = "Buy Biodiverstiy Net Gain Statutory Credits" %}
+
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+
+{% block content %}
+
+<form method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{ pageH1 }}
+      </h1>
+
+      <p class="govuk-body">Buy credits to meet the agreed terms of your Biodiversity Gain Plan - so your Local Planning Authority can discharge biodiversity planning conditions for your development.</p>
+
+      <p class="govuk-body">You'll need:</p>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li>your full Metric 3.1 calculation</li>
+      </ul>
+
+      <p class="govuk-body">We will:</p>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li>use the metric calculation to work out how many credits you need to buy</li>
+        <li>email you a payment request</li>
+      </ul>
+
+      <p class="govuk-body govuk-!-margin-bottom-9">When you approve the amount you need to pay for the credits, we’ll create an invoice for you. We’ll email this to you - and you’ll get proof of purchase once it’s been paid.</p>
+
+      <form method="post">
+        {{ govukButton({ text: 'Start now', href: 'halt-page', isStartButton: true }) }}
+      </form>
+
+    </div>
+  </div>
+</form>
+{% endblock %}

@@ -15,6 +15,7 @@ router.use('/', (req, res, next) => {
 
 // User Research and design versions
 router.use('/v1', require('./views/v1/_routes'))
+router.use('/v2', require('./views/v2/_routes'))
 
 router.post('/set-credit-amounts', function (req, res) {
     res.redirect('/'+req.query.version+'/start-page?journey='+req.query.journey);

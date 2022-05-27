@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% set pageH1 = "Confirm your development details" %}
+
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageH1 }}
+      </h1>
+
+      <p class="govuk-body-l">The data has been taken directly from the uploaded developer Metric 3.1 calculation.</p>
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Project name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Emmer Green Golf Course
+          </dd>
+
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Local Authority
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Reading Borough Council
+          </dd>
+
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            22/01976/RJL
+          </dd>
+
+        </div>
+      </dl>
+
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "development-data",
+          name: "development-data",
+          fieldset: {
+            legend: {
+              text: "Is this correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No
+              "
+            }
+          ]
+        }) }}
+
+        {{ govukButton({ text: 'Continue' }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
