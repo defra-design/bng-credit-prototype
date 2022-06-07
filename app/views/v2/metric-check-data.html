@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageH1 = "Check the habitat data matches your purchase expectation" %}
+{% set pageH1 = "Check the habitat data matches your calculations" %}
 
 {% block pageTitle %}
   {{ pageH1 }}
@@ -16,7 +16,7 @@
       </h1>
 
       <p class="govuk-body-l">The data has been taken directly from the uploaded developer Metric 3.1 calculation.</p>
-      <p class="govuk-!-font-weight-bold govuk-inset-text">You have 3% of your biodiversity net gain to be accounted for.<p>
+      <p class="govuk-!-font-weight-bold govuk-inset-text">You need to add 3% biodiversity net gain with credits.<p>
 
 
     </div>
@@ -42,7 +42,7 @@
                   {{data['habitat-description']}}
                 </span>
               </td>
-              <td class="govuk-table__cell">{{data['habitat-ha']}} ha</td>
+              <td class="govuk-table__cell">{{data['habitat-ha']}} (ha)</td>
               <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell">{{data['habitat-unit']}}</td>
 
@@ -54,7 +54,7 @@
                   {{data['hedgerow-description']}}
                 </span>
               </td>
-              <td class="govuk-table__cell">{{data['hedgerow-ha']}} km</td>
+              <td class="govuk-table__cell">{{data['hedgerow-ha']}} (km)</td>
               <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell">{{data['hedgerow-unit']}}</td>
             </tr>

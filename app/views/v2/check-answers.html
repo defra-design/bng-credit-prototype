@@ -177,6 +177,39 @@
         </div>
       </dl>
 
+      <h2 class="govuk-heading-m">Additional contact details</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Would you like to send the payment request to a second email?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['alternative-email-required']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="alternative-email">
+              Change<span class="govuk-visually-hidden"> if an additional email is needed</span>
+            </a>
+          </dd>
+        </div>
+
+        {% if data['alternative-email-required'] === "Yes" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['additional-email']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-alternative-email">
+              Change<span class="govuk-visually-hidden"> additional email</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+      </dl>
+
 
 
 

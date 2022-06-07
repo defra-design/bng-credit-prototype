@@ -211,11 +211,13 @@ router.post('/developer-contact-details', function (req, res) {
     }
 });
 router.post('/purchaser', function (req, res) {
+  if(req.session.data['gotToCheckAnswers']=='yes'){
+      res.redirect('check-answers');
+  }
+  else{
     req.session.data['payment-method'] = "Generate an invoice";
-    res.redirect('check-answers');
-});
-router.post('/payment-method', function (req, res) {
-    res.redirect('check-answers')
+    res.redirect('alternative-email');
+  }
 });
 router.post('/calculate-credits', function (req, res) {
   if(req.session.data['gotToCheckAnswers']=='yes'){
@@ -241,6 +243,15 @@ router.post('/developer-confirm-request', function (req, res) {
   }).then(response => console.log(response)).catch(err => console.error(err));
 
   res.redirect('index');
+});
+router.post('/alternative-email', function (req, res) {
+
+  if (req.session.data['alternative-email-required'] == 'yes') {
+    res.redirect('add-alternative-email');
+  }
+  else if (req.session.data['alternative-email-required'] == 'no') {
+    res.redirect('check-answers');
+  }
 });
 
 router.post('/view-sign-in', function (req, res) {
