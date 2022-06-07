@@ -246,12 +246,15 @@ router.post('/developer-confirm-request', function (req, res) {
 });
 router.post('/alternative-email', function (req, res) {
 
-  if (req.session.data['alternative-email-required'] == 'yes') {
+  if (req.session.data['alternative-email-required'] == 'Yes') {
     res.redirect('add-alternative-email');
   }
-  else if (req.session.data['alternative-email-required'] == 'no') {
+  else if (req.session.data['alternative-email-required'] == 'No') {
     res.redirect('check-answers');
   }
+});
+router.post('/add-alternative-email', function (req, res) {
+  res.redirect('check-answers');
 });
 
 router.post('/view-sign-in', function (req, res) {
