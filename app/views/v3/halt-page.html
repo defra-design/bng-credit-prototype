@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% set pageH1 = "Confirm you can buy Biodiversity Net Gain Statutory Credits" %}
+
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+
+{% block content %}
+
+<form method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form method="post">
+
+        {% if data['halt-error'] == "true" %}
+
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Please confirm that you have approval to purchase credits and understand that you may not be entitled to a refund",
+              href: "#condition"
+            }
+          ]
+        }) }}
+
+        {% endif %}
+
+        <fieldset class="govuk-fieldset">
+
+
+
+          <legend class="govuk-heading-l">
+            <h1 class="govuk-fieldset__heading">
+              {{ pageH1 }}
+            </h1>
+          </legend>
+
+          <div class="govuk-body">
+            I confirm that:
+          </div>
+
+          <div class="govuk-checkboxes govuk-!-margin-bottom-9" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="condition" name="condition" type="checkbox" value="true">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                I have planning permission approval, and I need to buy credits to meet the terms of my Biodiversity Gain Plan
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="condition-1" name="condition" type="checkbox" value="true">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                I understand that refunds for credits will only take place in very specific circumstances
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+
+        {{ govukButton({ text: 'Confirm' }) }}
+
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

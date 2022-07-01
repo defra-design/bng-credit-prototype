@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% set pageH1 = "How would you like to pay for your credits?" %}
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+
+
+
+        {{ govukRadios({
+          idPrefix: "payment-method",
+          name: "payment-method",
+          fieldset: {
+            legend: {
+              text: pageH1,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Online using my bank account",
+              text: "Online using my bank account",
+              checked: checked("payment-method", "Online using my bank account")
+            },
+            {
+              value: "A one time Direct Debit",
+              text: "A one time Direct Debit",
+              checked: checked("payment-method", "A one time Direct Debit")
+            },
+            {
+              value: "Using a credit or debit card",
+              text: "Using a credit or debit card",
+              checked: checked("payment-method", "Using a credit or debit card")
+            },
+            {
+              value: "Generate an invoice",
+              text: "Generate an invoice",
+              checked: checked("payment-method", "Generate an invoice")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% set pageH1 = "Check the habitat data matches your calculations" %}
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageH1 }}
+      </h1>
+
+      <p class="govuk-body-l">The data has been taken directly from the uploaded developer Metric 3.1 calculation.</p>
+      <p class="govuk-!-font-weight-bold govuk-inset-text">You need to add 3% biodiversity net gain with credits.<p>
+
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" >Habitat type</th>
+              <th scope="col" class="govuk-table__header" >Size</th>
+              <th scope="col" class="govuk-table__header" >Condition</th>
+              <th scope="col" class="govuk-table__header" >Biodiversity units</th>
+            </tr>
+          </thead>
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">
+                {{data['habitat']}}
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                  {{data['habitat-description']}}
+                </span>
+              </td>
+              <td class="govuk-table__cell">{{data['habitat-ha']}} (ha)</td>
+              <td class="govuk-table__cell">Good</td>
+              <td class="govuk-table__cell">{{data['habitat-unit']}}</td>
+
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">
+                {{data['hedgerow']}}
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                  {{data['hedgerow-description']}}
+                </span>
+              </td>
+              <td class="govuk-table__cell">{{data['hedgerow-ha']}} (km)</td>
+              <td class="govuk-table__cell">Good</td>
+              <td class="govuk-table__cell">{{data['hedgerow-unit']}}</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+
+        {{ govukRadios({
+          idPrefix: "metric-check-data",
+          name: "metric-check-data",
+          fieldset: {
+            legend: {
+              text: "Is the correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, upload different metric calculations"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({ text: 'Continue' }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
