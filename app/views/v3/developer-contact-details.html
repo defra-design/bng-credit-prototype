@@ -15,14 +15,29 @@
       <h1 class="govuk-heading-l">
         {{ pageH1 }}
       </h1>
+      <p class="govuk-body">We will use this information if we ever need to contact you about the credit payment.</p>
 
       <form method="post" action="">
+
+        {{ govukInput({
+          id: "developer-name",
+          label: {
+          text: "Company name",
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        classes: "govuk-!-width-two-thirds",
+          name: "developer-name",
+          value: data['developer-name']
+        }) }}
+
         {{ govukInput({
           label: {
           text: "Email address",
           classes: "govuk-label--m",
           isPageHeading: false
         },
+          classes: "govuk-!-width-two-thirds",
           id: "developer-email",
           name: "developer-email",
           value: data['developer-email']
@@ -40,6 +55,7 @@
             label: {
               text: 'Address line 1'
             },
+            classes: "govuk-!-width-two-thirds",
             id: "address-line-1",
             name: "address-line-1",
             autocomplete: "address-line1",
@@ -50,6 +66,7 @@
             label: {
               text: 'Address line 2 (optional)'
             },
+            classes: "govuk-!-width-two-thirds",
             id: "address-line-2",
             name: "address-line-2",
             autocomplete: "address-line2",

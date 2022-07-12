@@ -224,7 +224,7 @@ router.post('/calculate-credits', function (req, res) {
     res.redirect('check-answers');
   }
   else{
-    res.redirect('developer-name');
+    res.redirect('developer-contact-details');
   }
 });
 router.post('/dd-account-details', function (req, res) {
