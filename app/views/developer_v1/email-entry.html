@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "Enter email address" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+
+
+
+      <form method="post">
+
+        {{ govukInput({
+          id: "additional-email",
+          name: "additional-email"
+        }) }}
+
+
+        {{ govukButton({ text: 'Continue'}) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="../../public/javascripts/map.min.js"></script>
+{% endblock %}

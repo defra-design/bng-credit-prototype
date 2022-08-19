@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "Sending your payment request" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <div class="govuk body govuk-!-padding-bottom-6">
+        <p>On submittion of your application, we will provide you with a payment request.</p>
+      </div>
+
+
+
+      <form method="post">
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "email-required",
+          name: "email-required",
+          fieldset: {
+            legend: {
+              text: "Would you like to send a copy of the payment request to anyone else?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
+
+
+        {{ govukButton({ text: 'Continue'}) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="../../public/javascripts/map.min.js"></script>
+{% endblock %}

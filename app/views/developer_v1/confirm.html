@@ -1,0 +1,75 @@
+{% extends "layout_noheader.html" %}
+
+{% set pageH1 = "Your Direct Debit has been set up" %}
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post" action="">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          {% if data['credits']=='true'%}You need to make a Biodiversity Payment
+          {%else%}You've submitted your biodiversity net gain information to us
+          {%endif%}
+        </h1>
+        <div class="govuk-panel__body">
+          Your reference number<br><strong>BNG-02990191</strong>
+        </div>
+      </div>
+
+      {% if data['credits']=='true'%}
+      <p class="govuk-body">Here is your payment request for your Biodiversity Payment:</p>
+      <p>
+        <a href="https://bng-developer-prototype.herokuapp.com/public/documents/request for payment.pdf" target="_blank">Request for payment (0.28mb pdf) - Opens in a new window</a>
+      </p>
+
+      <p>A copy has been sent to your email address.
+      {% if data['email-required']=='yes'%}
+
+      {%endif%}
+      </p>
+
+      {%else%}
+      <p>We'll now review how you plan to meet a 10% biodiversity net gain for your development project. This may take up to 28 days.</p>
+      {%endif%}
+
+
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      {% if data['credits']=='true' %}
+      <p class="govuk-body">
+        Once you've paid we'll email you a VAT receipt. It can take up 3 days to process your payment.
+      </p>
+      <p class="govuk-body">
+        When your payment has been processed we'll review the information you've submitted. This it to check how you plan to meet a 10% biodiversity net gain for your development project. This may take up to 28 days.
+      </p>
+      <p class="govuk-body">
+        We'll contact you by email to let you know the outcome.
+      </p>
+      {% else %}
+      <p class="govuk-body">
+        We'll contact you by email to let you know the outcome. If the information you've submitted is correct we'll add it to Public Biodiversity Gain Register. You can then use it for your Final Gain Plan.
+      </p>
+      <p class="govuk-body">
+        Please make a note of your reference number as we'll use this when we get in touch with you.
+      </p>
+      {% endif %}
+
+
+
+      {{ govukButton({
+        text: "Finish"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

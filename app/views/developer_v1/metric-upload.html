@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% set pageH1 = "Upload the developer Biodiversity Metric 3.1 calculations" %}
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageH1 }}
+      </h1>
+
+      <p>This is the Metric file that your Local Planning Authority has approved.</p>
+      <p class="govuk-hint">XLSM or XLSX, max size 50MB</p>
+
+
+
+
+      <form method="post">
+        {{ govukFileUpload({
+          id: "metric-file",
+          name: "metric-file",
+          label: {
+            text: "Upload a file"
+          }
+        }) }}
+
+        <p><a href="#">I do not have the Biodiversity Metric 3.1 file<a/><p/>
+
+        {{ govukButton({ text: 'Upload file' }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

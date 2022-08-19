@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "Scenario setup" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <form method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <div id="waste-hint" class="govuk-hint">
+            Select what you'd like to appear.
+          </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="onsite" name="onsite" type="checkbox" value="true">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                On-site
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="offsite" name="offsite" type="checkbox" value="true">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                Single off-site
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="multiple-offsite" name="multiple-offsite" type="checkbox" value="true">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                Multiple off-site
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="credits" name="credits" type="checkbox" value="true">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                Credits
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="defraID" name="defraID" type="checkbox" value="true">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                Need defra id setup
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+        {{ govukButton({ text: 'Continue' }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="../../public/javascripts/map.min.js"></script>
+{% endblock %}

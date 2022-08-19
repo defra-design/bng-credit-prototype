@@ -1,0 +1,38 @@
+{% extends "layout_noheader.html" %}
+
+{% set pageHeading = "Biodiversity Net Gain Register" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-xl">{{pageHeading}}</h1>
+{% include "includes/contents-nav.html" %}
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+  <h2 class="govuk-heading-m">
+    If you're a developer
+  </h2>
+  <p>
+    You'll need to show a minimum of 10% biodiversity net gain for your development projects.
+  </p>
+
+  <p>We'll review the information you provide within 28 days. You can then submit it to your Local Planning Authority (LPA), to discharge your BNG planning condition.</p>
+
+  <h2 class="govuk-heading-m">
+    Before you start
+  </h2>
+  <p>You'll need your Biodiversity Metric  3.1 calculation that was agreed with your Local Planning Authority when they approved your Gain Plan.</p>
+  <p>You'll also need the legal agreements and land boundary information for any off-site land you plan to use.</p>
+  {{ govukButton({
+  text: "Start now",
+  href: "sign-in",
+  isStartButton: true
+}) }}
+</div>
+
+
+</div>
+
+{% endblock %}

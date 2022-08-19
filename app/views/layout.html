@@ -53,6 +53,20 @@
   </div>
 
 {% endblock %}
+{% block beforeContent %}
+
+    <div style="min-height: 40px; position: relative;">
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript: window.history.go(-1)"
+        }) }}
+
+        <div style="margin-top: govuk-spacing(2); position: absolute; right: 0; top: 3px; text-align: right;">
+          <p><a class="govuk-link govuk-link--no-visited-state" href="#">Save and return later</a></p>
+        </div>
+    </div>
+{% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
 

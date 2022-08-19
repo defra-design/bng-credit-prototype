@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Upload the legal agreement " %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Upload the legal agreement for {% if data['offsite-done'] == 'yes' %}BNG27839062{% else %}BNG122778902{%endif%}
+      </h1>
+
+      <form method="post">
+
+        {{ govukFileUpload({
+          id: "legal-agreement-upload",
+          name: "legal-agreement-upload",
+          label: {
+            text: "Upload a file",
+            classes:"govuk-visually-hidden"
+          },
+          hint: {
+            text: "PDF, max size 50MB"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

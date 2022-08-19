@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "You need to make a Biodiversity Payment" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <div class="govuk body">
+        <p>Your Metric calculation shows you have not met the 10% biodiversity net gain needed for your development project</p>
+        <p class="govuk-inset-text">You need to add 3% biodiversity net gain by making a Biodiversity Payment</p>
+      </div>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">size</th>
+            <th scope="col" class="govuk-table__header">Habitat Type</th>
+            <th scope="col" class="govuk-table__header">Cost</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">0.1 (ha)</td>
+            <td class="govuk-table__cell">
+              Area habitats
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes area spaces such as woodland and grassland</span>
+            </td>
+            <td class="govuk-table__cell">&pound; 5,460.33</td>
+
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">2.2 (km)</td>
+            <td class="govuk-table__cell">Linear habitats
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes habitats such as hedgerows and lines of trees</span>
+              </td>
+            <td class="govuk-table__cell">&pound; 10,244.90</td>
+
+          </tr>
+          <tr class="govuk-table__row">
+            <td colspan=2 class="govuk-table__header">Total</td>
+
+            <td class="govuk-table__header">&pound; 15,685.23</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <form method="post">
+
+
+        {{ govukButton({ text: 'Continue', href:'email' }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="../../public/javascripts/map.min.js"></script>
+{% endblock %}
