@@ -37,7 +37,7 @@ router.post('/setup', function (req, res) {
 });
 router.post('/sign-in', function (req, res) {
     if(req.session.data['defraID']=="true"){
-      res.redirect('https://cust-id-prototype.herokuapp.com/tasked/defra-id/about-data?returnUrl=https://bng-developer-prototype.herokuapp.com/developer_v1/metric-up');
+      res.redirect('https://cust-id-prototype.herokuapp.com/tasked/defra-id/about-data?returnUrl=https://bng-developer-prototype.herokuapp.com/developer_v1/metric-upload');
     }
     else{
       res.redirect('metric-upload');
