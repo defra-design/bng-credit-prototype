@@ -150,35 +150,38 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               {% if data['task1'] == "complete" and data['task2'] == "complete"%}
+
                 {% if data['task5'] == "complete" %}
-                <a href="check-answers">
-                  Check your answers before you submit them to us
-                </a>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                  <a href="check-answers">
+                    Check your answers before you submit them to us
+                  </a>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
 
-                {% elseif data['credits']== "true" and data['task4'] == "complete" %}
-                <a href="check-answers">
-                  Check your answers before you submit them to us
-                </a>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                {% elseif data['task4'] == "complete" and data['credits']!='true'%}
+                  <a href="check-answers">
+                    Check your answers before you submit them to us
+                  </a>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
 
-                {% elseif data['onsite']== "true" and data['task3'] == "complete" %}
-                <a href="check-answers">
-                  Check your answers before you submit them to us
-                </a>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                {% elseif data['task3'] == "complete"  and data['credits']!='true'  and data['offsite']!='true'  and data['multiple-offsite']!='true'%}
+                  <a href="check-answers">
+                    Check your answers before you submit them to us
+                  </a>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
 
                 {% else %}
-                <span class="app-task-list__task-name">
-                  Check your answers before you submit them to us
-                </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+                  <span class="app-task-list__task-name">
+                    Check your answers before you submit them to us
+                  </span>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
                 {% endif %}
-                {% else %}
-                <span class="app-task-list__task-name">
-                  Check your answers before you submit them to us
-                </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+
+              {% else %}
+              <span class="app-task-list__task-name">
+                Check your answers before you submit them to us
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+
               {%endif%}
 
             </li>

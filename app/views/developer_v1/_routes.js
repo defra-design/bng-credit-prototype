@@ -32,13 +32,13 @@ router.get('/cheat', function (req, res) {
   req.session.data['metric-correct']='yes'
   req.session.data['task1']='complete';
   req.session.data['task2']='complete';
-  req.session.data['task3']='complete';
-  req.session.data['task4']='complete';
-  req.session.data['task5']='complete';
-  req.session.data['onsite']='false';
-  req.session.data['offsite']='false';
+  req.session.data['task3']='inprogress';
+  req.session.data['task4']='';
+  req.session.data['task5']='';
+  req.session.data['onsite']='true';
+  req.session.data['offsite']='true';
   req.session.data['multiple-offsite']='false';
-  req.session.data['credits']='true';
+  req.session.data['credits']='false';
   res.redirect('tasklist');
 });
 router.get('/confirm', function (req, res) {
@@ -53,23 +53,9 @@ router.get('/confirm', function (req, res) {
   }
   res.render(version+'/confirm');
 });
-
-router.post('/confirm', function (req, res) {
-
-  var NotifyClient = require('notifications-node-client').NotifyClient;
-  var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
-
-  if(req.session.data['credits']=='true'){
-    notifyClient.sendEmail('10c2a5c8-735b-4e51-97eb-6bcd20081ad2', 'bng.developer@hotmail.com', {
-    }).then(response => console.log(response)).catch(err => console.error(err))
-  }
-  else(
-    notifyClient.sendEmail('493fd980-3103-4234-8b83-82ee02d7a4fb', 'bng.developer@hotmail.com', {
-    }).then(response => console.log(response)).catch(err => console.error(err))
-  )
-
-
-  res.redirect('index');
+router.get('/check-answers', function (req, res) {
+  req.session.data['check-answers']='true';
+  res.render(version+'/check-answers');
 });
 
 // POSTS
@@ -104,29 +90,13 @@ router.post('/metric-upload', function (req, res) {
     res.redirect('metric-upload-check');
 });
 router.post('/metric-upload-check', function (req, res) {
-  //creating credit data
-  req.session.data['habitat'] = "Area Habitats";
-  req.session.data['habitat-description'] = "This includes area spaces such as woodland and grassland";
-
-  if(req.session.data['habitat-ha']){}
-  else{
-    req.session.data['habitat-ha'] = 0.16;
-    req.session.data['habitat-unit'] = 0.2;
-  }
-
-  req.session.data['hedgerow'] = "Linear Habitats";
-  req.session.data['hedgerow-description'] = "This includes habitats such as hedgerows and lines of trees";
-
-  if(req.session.data['hedgerow-ha']){}
-  else{
-    req.session.data['hedgerow-ha'] = 0.08;
-    req.session.data['hedgerow-unit'] = 0.3;
-  }
-
-
-
   if (req.session.data['metric-correct'] == 'yes') {
-    res.redirect('development-location');
+    if(req.session.data['check-answers']=='true'){
+      res.redirect('check-answers');
+    }
+    else{
+      res.redirect('development-location');
+    }
   }
   else if (req.session.data['metric-correct'] == 'no') {
     res.redirect('metric-upload');
@@ -164,7 +134,12 @@ router.post('/metric-check-data', function (req, res) {
 router.post('/development-location', function (req, res) {
     if(req.session.data['development-data']=='yes'){
       req.session.data['task1'] = 'complete';
-      res.redirect('tasklist');
+      if(req.session.data['check-answers']=='true'){
+        res.redirect('check-answers');
+      }
+      else{
+        res.redirect('tasklist');
+      }
     }
     else if(req.session.data['development-data']=='no'){
       req.session.data['task1'] = 'inprogress';
@@ -188,7 +163,12 @@ router.post('/location-confirm', function (req, res) {
     req.session.data['task2'] = 'complete';
 
     if(req.session.data['location-confirm']=='yes'){
-      res.redirect('tasklist');
+      if(req.session.data['check-answers']=='true'){
+        res.redirect('check-answers');
+      }
+      else{
+        res.redirect('tasklist');
+      }
     }
     else if(req.session.data['location-confirm']=='no-geo'){
       res.redirect('location-import');
@@ -219,7 +199,12 @@ router.post('/onsite', function (req, res) {
 
     if(req.session.data['onsite-confirm']=='yes'){
       req.session.data['task3'] = 'complete';
-      res.redirect('tasklist');
+      if(req.session.data['check-answers']=='true'){
+        res.redirect('check-answers');
+      }
+      else{
+        res.redirect('tasklist');
+      }
     }
     else if(req.session.data['onsite-confirm']=='no'){
       req.session.data['task3'] = 'inprogress';
@@ -239,7 +224,10 @@ router.post('/offsite-total', function (req, res) {
 
 });
 router.post('/offsite1', function (req, res) {
-    req.session.data['task3'] = 'inprogress';
+    req.session.data['task4'] = 'inprogress';
+    if(req.session.data['offsite']=='true'){
+      req.session.data['offsite-done']='yes'
+    }
 
     if(req.session.data['offsite1']=='yes'){
       res.redirect('legal-agreement-upload');
@@ -247,7 +235,6 @@ router.post('/offsite1', function (req, res) {
     else if(req.session.data['offsite1']=='no'){
       res.redirect('onsite-no');
     }
-
 });
 router.post('/offsite2', function (req, res) {
     req.session.data['task3'] = 'inprogress';
@@ -265,12 +252,15 @@ router.post('/legal-agreement-upload', function (req, res) {
   res.redirect('legal-agreement-check');
 });
 router.post('/legal-agreement-check', function (req, res) {
-
-
     if(req.session.data['legal-agreement-correct']=='yes'){
       if(req.session.data['offsite-done']=='yes'){
         req.session.data['task4'] = 'complete';
-        res.redirect('tasklist');
+        if(req.session.data['check-answers']=='true'){
+          res.redirect('check-answers');
+        }
+        else{
+          res.redirect('tasklist');
+        }
       }
       else{
         res.redirect('offsite2');
@@ -296,5 +286,22 @@ router.post('/email-entry', function (req, res) {
       req.session.data['task5'] = 'complete';
       res.redirect('tasklist');
 
+});
+router.post('/confirm', function (req, res) {
+
+  var NotifyClient = require('notifications-node-client').NotifyClient;
+  var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
+
+  if(req.session.data['credits']=='true'){
+    notifyClient.sendEmail('10c2a5c8-735b-4e51-97eb-6bcd20081ad2', 'bng.developer@hotmail.com', {
+    }).then(response => console.log(response)).catch(err => console.error(err))
+  }
+  else(
+    notifyClient.sendEmail('493fd980-3103-4234-8b83-82ee02d7a4fb', 'bng.developer@hotmail.com', {
+    }).then(response => console.log(response)).catch(err => console.error(err))
+  )
+
+
+  res.redirect('index');
 });
 module.exports = router
