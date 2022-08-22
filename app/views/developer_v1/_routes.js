@@ -16,7 +16,6 @@ var formatter = new Intl.NumberFormat('en-US', {
 });
 
 // GETS
-
 router.get('/index', function (req, res) {
   if(req.session.data['custom-setup']=="true"){
     res.render(version+'/index');
@@ -221,7 +220,7 @@ router.post('/legal-agreement-check', function (req, res) {
       }
 
     }
-    else if(req.session.data['offsite1']=='no'){
+    else if(req.session.data['legal-agreement-correct']=='no'){
       res.redirect('legal-agreement-upload');
     }
 
