@@ -9,6 +9,30 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {% if data['error'] == 'true' or data['error1'] == 'true' %}
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            {% if data['error'] == 'true' %}
+            <li>
+              <a href="#">You must choose at least one option from on-site, single off-site, multiple-offsite or credits</a>
+            </li>
+            {%endif%}
+
+            {% if data['error1'] == 'true' %}
+            <li>
+              <a href="#">You can only pick one of the off-site options</a>
+            </li>
+            {%endif%}
+
+          </ul>
+        </div>
+      </div>
+      {%endif%}
+
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>
@@ -23,31 +47,31 @@
           </div>
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="onsite" name="onsite" type="checkbox" value="true">
+              <input class="govuk-checkboxes__input" id="onsite" name="onsite" type="checkbox" value="true"{% if data['onsite']=='true' %} checked="checked" {% endif %}>
               <label class="govuk-label govuk-checkboxes__label" for="waste">
                 On-site
               </label>
             </div>
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="offsite" name="offsite" type="checkbox" value="true">
+              <input class="govuk-checkboxes__input" id="offsite" name="offsite" type="checkbox" value="true" {% if data['offsite']=='true' %} checked="checked"{%endif%}>
               <label class="govuk-label govuk-checkboxes__label" for="waste-2">
                 Single off-site
               </label>
             </div>
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="multiple-offsite" name="multiple-offsite" type="checkbox" value="true">
+              <input class="govuk-checkboxes__input" id="multiple-offsite" name="multiple-offsite" type="checkbox" value="true" {% if data['multiple-offsite']=='true'%} checked="checked"{%endif%}>
               <label class="govuk-label govuk-checkboxes__label" for="waste-3">
                 Multiple off-site
               </label>
             </div>
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="credits" name="credits" type="checkbox" value="true">
+              <input class="govuk-checkboxes__input" id="credits" name="credits" type="checkbox" value="true" {% if data['credits']=='true'%} checked="checked"{%endif%}>
               <label class="govuk-label govuk-checkboxes__label" for="waste-3">
                 Credits
               </label>
             </div>
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="defraID" name="defraID" type="checkbox" value="true">
+              <input class="govuk-checkboxes__input" id="defraID" name="defraID" type="checkbox" value="true" {% if data['']=='true'%} checked="checked"{%endif%}>
               <label class="govuk-label govuk-checkboxes__label" for="waste-3">
                 Need defra id setup
               </label>

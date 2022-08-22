@@ -132,6 +132,7 @@
 
       </dl>
 
+      {%if data['onsite']=='true'%}
       <h2 class="govuk-heading-m">On-site land</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
@@ -161,133 +162,132 @@
           </dd>
         </div>
       </dl>
-
-
-
-      <h2 class="govuk-heading-m">Off-site land</h2>
-
-      {% if data['multiple-offsite']=="true" %}
-      <h3 class="govuk-heading-s">Total off-site land</h3>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Area habitats
-              <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes area spaces such as woodland and grassland</span>
-          </dt>
-          <dd class="govuk-summary-list__value">
-            4.15 (ha)
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-              View<span class="govuk-visually-hidden"> on-site data</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Linear habitats
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes habitats such as hedgerows and lines of trees</span>
-          </dt>
-          <dd class="govuk-summary-list__value">
-            0.68 (km)
-          </dd>
-          <dd class="govuk-summary-list__actions">
-
-          </dd>
-        </div>
-      </dl>
-
-      <h3 class="govuk-heading-s">Off-site location 1</h3>
       {%endif%}
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
+      {%if data['offsite']=='true' or data['multiple-offsite']=="true" %}
+        <h2 class="govuk-heading-m">Off-site land</h2>
+
+        {% if data['multiple-offsite']=="true" %}
+          <h3 class="govuk-heading-s">Total off-site land</h3>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Gain site reference
+          Area habitats
+          <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes area spaces such as woodland and grassland</span>
           </dt>
           <dd class="govuk-summary-list__value">
-            BNG12778902
+          4.15 (ha)
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-              View<span class="govuk-visually-hidden"> gain site allocation</span>
-            </a>
+          <a class="govuk-link" href="#">
+          View<span class="govuk-visually-hidden"> on-site data</span>
+          </a>
           </dd>
-        </div>
-        <div class="govuk-summary-list__row">
+          </div>
+          <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Area habitats
-              <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes area spaces such as woodland and grassland</span>
+          Linear habitats
+            <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes habitats such as hedgerows and lines of trees</span>
           </dt>
           <dd class="govuk-summary-list__value">
-            2.13 (ha)
+          0.68 (km)
           </dd>
           <dd class="govuk-summary-list__actions">
 
           </dd>
+          </div>
+          </dl>
+
+          <h3 class="govuk-heading-s">Off-site location 1</h3>
+        {% endif %}
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+        Gain site reference
+        </dt>
+        <dd class="govuk-summary-list__value">
+        BNG12778902
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">
+        View<span class="govuk-visually-hidden"> gain site allocation</span>
+        </a>
+        </dd>
         </div>
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Linear habitats
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes habitats such as hedgerows and lines of trees</span>
-          </dt>
-          <dd class="govuk-summary-list__value">
-            0.19 (km)
-          </dd>
-          <dd class="govuk-summary-list__actions">
+        <dt class="govuk-summary-list__key">
+        Area habitats
+        <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes area spaces such as woodland and grassland</span>
+        </dt>
+        <dd class="govuk-summary-list__value">
+        2.13 (ha)
+        </dd>
+        <dd class="govuk-summary-list__actions">
 
-          </dd>
+        </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+        Linear habitats
+          <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes habitats such as hedgerows and lines of trees</span>
+        </dt>
+        <dd class="govuk-summary-list__value">
+        0.19 (km)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+
+        </dd>
         </div>
         </dl>
 
         {% if data['multiple-offsite']=="true" %}
 
-        <h3 class="govuk-heading-s">Off-site location 2</h3>
+          <h3 class="govuk-heading-s">Off-site location 2</h3>
 
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Gain site reference
-            </dt>
-            <dd class="govuk-summary-list__value">
-              BNG27839062
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                View<span class="govuk-visually-hidden"> gain site allocation</span>
-              </a>
-            </dd>
+          <dt class="govuk-summary-list__key">
+          Gain site reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+          BNG27839062
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            View<span class="govuk-visually-hidden"> gain site allocation</span>
+          </a>
+          </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Area habitats
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes area spaces such as woodland and grassland</span>
-            </dt>
-            <dd class="govuk-summary-list__value">
-              3.4 (ha)
-            </dd>
-            <dd class="govuk-summary-list__actions">
+          <dt class="govuk-summary-list__key">
+          Area habitats
+            <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes area spaces such as woodland and grassland</span>
+          </dt>
+          <dd class="govuk-summary-list__value">
+          3.4 (ha)
+          </dd>
+          <dd class="govuk-summary-list__actions">
 
-            </dd>
+          </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Linear habitats
-                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes habitats such as hedgerows and lines of trees</span>
-            </dt>
-            <dd class="govuk-summary-list__value">
-              0.5 (km)
-            </dd>
-            <dd class="govuk-summary-list__actions">
+          <dt class="govuk-summary-list__key">
+          Linear habitats
+              <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes habitats such as hedgerows and lines of trees</span>
+          </dt>
+          <dd class="govuk-summary-list__value">
+          0.5 (km)
+          </dd>
+          <dd class="govuk-summary-list__actions">
 
-            </dd>
+          </dd>
           </div>
+        {%endif%}
+        </dl>
+      {%endif%}
 
-      </dl>
-{%endif%}
-
-
+    {%if data['credits']=='true'%}
       <h2 class="govuk-heading-m">Biodiversity Payment</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
@@ -320,6 +320,7 @@
         </div>
         {% endif %}
       </dl>
+      {%endif%}
 
 
 

@@ -28,11 +28,68 @@ router.get('/index', function (req, res) {
     res.render(version+'/index');
   }
 });
+router.get('/cheat', function (req, res) {
+  req.session.data['metric-correct']='yes'
+  req.session.data['task1']='complete';
+  req.session.data['task2']='complete';
+  req.session.data['task3']='complete';
+  req.session.data['task4']='complete';
+  req.session.data['task5']='complete';
+  req.session.data['onsite']='false';
+  req.session.data['offsite']='false';
+  req.session.data['multiple-offsite']='false';
+  req.session.data['credits']='true';
+  res.redirect('tasklist');
+});
+router.get('/confirm', function (req, res) {
+  if(req.session.data['credits']=='true'){
+    // uses GOV.UK notify
+    var NotifyClient = require('notifications-node-client').NotifyClient;
+    var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
+
+    notifyClient.sendEmail('08991d64-b093-40ff-b29e-c83ec5ffb57a', 'bng.developer@hotmail.com', {
+
+    }).then(response => console.log(response)).catch(err => console.error(err))
+  }
+  res.render(version+'/confirm');
+});
+
+router.post('/confirm', function (req, res) {
+
+  var NotifyClient = require('notifications-node-client').NotifyClient;
+  var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
+
+  if(req.session.data['credits']=='true'){
+    notifyClient.sendEmail('10c2a5c8-735b-4e51-97eb-6bcd20081ad2', 'bng.developer@hotmail.com', {
+    }).then(response => console.log(response)).catch(err => console.error(err))
+  }
+  else(
+    notifyClient.sendEmail('493fd980-3103-4234-8b83-82ee02d7a4fb', 'bng.developer@hotmail.com', {
+    }).then(response => console.log(response)).catch(err => console.error(err))
+  )
+
+
+  res.redirect('index');
+});
 
 // POSTS
 router.post('/setup', function (req, res) {
+  req.session.data['error']='false';
+  req.session.data['error1']='false';
+
+  if(req.session.data['offsite']=='true' && req.session.data['multiple-offsite']=='true'){
+    req.session.data['error1']='true';
+    res.redirect('setup');
+  }
+  else if(req.session.data['onsite']==undefined && req.session.data['offsite']==undefined && req.session.data['multiple-offsite']==undefined && req.session.data['credits']==undefined){
+    console.log(req.session.data['onsite'])
+    req.session.data['error']='true';
+    res.redirect('setup');
+  }
+  else{
     req.session.data['custom-setup']="true";
     res.redirect('index');
+  }
 });
 router.post('/sign-in', function (req, res) {
     if(req.session.data['defraID']=="true"){
@@ -229,7 +286,7 @@ router.post('/email', function (req, res) {
     if(req.session.data['email-required']=='yes'){
         res.redirect('email-entry');
     }
-    else if(req.session.data['offsite1']=='no'){
+    else if(req.session.data['email-required']=='no'){
       req.session.data['task5'] = 'complete';
       res.redirect('tasklist');
     }
