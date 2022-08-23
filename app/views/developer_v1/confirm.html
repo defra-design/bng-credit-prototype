@@ -1,6 +1,11 @@
 {% extends "layout_noheader.html" %}
 
-{% set pageH1 = "Your Direct Debit has been set up" %}
+{% if data['credits']=='true'%}
+{% set pageH1 = "You need to make a Biodiversity Payment" %}
+{%else%}
+{% set pageH1 = "You've submitted your biodiversity net gain information to us" %}
+{%endif%}
+
 
 {% block pageTitle %}
   {{ pageH1 }}
@@ -10,13 +15,11 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-  
+
 
       <div class="govuk-panel govuk-panel--confirmation">
         <h1 class="govuk-panel__title">
-          {% if data['credits']=='true'%}You need to make a Biodiversity Payment
-          {%else%}You've submitted your biodiversity net gain information to us
-          {%endif%}
+          {{pageH1}}
         </h1>
         <div class="govuk-panel__body">
           Your reference number<br><strong>BNG-02990191</strong>

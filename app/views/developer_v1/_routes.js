@@ -29,7 +29,7 @@ router.get('/index', function (req, res) {
   }
 });
 router.get('/cheat', function (req, res) {
-  req.session.data['metric-correct']='yes'
+  req.session.data['metric-correct']='yes';
   req.session.data['task1']='complete';
   req.session.data['task2']='complete';
   req.session.data['task3']='complete';
@@ -37,7 +37,7 @@ router.get('/cheat', function (req, res) {
   req.session.data['task5']='complete';
   req.session.data['onsite']='true';
   req.session.data['offsite']='true';
-  req.session.data['multiple-offsite']='false';
+  req.session.data['multiple-offsite']='true';
   req.session.data['credits']='true';
   res.redirect('tasklist');
 });
@@ -56,6 +56,10 @@ router.get('/confirm', function (req, res) {
 router.get('/check-answers', function (req, res) {
   req.session.data['check-answers']='true';
   res.render(version+'/check-answers');
+});
+router.get('/signout', function (req, res) {
+  req.session.data['activeuser']='true';
+  res.render(version+'/signout');
 });
 
 // POSTS
@@ -82,9 +86,13 @@ router.post('/sign-in', function (req, res) {
       res.redirect('https://cust-id-prototype.herokuapp.com/tasked/defra-id/about-data?returnUrl=https://bng-developer-prototype.herokuapp.com/developer_v1/metric-upload');
     }
     else{
-      res.redirect('metric-upload');
+      if(req.session.data['activeuser']=='true'){
+        res.redirect('applications');
+      }
+      else{
+        res.redirect('metric-upload');
+      }
     }
-
 });
 router.post('/metric-upload', function (req, res) {
     res.redirect('metric-upload-check');
