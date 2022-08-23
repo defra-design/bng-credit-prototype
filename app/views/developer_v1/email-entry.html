@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
 
-{% set map = true %}
 
 {% set pageHeading = "Enter email address" %}
-
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -18,10 +19,11 @@
 
       <form method="post">
 
-        {{ govukInput({
-          id: "additional-email",
-          name: "additional-email"
-        }) }}
+        <div class="govuk-form-group">
+
+        <input class="govuk-input" id="additional-email" name="additional-email" value={{data['additional-email']}} type="text">
+      </div>
+
 
 
         {{ govukButton({ text: 'Continue'}) }}
@@ -31,8 +33,4 @@
     </div>
   </div>
 
-{% endblock %}
-
-{% block pageScripts %}
-  <script type="module" src="../../public/javascripts/map.min.js"></script>
 {% endblock %}

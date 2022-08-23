@@ -1,8 +1,10 @@
-{% extends "../layout.html" %}
+{% extends "layout_noheader.html" %}
 
 {% set pageHeading = "Add or select your project" %}
 
-{% set hideSaveSection = true %}
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
 
 {% block content %}
 

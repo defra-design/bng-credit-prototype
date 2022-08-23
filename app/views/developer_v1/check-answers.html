@@ -84,7 +84,7 @@
 
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="location-options">
               Change<span class="govuk-visually-hidden"> name</span>
             </a>
           </dd>
@@ -144,7 +144,7 @@
             4.15 (ha)
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="onsite">
               View<span class="govuk-visually-hidden"> on-site data</span>
             </a>
           </dd>
@@ -179,9 +179,13 @@
           4.15 (ha)
           </dd>
           <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+
+
+          <a class="govuk-link" href="offsite-total">
           View<span class="govuk-visually-hidden"> on-site data</span>
           </a>
+
+
           </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -210,7 +214,7 @@
         BNG12778902
         </dd>
         <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="#">
+        <a class="govuk-link" href="offsite1">
         View<span class="govuk-visually-hidden"> gain site allocation</span>
         </a>
         </dd>
@@ -298,22 +302,22 @@
             &pound; 15,685.23
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="alternative-email">
+            <a class="govuk-link" href="credits">
               View<span class="govuk-visually-hidden"> biodiversity payment details</span>
             </a>
           </dd>
         </div>
 
-        {% if data['alternative-email-required'] === "Yes" %}
+        {% if data['email-required'] == "yes" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Email address
+            Additional email address for payment request
           </dt>
           <dd class="govuk-summary-list__value">
             {{data['additional-email']}}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="add-alternative-email">
+            <a class="govuk-link" href="email-entry">
               Change<span class="govuk-visually-hidden"> additional email</span>
             </a>
           </dd>

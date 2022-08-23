@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 
 {% set pageHeading = "Upload your document or image" %}
-
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
 {% block content %}
 
   <div class="govuk-grid-row">

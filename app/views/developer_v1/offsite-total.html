@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
 
-{% set map = true %}
 
 {% set pageHeading = "Confirm the total amount of off-site land you're using" %}
-
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -102,8 +103,4 @@
     </div>
   </div>
 
-{% endblock %}
-
-{% block pageScripts %}
-  <script type="module" src="../../public/javascripts/map.min.js"></script>
 {% endblock %}

@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
-
-{% set map = true %}
-
 {% set pageHeading = "Confirm the land boundary" %}
+
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
 
 {% block content %}
 
@@ -134,8 +135,4 @@
     </div>
   </div>
 
-{% endblock %}
-
-{% block pageScripts %}
-  <script type="module" src="../../public/javascripts/map.min.js"></script>
 {% endblock %}

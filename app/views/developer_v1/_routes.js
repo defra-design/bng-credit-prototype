@@ -32,13 +32,13 @@ router.get('/cheat', function (req, res) {
   req.session.data['metric-correct']='yes'
   req.session.data['task1']='complete';
   req.session.data['task2']='complete';
-  req.session.data['task3']='inprogress';
-  req.session.data['task4']='';
-  req.session.data['task5']='';
+  req.session.data['task3']='complete';
+  req.session.data['task4']='complete';
+  req.session.data['task5']='complete';
   req.session.data['onsite']='true';
   req.session.data['offsite']='true';
   req.session.data['multiple-offsite']='false';
-  req.session.data['credits']='false';
+  req.session.data['credits']='true';
   res.redirect('tasklist');
 });
 router.get('/confirm', function (req, res) {
@@ -91,12 +91,9 @@ router.post('/metric-upload', function (req, res) {
 });
 router.post('/metric-upload-check', function (req, res) {
   if (req.session.data['metric-correct'] == 'yes') {
-    if(req.session.data['check-answers']=='true'){
-      res.redirect('check-answers');
-    }
-    else{
+
       res.redirect('development-location');
-    }
+
   }
   else if (req.session.data['metric-correct'] == 'no') {
     res.redirect('metric-upload');
@@ -277,14 +274,23 @@ router.post('/email', function (req, res) {
         res.redirect('email-entry');
     }
     else if(req.session.data['email-required']=='no'){
-      req.session.data['task5'] = 'complete';
-      res.redirect('tasklist');
+      if(req.session.data['check-answers']=='true'){
+        res.redirect('check-answers');
+      }
+      else{
+        req.session.data['task5'] = 'complete';
+        res.redirect('tasklist');
+      }
     }
 });
 router.post('/email-entry', function (req, res) {
-
+  if(req.session.data['check-answers']=='true'){
+    res.redirect('check-answers');
+  }
+  else{
       req.session.data['task5'] = 'complete';
       res.redirect('tasklist');
+    }
 
 });
 router.post('/confirm', function (req, res) {

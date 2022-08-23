@@ -1,8 +1,10 @@
 {% extends "layout.html" %}
 
-{% set map = true %}
 
 {% set pageHeading = "You need to make a Biodiversity Payment" %}
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
 
 {% block content %}
 
@@ -64,8 +66,4 @@
     </div>
   </div>
 
-{% endblock %}
-
-{% block pageScripts %}
-  <script type="module" src="../../public/javascripts/map.min.js"></script>
 {% endblock %}

@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 
 {% set pageHeading = "Upload the legal agreement " %}
-
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
 {% block content %}
 
   <div class="govuk-grid-row">

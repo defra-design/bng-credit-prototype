@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 
 {% set pageHeading = "The information shown is incorrect" %}
-
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -18,7 +20,7 @@
       <p>
         If you think the information has not uploaded correctly, please contact us.
       </p>
-      
+
         <div class="govuk-details__text">
           {% include "../includes/get-help.html" %}
         </div>
