@@ -80,23 +80,14 @@ router.get('/tasklist', function (req, res) {
     });
 });
 router.get('/confirm', function (req, res) {
+
   if(req.session.data['credits']=='true'){
-    // uses GOV.UK notify
     var NotifyClient = require('notifications-node-client').NotifyClient;
     var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
 
-    notifyClient.sendEmail('08991d64-b093-40ff-b29e-c83ec5ffb57a', 'bng.developer@hotmail.com', {
+    notifyClient.sendEmail('62858c61-28a0-40d1-8989-8606ce1e71c6', 'bng.developer@hotmail.com', {
 
     }).then(response => console.log(response)).catch(err => console.error(err))
-  }
-  else{
-    var NotifyClient = require('notifications-node-client').NotifyClient;
-    var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
-
-    notifyClient.sendEmail('493fd980-3103-4234-8b83-82ee02d7a4fb', 'bng.developer@hotmail.com', {
-
-    }).then(response => console.log(response)).catch(err => console.error(err))
-
   }
 
   res.render(version+'/confirm');
@@ -356,18 +347,19 @@ router.post('/email-entry', function (req, res) {
 });
 router.post('/confirm', function (req, res) {
 
+  // uses GOV.UK notify
   var NotifyClient = require('notifications-node-client').NotifyClient;
   var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
 
+
   if(req.session.data['credits']=='true'){
-    notifyClient.sendEmail('10c2a5c8-735b-4e51-97eb-6bcd20081ad2', 'bng.developer@hotmail.com', {
+  notifyClient.sendEmail('08991d64-b093-40ff-b29e-c83ec5ffb57a', 'bng.developer@hotmail.com', {
     }).then(response => console.log(response)).catch(err => console.error(err))
   }
-  else(
+  else{
     notifyClient.sendEmail('493fd980-3103-4234-8b83-82ee02d7a4fb', 'bng.developer@hotmail.com', {
     }).then(response => console.log(response)).catch(err => console.error(err))
-  )
-
+  }
 
   res.redirect('index');
 });
