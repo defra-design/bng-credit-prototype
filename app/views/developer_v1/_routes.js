@@ -89,6 +89,16 @@ router.get('/confirm', function (req, res) {
 
     }).then(response => console.log(response)).catch(err => console.error(err))
   }
+  else{
+    var NotifyClient = require('notifications-node-client').NotifyClient;
+    var notifyClient = new NotifyClient("developer__buy_credits-fa28c2d7-ca6b-43f6-957e-c0dbf53df165-e2f024c1-8428-464c-ae1e-2331c6683770");
+
+    notifyClient.sendEmail('493fd980-3103-4234-8b83-82ee02d7a4fb', 'bng.developer@hotmail.com', {
+
+    }).then(response => console.log(response)).catch(err => console.error(err))
+
+  }
+
   res.render(version+'/confirm');
 });
 router.get('/check-answers', function (req, res) {
