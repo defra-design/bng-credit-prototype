@@ -74,7 +74,7 @@ router.get('/tasklist', function (req, res) {
       sectionscomplete++
     }
 
-
+    console.log(sectionscomplete);
     res.render(version+'/tasklist', {
         'sectioncomplete': sectionscomplete
     });
