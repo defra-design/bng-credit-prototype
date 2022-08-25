@@ -36,7 +36,7 @@
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Area habitat type</th>
+            <th scope="col" class="govuk-table__header">Habitat type</th>
             <th scope="col" class="govuk-table__header">Area (ha)</th>
           </tr>
         </thead>
@@ -71,7 +71,7 @@
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Linear habitat type</th>
+            <th scope="col" class="govuk-table__header">Hedgerow type</th>
             <th scope="col" class="govuk-table__header">Length (km)</th>
           </tr>
         </thead>
@@ -94,7 +94,6 @@
 
 
           {{ govukRadios({
-            classes: "govuk-radios--inline",
             idPrefix: "offsite1",
             name: "offsite1",
             fieldset: {
@@ -110,7 +109,7 @@
               },
               {
                 value: "no",
-                text: "No"
+                text: "No, I need to upload a different Metric file"
               }
             ]
           }) }}

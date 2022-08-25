@@ -17,10 +17,25 @@ var formatter = new Intl.NumberFormat('en-US', {
 
 // GETS
 router.get('/index', function (req, res) {
+
   if(req.session.data['custom-setup']=="true"){
+    var sections = 3;
+    if(req.session.data['onsite']=="true"){
+      sections++
+    }
+    if(req.session.data['offsite']=="true" || req.session.data['multiple-offsite']=="true"){
+      sections++
+    }
+    if(req.session.data['credits']=="true"){
+      sections++
+    }
+    req.session.data['sectionscomplete']=0;
+    req.session.data['sections']=sections;
     res.render(version+'/index');
   }
   else{
+    req.session.data['sectionscomplete']=0;
+    req.session.data['sections']=6;
     req.session.data['onsite']="true";
     req.session.data['offsite']="true";
     req.session.data['credits']="true";
@@ -36,10 +51,33 @@ router.get('/cheat', function (req, res) {
   req.session.data['task4']='complete';
   req.session.data['task5']='complete';
   req.session.data['onsite']='true';
-  req.session.data['offsite']='true';
+  req.session.data['offsite']='false';
   req.session.data['multiple-offsite']='true';
   req.session.data['credits']='true';
   res.redirect('tasklist');
+});
+router.get('/tasklist', function (req, res) {
+    var sectionscomplete = 0;
+    if(req.session.data['task1']=="complete"){
+      sectionscomplete++
+    }
+    if(req.session.data['task2']=="complete"){
+      sectionscomplete++
+    }
+    if(req.session.data['task3']=="complete"){
+      sectionscomplete++
+    }
+    if(req.session.data['task4']=="complete"){
+      sectionscomplete++
+    }
+    if(req.session.data['task5']=="complete"){
+      sectionscomplete++
+    }
+
+
+    res.render(version+'/tasklist', {
+        'sectioncomplete': sectionscomplete
+    });
 });
 router.get('/confirm', function (req, res) {
   if(req.session.data['credits']=='true'){
@@ -99,9 +137,14 @@ router.post('/metric-upload', function (req, res) {
 });
 router.post('/metric-upload-check', function (req, res) {
   if (req.session.data['metric-correct'] == 'yes') {
-
+    if(req.session.data['metric-file']!=undefined){
+      req.session.data['task1']='inprogress';
+      req.session.data['task2']='';
+      req.session.data['task3']='';
+      req.session.data['task4']='';
+      req.session.data['task5']='';
+    }
       res.redirect('development-location');
-
   }
   else if (req.session.data['metric-correct'] == 'no') {
     res.redirect('metric-upload');
@@ -148,7 +191,7 @@ router.post('/development-location', function (req, res) {
     }
     else if(req.session.data['development-data']=='no'){
       req.session.data['task1'] = 'inprogress';
-      res.redirect('onsite-no');
+      res.redirect('metric-upload');
     }
 });
 router.post('/location-options', function (req, res) {
@@ -213,7 +256,7 @@ router.post('/onsite', function (req, res) {
     }
     else if(req.session.data['onsite-confirm']=='no'){
       req.session.data['task3'] = 'inprogress';
-      res.redirect('onsite-no');
+      res.redirect('metric-upload');
     }
 
 });
@@ -224,7 +267,7 @@ router.post('/offsite-total', function (req, res) {
       res.redirect('offsite1');
     }
     else if(req.session.data['onsite-total']=='no'){
-      res.redirect('onsite-no');
+      res.redirect('metric-upload');
     }
 
 });
@@ -238,7 +281,7 @@ router.post('/offsite1', function (req, res) {
       res.redirect('legal-agreement-upload');
     }
     else if(req.session.data['offsite1']=='no'){
-      res.redirect('onsite-no');
+      res.redirect('metric-upload');
     }
 });
 router.post('/offsite2', function (req, res) {
@@ -249,7 +292,7 @@ router.post('/offsite2', function (req, res) {
       res.redirect('legal-agreement-upload');
     }
     else if(req.session.data['offsite1']=='no'){
-      res.redirect('onsite-no');
+      res.redirect('metric-upload');
     }
 
 });

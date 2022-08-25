@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 
-{% set pageHeading = "Sending your payment request" %}
+{% set pageHeading = "How to make a payment" %}
 {% block pageTitle %}
   {{ pageHeading }}
 {% endblock %}
@@ -15,7 +15,8 @@
       </h1>
 
       <div class="govuk body govuk-!-padding-bottom-6">
-        <p>On submittion of your application, we will provide you with a payment request.</p>
+        <p>We'll create a payment request for you.</p>
+        <p>You'll see this once you have submitted all of the biodiversity net gain information for your development project. We'll also email it to you.</p>
       </div>
 
 
@@ -28,7 +29,7 @@
           name: "email-required",
           fieldset: {
             legend: {
-              text: "Would you like to send a copy of the payment request to anyone else?",
+              text: "Do you want us to email this payment request to anyone else?",
               classes: "govuk-fieldset__legend--m"
             }
           },

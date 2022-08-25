@@ -8,12 +8,14 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
       <h1 class="govuk-heading-xl">
-        Show a 10% biodiversity net gain for development projects
+        <span class="govuk-caption-xl">Planning reference: 22/01976/RJL</span>
+        {{ serviceName }}
       </h1>
 
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 3 of 8 sections.</p>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed {{sectioncomplete}} of {{data['sections']}} sections.</p>
 
       <ol class="app-task-list">
         <li>
@@ -116,6 +118,25 @@
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
               {% endif %}
+              </li>
+              {%if data['multiple-offsite'] == "true"%}
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+
+                    <a href="offsite1">
+
+                    Confirm the habitat details for each off-site you're using
+                  </a>
+                </span>
+                {% if data['task4'] == "complete" %}
+                  <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+                {% elseif  data['task4'] == "inprogress"%}
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                {% endif %}
+                </li>
+              {%endif%}
           </ul>
         </li>
         {% endif %}

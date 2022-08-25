@@ -27,40 +27,49 @@
       </div>
 
       {% if data['credits']=='true'%}
-      <p class="govuk-body">Here is your payment request for your Biodiversity Payment:</p>
+      <p class="govuk-body">Here's the payment request:</p>
       <p>
-        <a href="https://bng-developer-prototype.herokuapp.com/public/documents/request for payment.pdf" target="_blank">Request for payment (0.28mb pdf) - Opens in a new window</a>
+        <a href="https://bng-developer-prototype.herokuapp.com/public/documents/request for payment.pdf" target="_blank">Request for payment 0.28mb, pdf (Opens in a new tab)</a>
       </p>
 
       <p>A copy has been sent to your email address.
       {% if data['email-required']=='yes'%}
-
+        We've also sent a copy to the following email address:<br> {{data['additional-email']}}
       {%endif%}
       </p>
 
       {%else%}
       <p>We'll now review how you plan to meet a 10% biodiversity net gain for your development project. This may take up to 28 days.</p>
+      <p>We'll email you if we need more information.</p>
       {%endif%}
 
 
 
       <h2 class="govuk-heading-m">What happens next</h2>
+
       {% if data['credits']=='true' %}
       <p class="govuk-body">
-        Once you've paid we'll email you a VAT receipt. It can take up 3 days to process your payment.
+        It can take up 3 days to process your payment.
       </p>
       <p class="govuk-body">
-        When your payment has been processed we'll review the information you've submitted. This it to check how you plan to meet a 10% biodiversity net gain for your development project. This may take up to 28 days.
+        When your payment has been processed, we'll review how you plan to meet a 10% biodiversity net gain for your development project. This can take up to 28 days.
       </p>
       <p class="govuk-body">
-        We'll contact you by email to let you know the outcome.
+        We'll email you if we need more information.
       </p>
+      <p class="govuk-body">
+        If all the information you've submitted is correct, we'll email you and attach your VAT receipt for the payment. We'll add it to Public Biodiversity Gain Register. You can then use it for your Final Gain Plan.
+      </p>
+      <p class="govuk-body">
+        Make a note of your reference number as we'll use this if we get in touch with you.
+      </p>
+
       {% else %}
       <p class="govuk-body">
         We'll contact you by email to let you know the outcome. If the information you've submitted is correct we'll add it to Public Biodiversity Gain Register. You can then use it for your Final Gain Plan.
       </p>
       <p class="govuk-body">
-        Please make a note of your reference number as we'll use this when we get in touch with you.
+        Make a note of your reference number as we'll use this if we get in touch with you.
       </p>
       {% endif %}
 

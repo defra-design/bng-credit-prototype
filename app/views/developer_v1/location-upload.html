@@ -12,18 +12,14 @@
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>
-
+      <p class="govuk-hint">PDF, jpg or png, max size 50mb</p>
       <form method="post">
 
         {{ govukFileUpload({
           id: "location-upload",
           name: "location-upload",
           label: {
-            text: "Upload your document",
-            classes:"govuk-visually-hidden"
-          },
-          hint: {
-            text: "For example, title plan PDF or jpg"
+            text: "Upload your document"
           }
         }) }}
 
