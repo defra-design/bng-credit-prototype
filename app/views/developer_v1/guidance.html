@@ -25,9 +25,13 @@
   <h2 class="govuk-heading-m">
     Before you start
   </h2>
-  <p>You'll need your Biodiversity Metric  3.1 calculation that was agreed with your Local Planning Authority when they approved your draft Gain Plan.</p>
-  <p>You'll also need the legal agreements and land boundary information for any off-site land you plan to use.</p>
-  {{ govukButton({
+  <ul class="govuk-list govuk-list--bullet">
+    <li>the Biodiversity Metric 3.1 calculation which your Local Planning Authority  approved for your draft Gain Plan</li>
+    <li>legal agreements for any off-site land you plan to use</li>
+    <li>land boundary details for your development site</li>
+  </ul>
+
+{{ govukButton({
   text: "Start now",
   href: "sign-in",
   isStartButton: true

@@ -1,10 +1,7 @@
 {% extends "layout_noheader.html" %}
 
-{% if data['credits']=='true'%}
-{% set pageH1 = "You need to make a Biodiversity Payment" %}
-{%else%}
-{% set pageH1 = "You've submitted your biodiversity net gain information to us" %}
-{%endif%}
+{% set pageH1 = "You’ve submitted your biodiversity information to us" %}
+
 
 
 {% block pageTitle %}
@@ -27,7 +24,7 @@
       </div>
 
       {% if data['credits']=='true'%}
-      <p class="govuk-body">Here's the payment request:</p>
+      <p class="govuk-body">You now need to make a Biodiversity Payment. Here’s the payment request:</p>
       <p>
         <a href="https://bng-developer-prototype.herokuapp.com/public/documents/request for payment.pdf" target="_blank">Payment request 0.28MB, PDF (Opens in a new tab)</a>
       </p>

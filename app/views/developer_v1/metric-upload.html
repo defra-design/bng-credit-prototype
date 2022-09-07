@@ -16,7 +16,13 @@
       </h1>
 
       <p>This is the Metric file that your Local Planning Authority has approved.</p>
-      <p class="govuk-hint">XLSM or XLSX, max size 50MB</p>
+      <div  id="metric-upload-hint">
+        <p>The file should be:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>an XLSM or XLSX</li>
+          <li>no larger than 50MB</li>
+        </ul>
+      </div>
 
 
 
@@ -32,7 +38,7 @@
 
         <p><a href="no-metric">I do not have the Biodiversity Metric 3.1 file<a/><p/>
 
-        {{ govukButton({ text: 'Continue' }) }}
+        {{ govukButton({ text: 'Upload file' }) }}
 
       </form>
 
