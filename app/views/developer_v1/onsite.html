@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Confirm the total amount of on-site gain" %}
+{% set pageHeading = "Confirm the total amount of on-site gain or loss" %}
 {% block pageTitle %}
   {{ pageHeading }}
 {% endblock %}
@@ -76,7 +76,7 @@
 
 
           {{ govukRadios({
-            
+
             idPrefix: "onsite-confirm",
             name: "onsite-confirm",
             fieldset: {

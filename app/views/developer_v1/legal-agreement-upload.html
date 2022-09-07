@@ -13,7 +13,13 @@
         Upload the legal agreement for {% if data['offsite-done'] == 'yes' %}BNG27839062{% else %}BNG122778902{%endif%}
       </h1>
       <p class="govuk-body">This is the Section 106 agreement that secures the habitat enhancements.</p>
-      <p class="govuk-hint">PDF, max size 50MB</p>
+      <div>
+        <p>The file should be:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a PDF</li>
+          <li>no larger than 50MB</li>
+        </ul>
+      </div>
       <form method="post">
 
         {{ govukFileUpload({

@@ -13,6 +13,13 @@
         {{ pageHeading }}
       </h1>
       <p class="govuk-hint">PDF, jpg or png, max size 50mb</p>
+      <div>
+        <p>The file should be:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a PDF, jpg or png</li>
+          <li>no larger than 50MB</li>
+        </ul>
+      </div>
       <form method="post">
 
         {{ govukFileUpload({

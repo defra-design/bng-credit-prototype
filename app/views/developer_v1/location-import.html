@@ -18,7 +18,14 @@
 
           <input type="hidden" id="geo-area" name="geo-area" value="4.2 ha">
           <input type="hidden" id="grid-ref" name="grid-ref" value="SP41989814">
-          <p class="govuk-hint">GeoJSON, KML or Shape files, max size 50MB</p>
+      
+          <div>
+            <p>The file should be:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>GeoJSON, KML or Shape files</li>
+              <li>no larger than 50MB</li>
+            </ul>
+          </div>
 
         {{ govukFileUpload({
           id: "location-import",
