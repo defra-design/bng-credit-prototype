@@ -43,6 +43,26 @@ router.get('/index', function (req, res) {
     res.render(version+'/index');
   }
 });
+router.get('/index1', function (req, res) {
+    req.session.data['sectionscomplete']=0;
+    req.session.data['sections']=6;
+    req.session.data['alternative']="true";
+    req.session.data['onsite']="true";
+    req.session.data['offsite']="true";
+    req.session.data['credits']="true";
+    req.session.data['defraID']="false";
+    res.render(version+'/index');
+});
+router.get('/no-checks', function (req, res) {
+  req.session.data['metric-correct']='yes';
+  req.session.data['task1']='complete';
+  req.session.data['task2']='not started';
+  req.session.data['task3']='complete';
+  req.session.data['task4']='complete';
+  req.session.data['task5']='complete';
+
+  res.redirect('tasklist');
+});
 router.get('/cheat', function (req, res) {
   req.session.data['metric-correct']='yes';
   req.session.data['task1']='complete';
@@ -187,6 +207,9 @@ router.post('/development-location', function (req, res) {
         res.redirect('check-answers');
       }
       else{
+        if(req.session.data['alternative']=="true"){
+          res.redirect('no-checks');
+        }
         res.redirect('tasklist');
       }
     }
