@@ -135,31 +135,57 @@
       {%if data['onsite']=='true'%}
       <h2 class="govuk-heading-m">On-site land</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <h3 class="govuk-heading-s">Habitat Units</h3>
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Habitat type
-              <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes area spaces such as woodland and grassland</span>
-          </dt>
-          <dd class="govuk-summary-list__value">
-            4.15 (ha)
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="onsite">
-              View<span class="govuk-visually-hidden"> on-site data</span>
-            </a>
-          </dd>
+          <dt class="govuk-summary-list__key">Baseline</dt>
+          <dd class="govuk-summary-list__value">32</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="onsite">View<span class="govuk-visually-hidden"> on-site data</span></a></dd>
         </div>
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Hedgerow tyoe
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes habitats such as hedgerows and lines of trees</span>
-          </dt>
-          <dd class="govuk-summary-list__value">
-            0.68 (km)
-          </dd>
-          <dd class="govuk-summary-list__actions">
-
-          </dd>
+          <dt class="govuk-summary-list__key">Post-intervention</dt>
+          <dd class="govuk-summary-list__value">34</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Net change</dt>
+          <dd class="govuk-summary-list__value">6.25%</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <h3 class="govuk-heading-s">Hedgerow Units</h3>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Baseline</dt>
+          <dd class="govuk-summary-list__value">19</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="onsite">View<span class="govuk-visually-hidden"> on-site data</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Post-intervention</dt>
+          <dd class="govuk-summary-list__value">18</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Net change</dt>
+          <dd class="govuk-summary-list__value">-5.5%</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <h3 class="govuk-heading-s">River Units</h3>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Baseline</dt>
+          <dd class="govuk-summary-list__value">1</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="onsite">View<span class="govuk-visually-hidden"> on-site data</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Post-intervention</dt>
+          <dd class="govuk-summary-list__value">1.25</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Net change</dt>
+          <dd class="govuk-summary-list__value">25%</dd>
+          <dd class="govuk-summary-list__actions"></dd>
         </div>
       </dl>
       {%endif%}
@@ -206,43 +232,56 @@
         {% endif %}
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-        Gain site reference
-        </dt>
-        <dd class="govuk-summary-list__value">
-        BNG12778902
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="offsite1">
-        View<span class="govuk-visually-hidden"> gain site allocation</span>
-        </a>
-        </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-        Habitat type
-        <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes area spaces such as woodland and grassland</span>
-        </dt>
-        <dd class="govuk-summary-list__value">
-        2.13 (ha)
-        </dd>
-        <dd class="govuk-summary-list__actions">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Gain site reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              BNG12778902
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="offsite1">
+              View<span class="govuk-visually-hidden"> gain site allocation</span>
+            </a>
+            </dd>
+          </div>
+        </dl>
 
-        </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-        Hedgerow types
-          <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">This includes habitats such as hedgerows and lines of trees</span>
-        </dt>
-        <dd class="govuk-summary-list__value">
-        0.19 (km)
-        </dd>
-        <dd class="govuk-summary-list__actions">
-
-        </dd>
-        </div>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <h3 class="govuk-heading-s">Habitat Units</h3>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Baseline</dt>
+            <dd class="govuk-summary-list__value">18</dd>
+            <dd class="govuk-summary-list__actions"></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Post-intervention</dt>
+            <dd class="govuk-summary-list__value">19</dd>
+            <dd class="govuk-summary-list__actions"></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Net change</dt>
+            <dd class="govuk-summary-list__value">5.5%</dd>
+            <dd class="govuk-summary-list__actions"></dd>
+          </div>
+        </dl>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <h3 class="govuk-heading-s">Hedgerow Units</h3>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Baseline</dt>
+            <dd class="govuk-summary-list__value">16</dd>
+            <dd class="govuk-summary-list__actions"></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Post-intervention</dt>
+            <dd class="govuk-summary-list__value">18</dd>
+            <dd class="govuk-summary-list__actions"></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Net change</dt>
+            <dd class="govuk-summary-list__value">12.5%</dd>
+            <dd class="govuk-summary-list__actions"></dd>
+          </div>
         </dl>
 
         {% if data['multiple-offsite']=="true" %}
