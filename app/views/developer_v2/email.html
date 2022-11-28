@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+
+{% set pageHeading = "How to make a payment" %}
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <div class="govuk body govuk-!-padding-bottom-6">
+        <p>We'll create a payment request for you.</p>
+        <p>You'll see this once you have submitted all of the biodiversity net gain information for your development project. We'll also email it to you.</p>
+      </div>
+
+
+
+      <form method="post">
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "email-required",
+          name: "email-required",
+          fieldset: {
+            legend: {
+              text: "Do you want us to email this payment request to anyone else?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
+
+
+        {{ govukButton({ text: 'Continue'}) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

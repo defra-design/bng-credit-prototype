@@ -1,0 +1,58 @@
+{% extends "layout_noheader.html" %}
+
+{% set pageH1 = "You’ve submitted your biodiversity details" %}
+
+
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          {{pageH1}}
+        </h1>
+        <div class="govuk-panel__body">
+          Your reference number<br><strong>BNG-02990191</strong>
+        </div>
+      </div>
+
+      <!-- <p>
+        {{ data | dump }}
+      </p> -->
+
+
+      <p>Natural England will check the information you submitted. They will email you to let you know if your registration has been successful or not.</p>
+      <p>This can take up to 30 days.</p>
+      <p>We have sent a copy of this to the email address you gave us.</p>
+
+
+
+      <!-- <h2 class="govuk-heading-m">What happens next</h2> -->
+      <h2 class="govuk-heading-m">How to discharge your BNG condition</h2>
+
+      <p class="govuk-body">
+        If your details are registered, you can add them to your Gain Plan. This can be used to discharge your BNG planning condition with your local planning authority. 
+      </p>
+      <p class="govuk-body">
+        Make a note of your reference number as we'll use this if we get in touch with you.
+      </p>
+
+      <form method="post">
+
+      {{ govukButton({
+        text: "Finish"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

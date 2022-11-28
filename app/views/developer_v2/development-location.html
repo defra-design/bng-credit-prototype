@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% set pageH1 = "Confirm your development details" %}
+{% set pageH1 = "Confirm the development details" %}
 
 
 {% block pageTitle %}
@@ -14,6 +14,10 @@
       <h1 class="govuk-heading-l">
         {{ pageH1 }}
       </h1>
+
+      <!-- <p>
+        {{ data | dump }}
+      </p> -->
       
     </div>
     <div class="govuk-grid-column-two-thirds">
@@ -51,7 +55,11 @@
 
     </div>
 
+    
+
     <div class="govuk-grid-column-two-thirds">
+
+    <p>This information has been taken from your approved Metric file.</p>
 
       <form method="post">
 

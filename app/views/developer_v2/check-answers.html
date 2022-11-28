@@ -1,0 +1,161 @@
+{% extends "layout.html" %}
+
+{% set pageH1 = "Check your answers before you submitting your information" %}
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageH1 }}
+      </h1>
+
+      <!-- <p>
+        {{ data | dump }}
+      </p> -->
+
+      <h2 class="govuk-heading-m">Development project details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Project name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Emmer Green Golf Course
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Local authority
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Reading Borough Council
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            22/01976/RJL
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            bex@bexsecofarm.com
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div>
+      </dl>
+
+
+      <h2 class="govuk-heading-m">Biodiversity Metric 4.0 file</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            File added
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Emmer Green PP version.XLSM, 4.1MB
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="metric-upload">
+              Change<span class="govuk-visually-hidden"> file</span>
+            </a>
+          </dd>
+        </div>
+
+      </dl>
+
+      <h2 class="govuk-heading-m">Off-site gain</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Total  biodiversity units
+          </dt>
+          <dd class="govuk-summary-list__value">
+            5 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="location-options">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Biodiversity net gain
+          </dt>
+          <dd class="govuk-summary-list__value">
+            5%
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Bex's Eco Farm Ltd
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Biodiversity gain site number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            BNG12778902
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div>
+
+      </dl>
+
+      <h2 class="govuk-heading-m">Submit your biodiversity gain information</h2>
+
+      <p>By submitting you agree that the information you have given is complete and correct.</p>
+
+      <form method="post">
+
+          {{ govukButton({ text: 'Confirm and submit', href: 'confirm'}) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
