@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+
+{% set pageHeading = "Enter development details" %}
+
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-xl">
+        Enter development details
+      </h1>
+
+      <form  method="post">
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="projectName">
+        Project name
+        </label>
+
+        <div id="projectName-hint" class="govuk-hint">
+          This is the development project you’ve added to your approved Metric file
+        </div>
+
+      <input class="govuk-input govuk-!-width-three-quarters" id="projectName" name="projectName" type="text" aria-describedby="projectName-hint">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="localAuthority">
+        Local authority
+        </label>
+
+        <div id="localAuthority-hint" class="govuk-hint">
+          This is the local planning authority who are reviewing your planning application
+          </div>
+
+      <input class="govuk-input govuk-!-width-one-half" id="localAuthority" name="localAuthority" type="text">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="planningRef">
+        Planning reference 
+        </label>
+
+        <div id="planningRef-hint" class="govuk-hint">
+          Your local planning authority gives you this when you apply for planning permission 
+          </div>
+
+      <input class="govuk-input govuk-!-width-one-half" id="planningRef" name="planningRef" type="text">
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    <p class="govuk-!-margin-top-6"><a href="#">Get help with this page</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

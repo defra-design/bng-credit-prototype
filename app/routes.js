@@ -6,12 +6,12 @@ const router = express.Router()
 
 // SET GLOBAL PREVIOUS PAGE
 router.use('/', (req, res, next) => {
-    req.session.data.gPreviousLocation = req.get('Referrer');
-    req.session.data.gCurrentLocation = req.originalUrl;
-    console.log("gCurrentLocation = " + req.session.data.gCurrentLocation);
-    console.log("gPreviousLocation = " + req.session.data.gPreviousLocation);
-      next();
-  });
+  req.session.data.gPreviousLocation = req.get('Referrer');
+  req.session.data.gCurrentLocation = req.originalUrl;
+  console.log("gCurrentLocation = " + req.session.data.gCurrentLocation);
+  console.log("gPreviousLocation = " + req.session.data.gPreviousLocation);
+  next();
+});
 
 // User Research and design versions
 router.use('/v1', require('./views/v1/_routes'))
@@ -19,9 +19,10 @@ router.use('/v2', require('./views/v2/_routes'))
 router.use('/v3', require('./views/v3/_routes'))
 router.use('/developer_v1', require('./views/developer_v1/_routes'))
 router.use('/developer_v2', require('./views/developer_v2/_routes'))
+router.use('/developer_v3', require('./views/developer_v3/_routes'))
 
 router.post('/set-credit-amounts', function (req, res) {
-    res.redirect('/'+req.query.version+'/start-page?journey='+req.query.journey);
+  res.redirect('/' + req.query.version + '/start-page?journey=' + req.query.journey);
 });
 
 router.get('/confirm-payment', function (req, res) {

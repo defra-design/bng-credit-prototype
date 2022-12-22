@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Consent to use a biodiversity gain site" %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+<!-- <p>
+	{{ data | dump }}
+</p> -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Bex's Eco Farm Ltd
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Biodiversity gain site number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            BGS-12778902
+          </dd>
+        </div>
+      </dl>
+
+
+      <form method="post">
+
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                I confirm that Paul McCormick LTD, have entered into a legal agreement with the landowner of this biodiversity gain site, and I have their consent to use it for biodiversity gain.
+              </label>
+            </div>
+        </div>
+        
+        <br><br>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

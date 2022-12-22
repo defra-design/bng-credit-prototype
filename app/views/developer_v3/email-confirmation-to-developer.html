@@ -1,0 +1,59 @@
+{% extends "layout_noheader.html" %}
+
+
+{% set pageHeading = "Subject: We've registered your off-site gain details" %}
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Confirmation email to developers
+      </h1>
+
+      <h2 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h2>
+
+      <!-- <p>
+        {{ data | dump }}
+      </p> -->
+
+        <p>Dear ((full name))</p>
+        <p>We’ve added your biodiversity net gain details to the Public Biodiversity Gain Register for the following development project:</p>
+
+        <p><strong>Project name:</strong>  Emmer Green Golf Course <br>
+            <strong>Local authority:</strong> Reading Borough Council<br>
+            <strong>Planning reference:</strong> 22/0197/RGL</p>
+        <p>You can view your details on the Public Biodiversity Gain Register here: <a href="#">https://defra/bng-public-register.co.uk</a></p>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p>You need to add this link to your Gain Plan and send it your local planning authority.</p>
+
+        <p>They will use these details as proof you've met at least a 10% net gain for your development project. This will discharge your BNG planning condition.
+        </p>
+
+        <p>Regards, <br>Natural England<br><br><br>This is an automated message - do not reply</p>
+
+
+      <!-- <form method="post">
+
+        <div class="govuk-form-group">
+
+        <input class="govuk-input" id="additional-email" name="additional-email" value="{{data['additional-email']}}" type="text">
+      </div>
+
+
+
+        {{ govukButton({ text: 'Continue'}) }}
+
+      </form> -->
+
+    </div>
+  </div>
+
+{% endblock %}

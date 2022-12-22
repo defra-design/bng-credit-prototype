@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+
+{% set pageHeading = "Enter email address" %}
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <!-- <p>
+        {{ data | dump }}
+      </p> -->
+
+      <p>Enter an email address so we can later contact you about this registration. We will not use these details for any other purpose.</p>
+
+
+      <form method="post">
+
+        <div class="govuk-form-group">
+
+        <input class="govuk-input" id="additional-email" name="additional-email" value="{{data['additional-email']}}" type="text">
+      </div>
+
+
+
+        {{ govukButton({ text: 'Continue'}) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
