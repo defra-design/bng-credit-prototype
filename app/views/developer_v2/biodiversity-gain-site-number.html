@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+
+{% set pageHeading = "Enter your biodiversity gain site number" %}
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+
+        <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="gain-site-number">
+                {{ pageHeading }}
+              </label>
+            </h1>
+
+            <p>This is the number which connects your development project to the land you're using as your off-site gain.</p>
+            <p>The landowner should give this to you once they’ve registered the biodiversity gain site, and agreed you can use it.</p>
+
+            <div id="gain-site-number-hint" class="govuk-hint">
+                For example, BGS-111 222 333
+            </div>
+            <input class="govuk-input govuk-!-width-one-half" id="gain-site-number" name="gain-site-number" type="text">
+          </div>
+
+        {{ govukButton({ text: 'Continue'}) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
