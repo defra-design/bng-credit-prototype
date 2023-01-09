@@ -4,7 +4,7 @@ const router = express.Router()
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
-const version = 'developer_v2';
+const version = 'developer_v3';
 
 var formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -390,6 +390,8 @@ router.post('/email', function (req, res) {
     }
   }
 });
+
+// Added or manual entry flag
 router.post('/email-entry', function (req, res) {
   if (req.session.data['check-answers'] == 'true' || req.session.data['manual-entry'] == 'true') {
     res.redirect('check-answers');
