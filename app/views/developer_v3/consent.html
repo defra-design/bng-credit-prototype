@@ -33,19 +33,33 @@
         </div>
       </dl>
 
-
+      <p>Please confirm which of the 3 statements applies to you:</p>
       <form method="post">
 
-        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-              <label class="govuk-label govuk-checkboxes__label" for="waste">
-                I confirm that Paul McCormick LTD, have entered into a legal agreement with the landowner of this biodiversity gain site, and I have their consent to use it for biodiversity gain.
-              </label>
+        <div class="govuk-form-group">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="consent-1" name="consent" type="radio" value="england">
+                <label class="govuk-label govuk-radios__label" for="consent-1">
+                    My company Paul McCormick LTD, have entered into a legal agreement with the landowner of this biodiversity gain site, and I have their consent to use it for biodiversity gain.
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="consent-2" name="consent" type="radio" value="scotland">
+                <label class="govuk-label govuk-radios__label" for="consent-2">
+                    My company Paul McCormick LTD are the landowners of this biodiversity gain site, and I'm legally eligible to use it for biodiversity gain.  
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="consent-3" name="consent" type="radio" value="wales">
+                <label class="govuk-label govuk-radios__label" for="consent-3">
+                    I’m authorised to act on behalf of Paul McCormick LTD. I can confirm they have entered into a legal agreement with the landowner of this biodiversity gain site, and they have the landowner's consent to use it for biodiversity gain.
+                </label>
+              </div>
             </div>
         </div>
         
-        <br><br>
+        <br>
 
         {{ govukButton({
             text: "Continue"
@@ -57,3 +71,4 @@
   </div>
 
 {% endblock %}
+

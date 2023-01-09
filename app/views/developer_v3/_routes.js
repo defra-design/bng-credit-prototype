@@ -224,7 +224,8 @@ router.post('/development-location', function (req, res) {
 // Biodiversity gain site number
 router.post('/biodiversity-gain-site-number', function (req, res) {
   //req.session.data['manual-entry'] = 'true';
-  res.redirect('confirm-off-site-gain');
+  //res.redirect('confirm-off-site-gain');
+  res.redirect('allocation-habitat-new');
 });
 
 // Examples - examples post here
@@ -233,7 +234,7 @@ router.post('/development-details', function (req, res) {
 });
 
 // Examples - examples post here
-router.post('/allocation-habitat', function (req, res) {
+router.post('/allocation-habitat-new', function (req, res) {
   req.session.data['manual-entry'] = 'true';
   res.redirect('confirm-off-site-gain');
 });
