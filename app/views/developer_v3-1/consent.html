@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Consent to use a biodiversity gain site" %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+<!-- <p>
+	{{ data | dump }}
+</p> -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Bex's Eco Farm Ltd
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Biodiversity gain site number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            BGS-12778902
+          </dd>
+        </div>
+      </dl>
+
+      <p>Please confirm which of the 3 statements applies to you:</p>
+      <form method="post">
+
+        <div class="govuk-form-group">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="consent-1" name="consent" type="radio" value="england">
+                <label class="govuk-label govuk-radios__label" for="consent-1">
+                    My company Paul McCormick Developments LTD, have entered into a legal agreement with the landowner of this biodiversity gain site, and I have their consent to use it for biodiversity gain.
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="consent-2" name="consent" type="radio" value="scotland">
+                <label class="govuk-label govuk-radios__label" for="consent-2">
+                    My company Paul McCormick Developments LTD are the landowners of this biodiversity gain site, and I'm legally eligible to use it for biodiversity gain.  
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="consent-3" name="consent" type="radio" value="wales">
+                <label class="govuk-label govuk-radios__label" for="consent-3">
+                    I’m authorised to act on behalf of Paul McCormick Developments LTD. I can confirm they have entered into a legal agreement with the landowner of this biodiversity gain site, and they have the landowner's consent to use it for biodiversity gain.
+                </label>
+              </div>
+            </div>
+        </div>
+        
+        <br>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+

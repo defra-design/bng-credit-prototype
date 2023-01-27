@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Choose how to add the land boundary details for the development site" %}
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+{% block content %}
+
+<p>
+  {{ data | dump }}
+</p>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="post">
+
+
+        {{ govukRadios({
+          idPrefix: "location-options",
+          name: "location-options",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "import",
+              text: "Upload geospatial data file",
+              hint: {
+                text: "GeoJSON, KML or Shape files"
+              }
+            },
+            {
+              value: "upload",
+              text: "Upload document or image",
+              hint: {
+                text: "PDF, jpg or PNG files"
+              }
+            }
+          ]
+        }) }}
+
+        <p><a href="location-no">I do not have the land boundary</a></p>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
