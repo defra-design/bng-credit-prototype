@@ -150,44 +150,11 @@
               <tr class="govuk-table__row">
                 <td scope="row" class="govuk-table__cell">
                   Native species rich hedgerow
-                  <!-- <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">
-                    Good condition
-                  </span> -->
                 </td>
-                <!-- <td class="govuk-table__cell">
-                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
-                    Grassland units allocated
-                  </label>
-                  <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
-                    <div class="govuk-input__suffix" aria-hidden="true">km</div>
-                  </div>
-                </td> -->
                 <td class="govuk-table__cell">
                  1
                 </td>
               </tr>
-              <!-- <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">
-                  Line of trees
-                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">
-                    Good condition
-                  </span>
-                </td>
-                <td class="govuk-table__cell">
-                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
-                    Grassland units allocated
-                  </label>
-                  <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
-                    <div class="govuk-input__suffix" aria-hidden="true">km</div>
-                  </div>
-                </td>
-                <td class="govuk-table__cell">
-                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
-                    Woodland and forest units allocated
-                  </label>
-                  <input class="govuk-input govuk-input--width-3 govuk-!-margin-bottom-0" id="allocation-1" name="allocation-1" type="text">
-                </td>
-              </tr> -->
               <tr class="govuk-table__row">
                 <td scope="row" class="govuk-table__cell">
                 Number of units
@@ -206,7 +173,7 @@
               </tr>
             </tbody>
           </table>
-
+          </div>
           <dl class="govuk-summary-list">
 
             <div class="govuk-summary-list__row">
@@ -228,14 +195,35 @@
             </div>
           </dl>
 
-          <!-- <p>You're using a total of 5 biodiversity units. This is a 5% biodiversity net gain (BNG).</p> -->
+       
 
-        </div>
+        <form method="post">
 
-        {{ govukButton({
-            text: "Continue"
-        }) }}
-
+          {{ govukRadios({
+            classes: "",
+            idPrefix: "off-site-gain-data",
+            name: "off-site-gain-data",
+            fieldset: {
+              legend: {
+                text: "Are these habitat details correct?",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+  
+              },
+              {
+                value: "no",
+                text: "No, I need to upload a different Metric file"
+              }
+            ]
+          }) }}
+  
+          {{ govukButton({ text: 'Continue' }) }}
+  
         </form>
 
     </div>

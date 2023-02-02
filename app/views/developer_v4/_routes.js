@@ -241,9 +241,18 @@ router.post('/allocation-habitat-new', function (req, res) {
 });
 
 // Examples - examples post here
+// router.post('/confirm-off-site-gain', function (req, res) {
+//   req.session.data['manual-entry'] = 'true';
+//   res.redirect('consent');
+// });
+
 router.post('/confirm-off-site-gain', function (req, res) {
-  req.session.data['manual-entry'] = 'true';
-  res.redirect('consent');
+  if (req.session.data['off-site-gain-data'] == 'yes') {
+    res.redirect('consent');
+  }
+  else if (req.session.data['off-site-gain-data'] == 'no') {
+    res.redirect('metric-upload');
+  }
 });
 
 // Examples - examples post here
