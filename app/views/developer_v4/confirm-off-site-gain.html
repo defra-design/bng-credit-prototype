@@ -6,10 +6,6 @@
 
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-<!-- <p>
-	{{ data | dump }}
-</p> -->
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -36,9 +32,6 @@
         </div>
       </dl>
 
-      <!-- <p>This information has been taken from your approved Metric file.</p> -->
-
-      <form method="post">
         <div class="app-table-responsive">
           <table class="govuk-table">
             <caption class="govuk-visually-hidden">Habitat</caption>
@@ -51,23 +44,12 @@
             </thead>
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">
+                <td scope="row" class="govuk-table__cell" width="70%">
                   Grassland
                   <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
                     Modified grassland
                   </span>
-                  <!-- <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">
-                    Good condition
-                  </span> -->
                 </td>
-                <!-- <td class="govuk-table__cell">
-                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
-                    Grassland units allocated
-                  </label>
-                  <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
-                    <div class="govuk-input__suffix" aria-hidden="true">ha</div>
-                  </div>
-                </td> -->
                 <td class="govuk-table__cell">
                   1
                 </td>
@@ -78,18 +60,7 @@
                   <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
                     Bramble scrub
                   </span>
-                  <!-- <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">
-                    Good condition
-                  </span> -->
                 </td>
-                <!-- <td class="govuk-table__cell">
-                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
-                    Grassland units allocated
-                  </label>
-                  <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
-                    <div class="govuk-input__suffix" aria-hidden="true">ha</div>
-                  </div>
-                </td> -->
                 <td class="govuk-table__cell">
                 1
                 </td>
@@ -100,18 +71,7 @@
                   <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
                     Lowland mixed deciduous woodland
                   </span>
-                  <!-- <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">
-                    Good condition
-                  </span> -->
                 </td>
-                <!-- <td class="govuk-table__cell">
-                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
-                    Grassland units allocated
-                  </label>
-                  <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
-                    <div class="govuk-input__suffix" aria-hidden="true">ha</div>
-                  </div>
-                </td> -->
                 <td class="govuk-table__cell">
                   2
                 </td>
@@ -125,8 +85,8 @@
                 </td>
               </tr>
               <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell govuk-!-font-weight-bold">
-                  BNG added
+                <td scope="row" class="govuk-table__cell">
+                  Biodiversity net gain added
                 </td>
                 <td class="govuk-table__cell">
                   3%
@@ -142,7 +102,6 @@
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header app-table__header--mobile">Hedgerow type</th>
-                <!-- <th scope="col" class="govuk-table__header">Length in kilometes</th> -->
                 <th scope="col" class="govuk-table__header">Biodiversity units</th>
               </tr>
             </thead>
@@ -156,7 +115,7 @@
                 </td>
               </tr>
               <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">
+                <td scope="row" class="govuk-table__cell" width="70%">
                 Number of units
                 </td>
                 <td class="govuk-table__cell">
@@ -164,8 +123,8 @@
                 </td>
               </tr>
               <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell govuk-!-font-weight-bold">
-                  BNG added
+                <td scope="row" class="govuk-table__cell">
+                  Biodiversity net gain added
                 </td>
                 <td class="govuk-table__cell">
                   2%
@@ -174,26 +133,36 @@
             </tbody>
           </table>
           </div>
-          <dl class="govuk-summary-list">
 
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Total biodiversity units
-              </dt>
-              <dd class="govuk-summary-list__value">
-                5
-              </dd>
+          <div class="app-table-responsive">
+            <table class="govuk-table">
+              <caption class="govuk-visually-hidden">Biodiversity</caption>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header app-table__header--mobile">Biodiversity</th>
+                  <th scope="col" class="govuk-table__header">Total</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell" width="70%">
+                    Biodiversity units
+                  </td>
+                  <td class="govuk-table__cell">
+                   5
+                  </td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">
+                    Biodiversity net gain
+                  </td>
+                  <td class="govuk-table__cell">
+                    5%
+                  </td>
+                </tr>
+              </tbody>
+            </table>
             </div>
-    
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Total biodiversity net gain (BNG)
-              </dt>
-              <dd class="govuk-summary-list__value">
-                5%
-              </dd>
-            </div>
-          </dl>
 
        
 

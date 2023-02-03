@@ -255,10 +255,11 @@ router.post('/confirm-off-site-gain', function (req, res) {
   }
 });
 
-// Examples - examples post here
+// Consent
 router.post('/consent', function (req, res) {
   req.session.data['manual-entry'] = 'true';
-  res.redirect('email-entry');
+  //res.redirect('email-entry');
+  res.redirect('legal-agreement-upload');
 });
 ////////////////////////////////////////////////////////
 router.post('/location-options', function (req, res) {
@@ -366,27 +367,38 @@ router.post('/offsite2', function (req, res) {
 router.post('/legal-agreement-upload', function (req, res) {
   res.redirect('legal-agreement-check');
 });
+// router.post('/legal-agreement-check', function (req, res) {
+//   if (req.session.data['legal-agreement-correct'] == 'yes') {
+//     if (req.session.data['offsite-done'] == 'yes') {
+//       req.session.data['task4'] = 'complete';
+//       if (req.session.data['check-answers'] == 'true') {
+//         res.redirect('check-answers');
+//       }
+//       else {
+//         res.redirect('tasklist');
+//       }
+//     }
+//     else {
+//       res.redirect('offsite2');
+//     }
+
+//   }
+//   else if (req.session.data['legal-agreement-correct'] == 'no') {
+//     res.redirect('legal-agreement-upload');
+//   }
+
+// });
+
+// Legal agreement for single site
 router.post('/legal-agreement-check', function (req, res) {
   if (req.session.data['legal-agreement-correct'] == 'yes') {
-    if (req.session.data['offsite-done'] == 'yes') {
-      req.session.data['task4'] = 'complete';
-      if (req.session.data['check-answers'] == 'true') {
-        res.redirect('check-answers');
-      }
-      else {
-        res.redirect('tasklist');
-      }
-    }
-    else {
-      res.redirect('offsite2');
-    }
-
+    res.redirect('email-entry');
   }
   else if (req.session.data['legal-agreement-correct'] == 'no') {
     res.redirect('legal-agreement-upload');
   }
-
 });
+
 router.post('/email', function (req, res) {
   if (req.session.data['email-required'] == 'yes') {
     res.redirect('email-entry');
