@@ -1,0 +1,201 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Confirm the off-site gain" %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p>Confirm if these details match what you have agreed with the landowner.</p>
+
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Bex's Eco Farm Ltd
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Biodiversity gain site number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            BGS-12778902
+          </dd>
+        </div>
+      </dl>
+
+        <div class="app-table-responsive">
+          <table class="govuk-table">
+            <caption class="govuk-visually-hidden">Habitat</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header app-table__header--mobile">Habitat type</th>
+                <!-- <th scope="col" class="govuk-table__header">Area in hectares</th> -->
+                <th scope="col" class="govuk-table__header">Area in hectares</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" width="70%">
+                  Grassland
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                    Modified grassland
+                  </span>
+                </td>
+                <td class="govuk-table__cell">
+                  1
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">
+                  Heathland and scrub
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                    Bramble scrub
+                  </span>
+                </td>
+                <td class="govuk-table__cell">
+                1
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">
+                  Woodland and forest
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                    Lowland mixed deciduous woodland
+                  </span>
+                </td>
+                <td class="govuk-table__cell">
+                  2
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell govuk-!-font-weight-bold">
+                Total area
+                </td>
+                <td class="govuk-table__cell">
+                  4
+                </td>
+              </tr>
+              <!-- <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">
+                  Biodiversity net gain added
+                </td>
+                <td class="govuk-table__cell">
+                  3%
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="app-table-responsive">
+          <table class="govuk-table">
+            <caption class="govuk-visually-hidden">Hedgerow</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header app-table__header--mobile">Hedgerow type</th>
+                <th scope="col" class="govuk-table__header">Length in kilometres</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">
+                  Native species rich hedgerow
+                </td>
+                <td class="govuk-table__cell">
+                 1
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell govuk-!-font-weight-bold" width="70%">
+                  Total length
+                </td>
+                <td class="govuk-table__cell">
+                  1
+                </td>
+              </tr>
+              <!-- <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">
+                  Biodiversity net gain added
+                </td>
+                <td class="govuk-table__cell">
+                  2%
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
+          </div>
+
+          <!-- <div class="app-table-responsive">
+            <table class="govuk-table">
+              <caption class="govuk-visually-hidden">Biodiversity</caption>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header app-table__header--mobile">Biodiversity</th>
+                  <th scope="col" class="govuk-table__header">Total</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell" width="70%">
+                    Biodiversity units
+                  </td>
+                  <td class="govuk-table__cell">
+                   5
+                  </td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">
+                    Biodiversity net gain
+                  </td>
+                  <td class="govuk-table__cell">
+                    5%
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div> -->
+
+       
+
+        <form method="post">
+
+          {{ govukRadios({
+            classes: "",
+            idPrefix: "off-site-gain-data",
+            name: "off-site-gain-data",
+            fieldset: {
+              legend: {
+                text: "Are these habitat details correct?",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+  
+              },
+              {
+                value: "no",
+                text: "No, I need to upload a different Metric file"
+              }
+            ]
+          }) }}
+  
+          {{ govukButton({ text: 'Continue' }) }}
+  
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}
