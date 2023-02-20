@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+
+{% set pageHeading = "Confirm the total amount of off-site land you're using" %}
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Habitat type</th>
+            <th scope="col" class="govuk-table__header">Area (ha)</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              Grassland
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+            </td>
+            <td class="govuk-table__cell">2.1</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              Heathland and scrub
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Hazel scrub</span>
+            </td>
+            <td class="govuk-table__cell">0.4</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Woodland and forest
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other woodland; mixed</span>
+              </td>
+            <td class="govuk-table__cell">3.2</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__header">Total</td>
+            <td class="govuk-table__header">4.15</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Hedgerow type</th>
+            <th scope="col" class="govuk-table__header">Length (km)</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Native species rich hedgerow</td>
+            <td class="govuk-table__cell">0.24</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__header">Total</td>
+            <td class="govuk-table__header">0.24</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <form method="post">
+
+
+          {{ govukRadios({
+
+            idPrefix: "onsite-total",
+            name: "onsite-total",
+            fieldset: {
+              legend: {
+                text: "Is this off-site land information correct?",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No, I need to upload a different Metric file"
+              }
+            ]
+          }) }}
+
+
+
+        {{ govukButton({ text: 'Continue' }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

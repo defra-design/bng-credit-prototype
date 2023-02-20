@@ -24,6 +24,7 @@ router.use('/developer_v3-1', require('./views/developer_v3-1/_routes'))
 router.use('/developer_v4', require('./views/developer_v4/_routes'))
 router.use('/developer_v4-1', require('./views/developer_v4-1/_routes'))
 router.use('/developer_v4-2', require('./views/developer_v4-2/_routes'))
+router.use('/developer_v4-3', require('./views/developer_v4-3/_routes'))
 
 router.post('/set-credit-amounts', function (req, res) {
   res.redirect('/' + req.query.version + '/start-page?journey=' + req.query.journey);

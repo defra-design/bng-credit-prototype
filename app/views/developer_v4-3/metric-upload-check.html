@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% set pageH1 = "Check your Biodiversity Metric 4.0 file" %}
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageH1 }}
+      </h1>
+
+      <!-- <p>
+        {{ data | dump }}
+      </p> -->
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added",
+              classes: "app-summary-list__key--narrow",
+              classes: "govuk-!-width-one-quarter"
+            },
+            value: {
+              html: '<a download href="#">'+data['metric-file']+'</a>, 4.1MB'
+            }
+          }
+        ]
+      }) }}
+
+      <form method="post">
+
+        {{ govukRadios({
+          idPrefix: "metric-correct",
+          name: "metric-correct",
+          fieldset: {
+            legend: {
+              text: "Is this the correct file?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, this is the Metric file my local planning authority reviewed with my Biodiversity Net Gain Statement"
+            },
+            {
+              value: "no",
+              text: "No, upload a different file"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({ text: 'Continue' }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "The information shown is incorrect" %}
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>
+        Please contact your Local Planning Authority if the Metric information you see is different to what they have approved.
+      </p>
+
+      <p>
+        If you think the information has not uploaded correctly, please contact us.
+      </p>
+
+        <div class="govuk-details__text">
+          {% include "../includes/get-help.html" %}
+        </div>
+
+
+    </div>
+  </div>
+
+{% endblock %}
