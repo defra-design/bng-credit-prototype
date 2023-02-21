@@ -16,3 +16,22 @@ $govuk-assets-path: '/govuk/assets/';
 @import "patterns/related-items";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+// Save and return
+.app-save__wrapper {
+    min-height: 40px;
+    position: relative;
+  }
+  
+  .app-save {
+    margin-top: govuk-spacing(2);
+    position: absolute;
+    right: 0;
+    top: 3px;
+    text-align: right;
+  }
+
+  // Email container
+.govuk-width-container-email {
+  max-width: 600px;
+}

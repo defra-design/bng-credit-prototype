@@ -1,4 +1,4 @@
-{% extends "layout_noheader.html" %}
+{% extends "layout-email.html" %}
 
 
 {% set pageHeading = "Subject: We've registered your biodiversity net gain details" %}
@@ -8,59 +8,37 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
-      <h1 class="govuk-heading-xl">
-        Confirmation email to developers
-      </h1>
+      <p>Dear {{ data['full-name'] or 'Jo Smith' }}</p>
+      <p>We’ve added your biodiversity net gain details to the Public Biodiversity Gain Register for the following development project:</p>
 
-      <h2 class="govuk-heading-l">
-        {{ pageHeading }}
-      </h2>
+      <p><strong>Project name:</strong>  Emmer Green Golf Course <br>
+          <strong>Local authority:</strong> Reading Borough Council<br>
+          <strong>Planning reference:</strong> 22/0197/RGL</p>
 
-      <!-- <p>
-        {{ data | dump }}
-      </p> -->
+      <p><strong>Biodiversity gain site:</strong> Bex's Eco Farm Ltd <br>
+        <strong>Biodiversity gain site number:</strong> BGS-12778902
+      </p>
 
-        <p>Dear ((full name))</p>
-        <p>We’ve added your biodiversity net gain details to the Public Biodiversity Gain Register for the following development project:</p>
+      <p>You can view your details on the Public Biodiversity Gain Register here: <a href="#">https://defra/bng-public-register.co.uk</a></p>
 
-        <p><strong>Project name:</strong>  Emmer Green Golf Course <br>
-            <strong>Local authority:</strong> Reading Borough Council<br>
-            <strong>Planning reference:</strong> 22/0197/RGL</p>
+      <h2 class="govuk-heading-m">How to discharge your BNG planning condition</h2>
 
-        <p><strong>Biodiversity gain site:</strong> Bex's Eco Farm Ltd <br>
-          <strong>Biodiversity gain site number:</strong> BGS-12778902
-        </p>
-            
-            
-            
-                       
-        <p>You can view your details on the Public Biodiversity Gain Register here: <a href="#">https://defra/bng-public-register.co.uk</a></p>
+      <p>You need to add this link to your Biodiversity Net Gain Plan and send it your local planning authority.</p>
 
-        <h2 class="govuk-heading-m">How to discharge your BNG planning condition</h2>
+      <p>You will not be able to discharge your BNG planning condition until the local planning authority has reviewed what has been recorded on the register, and they're happy you've met at least 10% net gain.</p>
 
-        <p>You need to add this link to your Biodiversity Net Gain Plan and send it your local planning authority.</p>
-
-        <p>You will not be able to discharge your BNG planning condition until the local planning authority has reviewed what has been recorded on the register, and they're happy you've met at least 10% net gain.</p>
-
-        <p>Regards, <br>Natural England<br><br><br>This is an automated message - do not reply</p>
-
-
-      <!-- <form method="post">
-
-        <div class="govuk-form-group">
-
-        <input class="govuk-input" id="additional-email" name="additional-email" value="{{data['additional-email']}}" type="text">
+      <p>Regards</p>
+      <p>Register land as a biodiversity gain site service</p>
+      <p>Natural England</p>
+      <p>This is an automated message - do not reply.</p>
+      <hr class="app-divider">
+      <div class="govuk-!-margin-top-9">
+        <p class="govuk-body-s">This email and any attachments is intended for the named recipient only. If you have received it in error you have no authority to use, disclose, store or copy any of its contents and you should destroy it and inform the sender. Whilst this email and associated attachments will have been checked for known viruses whilst within Defra systems we can accept no responsibility once it has left our systems. Communications on Defra's computer systems may be monitored and/or recorded to secure the effective operation of the system and for other lawful purposes.</p>
       </div>
-
-
-
-        {{ govukButton({ text: 'Continue'}) }}
-
-      </form> -->
-
+        
     </div>
-  </div>
+</div>
 
 {% endblock %}
