@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% set hideSaveLink = true %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if 
+        data['routing-register'] == 'Yes' and data['routing-sold'] == 'Yes'
+      %}
+        {% set pageHeading = "Before you register a biodiversity gain site and record the off-site biodiversity gains" %}
+      {% elif 
+        data['routing-register'] == 'Yes' and data['routing-sold'] == 'No'
+      %}
+        {% set pageHeading = "Before you register a biodiversity gain site" %}
+      {% elif 
+        data['routing-register'] == 'No'
+      %}
+        {% set pageHeading = "Before you record the off-site biodiversity gains for a development project" %}
+      {% else %}
+        {% set pageHeading = "Before you register a biodiversity gain site" %}
+      {% endif %}
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+    
+
+     
+
+      <p>We'll ask you a few questions to check you have everything you need.</p>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "eligibility-england"
+      }) }}
+
+      <p><a href="details-name">Skip to record the off-site biodiversity gains for a development project</a> if you know you have everything you need.</p>
+        
+     
+
+    </div>
+  </div>
+
+{% endblock %}

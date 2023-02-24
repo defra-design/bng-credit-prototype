@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "You need to complete a Biodiversity Metric" %}
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>You need to complete the Biodiversity Metric of the baseline and proposed habitats for your off-site land.</p>
+      <p>This will be used to calculate any biodiversity net gains or losses for your development project. It will also need to be reviewed by your Local Planning Authority.</p>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help with the Biodiversity Metric
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          {% include "../includes/get-help.html" %}
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+{% endblock %}

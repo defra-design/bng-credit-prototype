@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Upload your geospatial data file" %}
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>
+        {{ data | dump }}
+      </p>
+
+      <form method="post">
+
+
+          <input type="hidden" id="geo-area" name="geo-area" value="4.2 ha">
+          <input type="hidden" id="grid-ref" name="grid-ref" value="SP41989814">
+      
+          <div>
+            <p>The file should be:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>GeoJSON, KML or Shape files</li>
+              <li>no larger than 50MB</li>
+            </ul>
+          </div>
+
+        {{ govukFileUpload({
+          id: "location-import",
+          name: "location-import",
+          label: {
+            text: "Upload your file"
+          }
+        }) }}
+
+
+        {{ govukButton({
+          text: "Upload file"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

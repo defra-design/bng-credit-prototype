@@ -1,0 +1,137 @@
+
+{% extends "layout.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "22/01976/RJL" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
+        <span class="govuk-caption-xl">Development project</span>
+         {{ pageHeading }}
+      </h1>
+
+      <p class="govuk-body-s app-secondary-text-colour govuk-!-margin-bottom-7">Added to the BNG Register on 7 March 2022</p>
+
+      <div class="govuk-body" >
+        <img src='../../public/images/location-confirm.png' alt='map' width='100%' style='border: 1px solid #b1b4b6;'>
+        <a download href='#''>emmergreed.pdf</a>, 1.2MB
+      </div>
+
+      {{ govukSummaryList({
+        rows: [
+        {
+          key: {
+            text: "Location"
+          },
+          value: {
+            text: "Emmer Green Golf Course, Reading"
+          }
+        },
+        {
+          key: {
+            text: "Planning reference number"
+          },
+          value: {
+            html: "22/01976/RJL <a href='#' class='govuk-!-display-block'>View planning application <span class='govuk-visually-hidden'>for 22/01976/RJL, Reading Borough Council</span></a>"
+          }
+        },
+          {
+            key: {
+              text: "Local Planning Authority"
+            },
+            value: {
+              text: "Reading Borough Council"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Biodiversity net gain</h2>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" rowspan="2">Biodiversity unit type</th>
+              <th class="govuk-table__header" colspan="2">Baseline units</th>
+              <th class="govuk-table__header" colspan="3">Post-development units</th>
+              <th class="govuk-table__header   govuk-table__header--numeric" rowspan="2" style="width:20%">Percentage net gain</th>
+            </tr>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric ">On-site</th>
+              <th class="govuk-table__header govuk-table__header--numeric">Off-site</th>
+              <th class="govuk-table__header govuk-table__header--numeric ">On-site</th>
+              <th class="govuk-table__header govuk-table__header--numeric">Off-site</th>
+              <th class="govuk-table__header govuk-table__header--numeric" style="width:10%;padding-right:20px;">Statutory biodiversity credits</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__cell">Habitat units</th>
+              <td class="govuk-table__cell govuk-table__cell--numeric ">14.02</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">6.80</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">6.91</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">8.3</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.3</td>
+              <td class="govuk-table__cell  govuk-table__cell--numeric ">10%</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__cell">Hedgerows or lines of trees units</th>
+              <td class="govuk-table__cell govuk-table__cell--numeric">1.83</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">1.25</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.2</td>
+              <td class="govuk-table__cell  govuk-table__cell--numeric ">10%</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__cell">River and streams units</th>
+              <td class="govuk-table__cell govuk-table__cell--numeric ">0</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+              <td class="govuk-table__cell  govuk-table__cell--numeric ">0%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <p><a download href="#">Biodiversity Metric 3.1 Calculations (XLMS, 4.2MB)</a></p>
+
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Linked off-sites</h2>
+      <ul class="govuk-list">
+        <li>
+          <h3 class="app-search-results__title govuk-!-margin-bottom-1"><span class="govuk-visually-hidden">Off-site reference:</span>
+            <a href="#" class="app-search-results__item-title">BNG-12778902</a>
+          </h3>
+          <p class="app-secondary-text-colour govuk-!-margin-bottom-1"><span class="govuk-visually-hidden">Location:</span> Meadowcroft Farm, Goose Ln, Reading</p>
+          <p class="govuk-!-margin-bottom-1"><span class="govuk-visually-hidden">Local planning authority:</span> Reading Borough Council</p>
+          <p><a download href="#">Planning obligation (PDF, 1.2MB)</a></p>
+        </li>
+      </ul>
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
+{% endblock %}

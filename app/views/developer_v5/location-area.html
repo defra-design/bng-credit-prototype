@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "How many hectares is the land?" %}
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+
+        {{ govukInput({
+          id: "geo-area",
+          name: "geo-area",
+          label: {
+            text: pageHeading,
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          suffix: {
+            text: "ha"
+          },
+          classes: "govuk-input--width-5",
+          spellcheck: false
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
