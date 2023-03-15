@@ -2,17 +2,60 @@
 
 <a class="gem-c-skip-link govuk-skip-link govuk-!-display-none-print" data-module="govuk-skip-link" href="#guide-contents">Skip to contents of guide</a>
 <aside class="part-navigation-container" role="complementary">
-  <nav class="gem-c-contents-list" aria-label="Pages in this guide" role="navigation" data-module="gem-track-click">
-    <h2 class="govuk-heading-m">
+  <nav class="gem-c-contents-list govuk-!-padding-top-0" aria-label="Pages in this guide" role="navigation" data-module="gem-track-click">
+    <h2 class="gem-c-contents-list__title">
       Contents
     </h2>
-    <ol class="govuk-list">
-      <li><a href="index">What is biodiversity net gain (BNG)</a></li>
-      <li><a href="#">How biodiversity net gain works</a></li>
-      <!-- <li><a href="#" style="text-decoration:none; margin-left:5px" >--  If you're a landowner</a></li>
-      <li><a href="#" style="text-decoration:none; margin-left:5px" >--  If you're a developer</a></li> -->
-      <li><a href="#">Register your land for use as gain sites</a></li>
-      <li><a href="guidance">Register off-site gain before you discharge your BNG planning condition</a></li>
+    <ol class="gem-c-contents-list__list">
+
+      {% if pageHeading == pageHeadingOne %}
+      <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
+        {{ pageHeadingOne }}
+      </li>
+      {% else %}
+        <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+          <a class="gem-c-contents-list__link govuk-link" href="start-update">
+            {{ pageHeadingOne }}
+          </a>
+        </li>
+      {% endif %}
+
+      {% if pageHeading == pageHeadingTwo %}
+      <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
+        {{ pageHeadingTwo }}
+      </li>
+      {% else %}
+        <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+          <a class="gem-c-contents-list__link govuk-link" href="start-gain-site">
+            {{ pageHeadingTwo }}
+          </a>
+        </li>
+      {% endif %}
+
+      {% if pageHeading == pageHeadingThree %}
+      <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
+        {{ pageHeadingThree }}
+      </li>
+      {% else %}
+        <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+          <a class="gem-c-contents-list__link govuk-link" href="start-allocate">
+            {{ pageHeadingThree }}
+          </a>
+        </li>
+      {% endif %}
+
+      {% if pageHeading == pageHeadingFour %}
+      <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
+        {{ pageHeadingFour }}
+      </li>
+      {% else %}
+        <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+          <a class="gem-c-contents-list__link govuk-link" href="start-public-register">
+            {{ pageHeadingFour }}
+          </a>
+        </li>
+      {% endif %}
+
     </ol>
   </nav>
 </aside>

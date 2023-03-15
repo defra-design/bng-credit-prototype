@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+{% set pageHeading = "Confirm the land boundary" %}
+
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>
+        {{ data | dump }}
+      </p>
+
+      {% if data['location-options']== "import" %}
+
+      <div class="govuk-body" >
+        <img src='../../public/images/location-confirm.png' alt='map' width='100%' style='border: 1px solid #b1b4b6;'>
+        <a download href='#''>emmer.green.pdf</a>, 1.2MB
+      </div>
+      {% endif %}
+
+
+      <dl class="govuk-summary-list">
+        {% if data['location-options']== "upload" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            File added
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <img src='../../public/images/land-boundary-file.png' alt='map' width='100%' style='border: 1px solid #b1b4b6;'>
+            <p>
+              <a download href='#''>emmer-green.jpg</a>, 1.2MB
+            </p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> map</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Area in hectares
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['geo-area']}}
+          </dd>
+          {% if data['location-options']== "upload" %}
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> area</span>
+            </a>
+          </dd>
+          {% endif %}
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Grid reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['grid-ref']}}
+          </dd>
+          {% if data['location-options']== "upload" %}
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> grid reference</span>
+            </a>
+          </dd>
+          {% endif %}
+        </div>
+      </dl>
+
+      <form method="post">
+
+        {% if data['location-options']== "import" %}
+
+          {{ govukRadios({
+            idPrefix: "location-confirm",
+            name: "location-confirm",
+            fieldset: {
+              legend: {
+                text: "Is the land boundary information correct?",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no-geo",
+                text: "No, upload a different geospatial file"
+              },
+              {
+                value: "no",
+                text: "No, upload a document or image of the land boundary instead"
+              }
+            ]
+          }) }}
+        {% else %}
+          {{ govukRadios({
+            idPrefix: "location-confirm",
+            name: "location-confirm",
+            fieldset: {
+              legend: {
+                text: "Is the land boundary information correct?",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no-geo",
+                text: "No, upload a geospatial file instead"
+              }
+            ]
+          }) }}
+        {% endif %}
+
+
+        {{ govukButton({ text: 'Continue' }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

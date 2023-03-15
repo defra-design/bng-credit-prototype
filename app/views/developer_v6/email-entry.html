@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Enter additional email addresses" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div data-module="moj-add-another">
+
+        <h1 class="govuk-heading-l" tabindex="-1">
+          {{ pageHeading }}
+        </h1>
+
+        <p>Enter email addresses for anyone in your organisation who needs to be notified about what you're recording.</p>
+
+        <p>For example, the person who will need to add proof of registration to the Gain Plan you submit to the local planning authority.</p>
+      
+        <form method="post" action="">
+      
+          {% call govukFieldset({
+            classes: 'moj-add-another__item',
+            legend: {
+              text: 'Email',
+              classes: 'moj-add-another__title govuk-fieldset__legend--m',
+              isPageHeading: false
+            }
+          }) %}
+      
+          {{ govukInput({
+            id: 'email[0][email_address]',
+            name: 'email[0][email_address]',
+            label: {
+              html: 'Email address'
+            },
+            attributes: {
+              'data-name': 'email[%index%][email_address]',
+              'data-id': 'email[%index%][email_address]'
+            }
+          }) }}
+      
+          {% endcall %}
+      
+          <div class="moj-button-action">
+            {{ govukButton({
+              text: 'Add another email address',
+              classes: 'govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4'
+            }) }}
+          </div>
+      
+          <div class="moj-button-action">
+            {{ govukButton({
+              text: 'Continue'
+            }) }}
+          </div>
+      
+        </form>
+
+        <p><a href="check-answers">Skip to check your answers</a> if do not want to add any additional email addresses.</p>
+      
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

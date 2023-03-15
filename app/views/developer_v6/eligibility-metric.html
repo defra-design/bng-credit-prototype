@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Do you have a completed Biodiversity metric 4.0 file?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post">
+
+          {{ govukRadios({
+            idPrefix: "eligibility-metric",
+            name: "eligibility-metric",
+            fieldset: {
+              legend: {
+                text: pageHeading,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: "<span class='govuk-!-display-block govuk-hint'>This is the Metric file that the local planning authority reviewed with your Biodiversity Net Gain Statement.</span>"
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                checked: checked("eligibility-metric", "Yes")
+              },
+              {
+                value: "No",
+                text: "No",
+                checked: checked("eligibility-metric", "No")
+              },
+              {
+                value: "Not sure",
+                text: "I'm not sure",
+                checked: checked("eligibility-metric", "Not sure")
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
