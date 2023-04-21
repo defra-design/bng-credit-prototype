@@ -226,7 +226,7 @@ router.post('/development-location', function (req, res) {
 router.post('/biodiversity-gain-site-number', function (req, res) {
   //req.session.data['manual-entry'] = 'true';
   //res.redirect('confirm-off-site-gain');
-  res.redirect('allocation-habitat-new');
+  res.redirect('metric-upload');
 });
 
 // Examples - examples post here
