@@ -1,0 +1,119 @@
+{% extends "layout_noheader.html" %}
+
+
+{% set pageHeading = "Select credit tier" %} 
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-breadcrumbs">
+        <ol class="govuk-breadcrumbs__list">
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="credits-type">Type of credit</a>
+          </li>
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Credit tier</a>
+          </li>
+        </ol>
+      </div>
+
+      <form method="post">
+
+        <p>
+          {{ data | dump }}
+        </p>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+                {{ pageHeading }}
+            </h1>
+          </legend>
+          <div id="changed-name-hint" class="govuk-hint">
+            Do we need to explain the concept of tiers?
+          </div>
+
+          {% if data['credits-type']=="Area" %}
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="A1" name="credits-tier" type="radio" value="A1" {{ checked("credits-tier", "A1") }}>
+              <label class="govuk-label govuk-radios__label" for="A1">
+                A1
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="A2" name="credits-tier" type="radio" value="A2" {{ checked("credits-tier", "A2") }}>
+              <label class="govuk-label govuk-radios__label" for="A2">
+                A2
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="A3" name="credits-tier" type="radio" value="A3" {{ checked("credits-tier", "A3") }}>
+                <label class="govuk-label govuk-radios__label" for="A3">
+                  A3
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="A4" name="credits-tier" type="radio" value="A4" {{ checked("credits-tier", "A4") }}>
+                <label class="govuk-label govuk-radios__label" for="A4">
+                  A4
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="A5" name="credits-tier" type="radio" value="A5" {{ checked("credits-tier", "A5") }}>
+                <label class="govuk-label govuk-radios__label" for="A5">
+                  A5
+                </label>
+              </div>
+
+          {% else %}
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="L1" name="credits-tier" type="radio" value="L1" {{ checked("credits-tier", "L1") }}>
+              <label class="govuk-label govuk-radios__label" for="L1">
+                L1
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="L2" name="credits-tier" type="radio" value="L2" {{ checked("credits-tier", "L2") }}>
+              <label class="govuk-label govuk-radios__label" for="L2">
+                L2
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="L3" name="credits-tier" type="radio" value="L3" {{ checked("credits-tier", "L3") }}>
+              <label class="govuk-label govuk-radios__label" for="L3">
+                L3
+              </label>
+            </div>
+
+          {% endif %}
+
+          </div>
+        </fieldset>
+      </div>
+      
+      {{ govukButton({ text: 'Continue'}) }}
+
+      </form>
+
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Credits</h2>
+      <p class="govuk-body">{{data['credits-type']}}</p>
+      <p class="govuk-body">{{data['credits-tier']}}</p>
+      <p class="govuk-body">{{data['credits-broad-habitat-type']}}</p>
+      <p class="govuk-body">{{data['credits-habitat-type']}}</p>
+
+    </div>
+  </div>
+
+{% endblock %}

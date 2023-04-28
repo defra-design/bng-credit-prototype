@@ -532,4 +532,42 @@ router.post('/details-confirm', function (req, res) {
 });
 
 
+// Credits
+router.post('/credits-type', function (req, res) {
+  //req.session.data['manual-entry'] = 'true';
+  //res.redirect('confirm-off-site-gain');
+  res.redirect('credits-tier');
+});
+
+router.post('/credits-tier', function (req, res) {
+  //req.session.data['manual-entry'] = 'true';
+  //res.redirect('confirm-off-site-gain');
+  res.redirect('credits-broad-habitat-type');
+});
+
+router.post('/credits-broad-habitat-type', function (req, res) {
+  //req.session.data['manual-entry'] = 'true';
+  //res.redirect('confirm-off-site-gain');
+  res.redirect('credits-habitat-type');
+});
+
+router.post('/credits-habitat-type', function (req, res) {
+  //req.session.data['manual-entry'] = 'true';
+  //res.redirect('confirm-off-site-gain');
+  res.redirect('credits-amount');
+});
+
+router.post('/credits-amount', function (req, res) {
+  //req.session.data['manual-entry'] = 'true';
+  //res.redirect('confirm-off-site-gain');
+  res.redirect('credits-cost');
+});
+
+router.post('/credits-cost', function (req, res) {
+  //req.session.data['manual-entry'] = 'true';
+  //res.redirect('confirm-off-site-gain');
+  res.redirect('credits-type');
+});
+
+
 module.exports = router
