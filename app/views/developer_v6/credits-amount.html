@@ -1,4 +1,6 @@
-{% extends "layout_noheader.html" %}
+{% extends "layout.html" %}
+
+{% set hideSaveLink = true %}
 
 
 {% set pageHeading = "Credits amount" %} 
@@ -11,7 +13,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <div class="govuk-breadcrumbs">
+      <!-- <div class="govuk-breadcrumbs">
         <ol class="govuk-breadcrumbs__list">
           <li class="govuk-breadcrumbs__list-item">
             <a class="govuk-breadcrumbs__link" href="credits-type">Type of credit</a>
@@ -29,7 +31,7 @@
             <a class="govuk-breadcrumbs__link" href="#">Amount of credits</a>
           </li>
         </ol>
-      </div>
+      </div> -->
 
       <form method="post">
 
@@ -37,7 +39,7 @@
           {{ data | dump }}
         </p> -->
 
-        <table class="govuk-table">
+        <!-- <table class="govuk-table">
             <caption class="govuk-table__caption govuk-table__caption--l">Amount of credits needed</caption>
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
@@ -61,7 +63,20 @@
                 <td class="govuk-table__cell"><input class="govuk-input govuk-input--width-4" id="width-4" name="credits-amount" type="text" value="{{ data['credits-amount'] }}"></td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
+
+          <div class="govuk-form-group">
+            <span class="govuk-caption-l">Question 5 of 5</span>
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="event-name">
+                Enter amount of credits
+              </label>
+            </h1>
+            <div id="event-name-hint" class="govuk-hint">
+              Credits amount hint.
+            </div>
+            <input class="govuk-input govuk-input--width-4" id="credit-amount-needed" name="credits-amount" type="text" aria-describedby="event-name-hint" value="{{ data['credits-amount'] }}" {{ checked("credits-amount", "") }}>
+          </div>
 
           <div class="govuk-button-group">
             <button class="govuk-button" data-module="govuk-button">
@@ -70,6 +85,34 @@
           </div>
 
       </form>
+
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Choices</h2>
+      <ul class="govuk-list">
+        
+      {% if data['credits-type'] %}
+      <li class="govuk-!-font-weight-bold">Type of credit</li>
+      <li>{{data['credits-type']}}</li>
+      {% endif %}
+
+      {% if data['credits-tier'] %}
+      <li class="govuk-!-font-weight-bold">Credit tier</li>
+      <li>{{data['credits-tier']}}</li>
+      {% endif %}
+
+      {% if data['credits-broad-habitat-type'] %}
+      <li class="govuk-!-font-weight-bold">Broad habitat type</li>
+      <li>{{data['credits-broad-habitat-type']}}</li>    
+      {% endif %}
+
+      {% if data['credits-habitat-type'] %}
+      <li class="govuk-!-font-weight-bold">Habitat type</li>
+      <li>{{data['credits-habitat-type']}}</li>
+      {% endif %}
+      
+    </ul>
 
     </div>
   </div>

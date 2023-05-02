@@ -1,4 +1,6 @@
-{% extends "layout_noheader.html" %}
+{% extends "layout.html" %}
+
+{% set hideSaveLink = true %}
 
 
 {% set pageHeading = "Select habitat type" %} 
@@ -11,7 +13,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <div class="govuk-breadcrumbs">
+        <!-- <div class="govuk-breadcrumbs">
             <ol class="govuk-breadcrumbs__list">
               <li class="govuk-breadcrumbs__list-item">
                 <a class="govuk-breadcrumbs__link" href="credits-type">Type of credit</a>
@@ -26,7 +28,7 @@
                 <a class="govuk-breadcrumbs__link" href="#">Habitat type</a>
               </li>
             </ol>
-          </div>
+          </div> -->
 
       <form method="post">
 
@@ -37,12 +39,13 @@
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">Question 4 of 5</span>
             <h1 class="govuk-fieldset__heading">
                 {{ pageHeading }}
             </h1>
           </legend>
           <div id="changed-name-hint" class="govuk-hint">
-            Do we need to explain the concept of habitatat type?
+            Habitat type hint.
           </div>
           <div class="govuk-radios" data-module="govuk-radios">
             <!-- Area / A1 / Start --> 
@@ -720,13 +723,40 @@
               {% endif %}
 
             
-            </div>
+            
         </fieldset>
       </div>
 
         {{ govukButton({ text: 'Continue'}) }}
 
       </form>
+
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Choices</h2>
+      <ul class="govuk-list">
+        
+      {% if data['credits-type'] %}
+      <li class="govuk-!-font-weight-bold">Type of credit</li>
+      <li>{{data['credits-type']}}</li>
+      {% endif %}
+
+      {% if data['credits-tier'] %}
+      <li class="govuk-!-font-weight-bold">Credit tier</li>
+      <li>{{data['credits-tier']}}</li>
+      {% endif %}
+
+      {% if data['credits-broad-habitat-type'] %}
+      <li class="govuk-!-font-weight-bold">Broad habitat type</li>
+      <li>{{data['credits-broad-habitat-type']}}</li>    
+      {% endif %}
+
+      {% if data['credits-habitat-type'] %}
+      <li class="govuk-!-font-weight-bold">Habitat type</li>
+      <li>{{data['credits-habitat-type']}}</li>
+      {% endif %}
+      
+    </ul>
 
     </div>
   </div>
