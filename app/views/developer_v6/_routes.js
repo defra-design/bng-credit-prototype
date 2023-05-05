@@ -569,5 +569,26 @@ router.post('/credits-cost', function (req, res) {
   res.redirect('credits-type');
 });
 
+router.post('/credits-cost', function (req, res) {
+  if (req.session.data['add-more-credits'] == 'yes') {
+    res.redirect('credits-type');
+  }
+  else if (req.session.data['add-more-credits'] == 'no') {
+    res.redirect('credits-cost-multiple');
+  }
+});
+
+
+// router.post('/credits-cost', function (req, res) {
+
+//   var credits = req.session.data['add-more-credits']
+
+//   if (credits == "no"){
+//     res.redirect('credits-cost-multiple')
+//   } else {
+//     res.redirect('credits-type')
+//   }
+// });
+
 
 module.exports = router
