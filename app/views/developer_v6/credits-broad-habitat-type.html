@@ -234,27 +234,22 @@
 
     </div>
     <div class="govuk-grid-column-one-third">
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Choices</h2>
-      <ul class="govuk-list">
-        
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Credit</h2>
+      <ul class="govuk-list">       
       {% if data['credits-type'] %}
-      <li class="govuk-!-font-weight-bold">Type of credit</li>
-      <li>{{data['credits-type']}}</li>
+      <li><span class="govuk-!-font-weight-bold">Type:</span> {{data['credits-type']}}</li>
       {% endif %}
 
       {% if data['credits-tier'] %}
-      <li class="govuk-!-font-weight-bold">Credit tier</li>
-      <li>{{data['credits-tier']}}</li>
+      <li><span class="govuk-!-font-weight-bold">Tier:</span> {{data['credits-tier']}}</li>
       {% endif %}
 
       {% if data['credits-broad-habitat-type'] %}
-      <li class="govuk-!-font-weight-bold">Broad habitat type</li>
-      <li>{{data['credits-broad-habitat-type']}}</li>    
+      <li><span class="govuk-!-font-weight-bold">Broad habitat:</span> {{data['credits-broad-habitat-type']}}</li>    
       {% endif %}
 
       {% if data['credits-habitat-type'] %}
-      <li class="govuk-!-font-weight-bold">Habitat type</li>
-      <li>{{data['credits-habitat-type']}}</li>
+      <li><span class="govuk-!-font-weight-bold">Habitat:</span> {{data['credits-habitat-type']}}</li>
       {% endif %}
       
     </ul>

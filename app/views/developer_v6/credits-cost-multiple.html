@@ -38,8 +38,8 @@
         
 
       <form method="post">
-        <table class="govuk-table">
-            <caption class="govuk-table__caption govuk-table__caption--l">Multiple CYA</caption>
+        <!-- <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--l">Total credit estimation</caption>
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Type of credit</th>
@@ -66,54 +66,67 @@
                 <td class="govuk-table__cell">£21,000</td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
 
-          <!-- <div class="govuk-button-group">
-            <button class="govuk-button" data-module="govuk-button" href="#">
-              Add more credits
-            </button>
-          </div> -->
 
-          <!-- <div class="govuk-button-group">
-            {{ govukButton({
-              text: "Save and continue",
-              href: "credits-amount"
-            }) }}
-          
-            {{ govukButton({
-              text: "Save as draft",
-              classes: "govuk-button--secondary",
-              href: "credits-type"
-            }) }}
-          </div> -->
 
-            {{ govukRadios({
-              classes: "govuk-radios--inline",
-              idPrefix: "add-more-credits",
-              name: "add-more-credits",
-              fieldset: {
-                legend: {
-                  text: "Do you want to add more credits?",
-                  classes: "govuk-fieldset__legend--m"
-                }
-              },
-              items: [
-                {
-                  value: "yes",
-                  text: "Yes"
     
-                },
-                {
-                  value: "no",
-                  text: "No"
-                }
-              ]
-            }) }}
-    
-            {{ govukButton({ text: 'Continue' }) }}
+            <!-- {{ govukButton({ text: 'Continue' }) }} -->
 
         </form>
     </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--l">Credit cost estimate</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Type</th>
+              <th scope="col" class="govuk-table__header">Tier</th>
+              <th scope="col" class="govuk-table__header">Broad habitat</th>
+              <th scope="col" class="govuk-table__header">Habitat</th>
+              <th scope="col" class="govuk-table__header">Number of credits</th>
+              <th scope="col" class="govuk-table__header">Estimated cost</th>             
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Area</td>
+              <td class="govuk-table__cell">A3</td>
+              <td class="govuk-table__cell">Intertidal sediment</td>
+              <td class="govuk-table__cell">Littoral seagrass</td>
+              <td class="govuk-table__cell">2.89</td>
+              <td class="govuk-table__cell">£7,000</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Linear</td>
+              <td class="govuk-table__cell">L3</td>
+              <td class="govuk-table__cell">Rivers and streams</td>
+              <td class="govuk-table__cell">Other rivers and streams</td>
+              <td class="govuk-table__cell">6</td>
+              <td class="govuk-table__cell">£6,000</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Area</td>
+              <td class="govuk-table__cell">A1</td>
+              <td class="govuk-table__cell">Heathland and shrub</td>
+              <td class="govuk-table__cell">Mixed scrub</td>
+              <td class="govuk-table__cell">2.89</td>
+              <td class="govuk-table__cell">£8,000</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Totals</th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell">8.67</td>
+              <td class="govuk-table__cell">£21,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
 
 {% endblock %}
