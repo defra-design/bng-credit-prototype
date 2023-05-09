@@ -33,7 +33,7 @@
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <span class="govuk-caption-l">Question 2 of 5</span>
+            <span class="govuk-caption-l">Question 2 of 6</span>
             <h1 class="govuk-fieldset__heading">
                 {{ pageHeading }}
             </h1>
@@ -126,6 +126,10 @@
 
       {% if data['credits-habitat-type'] %}
       <li><span class="govuk-!-font-weight-bold">Habitat:</span> {{data['credits-habitat-type']}}</li>
+      {% endif %}
+
+      {% if data['credits-number'] %}
+      <li><span class="govuk-!-font-weight-bold">Number:</span> {{data['credits-number']}}</li>
       {% endif %}
       
     </ul>

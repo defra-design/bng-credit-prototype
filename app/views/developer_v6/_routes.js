@@ -560,7 +560,7 @@ router.post('/credits-habitat-type', function (req, res) {
 router.post('/credits-number', function (req, res) {
   //req.session.data['manual-entry'] = 'true';
   //res.redirect('confirm-off-site-gain');
-  res.redirect('credits-cost');
+  res.redirect('credits-add-more');
 });
 
 // router.post('/credits-cost', function (req, res) {
@@ -569,9 +569,11 @@ router.post('/credits-number', function (req, res) {
 //   res.redirect('credits-type');
 // });
 
-router.post('/credits-cost', function (req, res) {
+router.post('/credits-add-more', function (req, res) {
   if (req.session.data['add-more-credits'] == 'yes') {
+    req.session.data = {}
     res.redirect('credits-type');
+    
   }
   else if (req.session.data['add-more-credits'] == 'no') {
     res.redirect('credits-cost-multiple');
