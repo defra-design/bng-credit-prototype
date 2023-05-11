@@ -41,6 +41,38 @@
                 {{ pageHeading }}
             </h1>
           </legend>
+          <p class="govuk-body">A broad habitat is how we group habitat areas.</p>
+
+          {% if data['credits-type']=="Area" and data['credits-tier']=="A1" %}
+          <p class="govuk-body govuk-hint">Area and A1 broad habitat type hint.</p>
+
+          {% elif data['credits-type']=="Area" and data['credits-tier']=="A2" %}
+          <!-- <p class="govuk-body govuk-hint">Area and A2 broad habitat type hint.</p> -->
+          <p class="govuk-body">For example, tall herb communities and upland calcareous grassland would be described as a broad habitat of grassland.</p>
+          
+          {% elif data['credits-type']=="Area" and data['credits-tier']=="A3" %}
+          <p class="govuk-body govuk-hint">Area and A3 broad habitat type hint.</p>
+
+          {% elif data['credits-type']=="Area" and data['credits-tier']=="A4" %}
+          <p class="govuk-body govuk-hint">Area and A4 broad habitat type hint.</p>
+
+          {% elif data['credits-type']=="Area" and data['credits-tier']=="A4" %}
+          <p class="govuk-body govuk-hint">Area and A4 broad habitat type hint.</p>
+
+          {% elif data['credits-type']=="Area" and data['credits-tier']=="A5" %}
+          <p class="govuk-body govuk-hint">Area and A5 broad habitat type hint.</p>
+
+          {% elif data['credits-type']=="Linear" and data['credits-tier']=="L1" %}
+          <p class="govuk-body govuk-hint">Linear and L1 broad habitat type hint.</p>
+
+          {% elif data['credits-type']=="Linear" and data['credits-tier']=="L2" %}
+          <p class="govuk-body govuk-hint">Linear and L2 broad habitat type hint.</p>
+
+          {% else %}
+          <p class="govuk-body govuk-hint">Linear and L3 broad habitat type hint.</p>
+
+          {% endif %}
+
           <div id="changed-name-hint" class="govuk-hint">
             Broad habitat type hint.
           </div>

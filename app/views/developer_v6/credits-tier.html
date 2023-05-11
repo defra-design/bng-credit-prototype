@@ -38,9 +38,21 @@
                 {{ pageHeading }}
             </h1>
           </legend>
+
+          {% if data['credits-type']=="Area" %}
+
           <div id="changed-name-hint" class="govuk-hint">
-            Credit tier hint.
+            The credit tier is calculated by broad type. For example, Grassland is A1 and Woodland and Forest is A2. For a full list of broad habitat types, go to <a href="#">xxxxx</a>.
           </div>
+
+          {% else %}
+
+          <div id="changed-name-hint" class="govuk-hint">
+            The credit tier is calculated by broad habitat type. For example, Hedgerow is L1 and Rivers and Stream is L2. For a full list of broad habitat types, go to <a href="#">xxxxx</a>.
+          </div>
+
+          {% endif %}
+
 
           {% if data['credits-type']=="Area" %}
 
