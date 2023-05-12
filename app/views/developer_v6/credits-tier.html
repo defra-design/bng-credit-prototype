@@ -122,7 +122,7 @@
 
     </div>
     <div class="govuk-grid-column-one-third">
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Credit</h2>
+   <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Credit</h2>
       <ul class="govuk-list">       
       {% if data['credits-type'] %}
       <li><span class="govuk-!-font-weight-bold">Type:</span> {{data['credits-type']}}</li>
@@ -144,7 +144,82 @@
       <li><span class="govuk-!-font-weight-bold">Number:</span> {{data['credits-number']}}</li>
       {% endif %}
       
-    </ul>
+    </ul> -->
+
+    <!-- <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Credit</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date</th>
+          <th scope="col" class="govuk-table__header">Amount</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% if data['credits-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Type</th>
+          <td class="govuk-table__cell">{{data['credits-type']}}</td>
+        </tr>
+        {% endif %}       
+        {% if data['credits-tier'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Tier</th>
+          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
+        </tr>
+        {% endif %}
+        {% if data['credits-broad-habitat-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Broad habitat</th>
+          <td class="govuk-table__cell">{{data['credits-broad-habitat-type']}}</td>
+        </tr>
+        {% endif %}
+        {% if data['credits-habitat-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Habitat</th>
+          <td class="govuk-table__cell">{{data['credits-habitat-type']}}</td>
+        </tr>
+        {% endif %}
+        {% if data['credits-number'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Number</th>
+          <td class="govuk-table__cell">{{data['credits-number']}}</td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table> -->
+
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Credit</caption>
+      <!-- <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date</th>
+          <th scope="col" class="govuk-table__header">Amount</th>
+        </tr>
+      </thead> -->
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Type</th>
+          <td class="govuk-table__cell">{{data['credits-type']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Tier</th>
+          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Broad habitat</th>
+          <td class="govuk-table__cell">{{data['credits-broad-habitat-type']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Habitat</th>
+          <td class="govuk-table__cell">{{data['credits-habitat-type']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Number</th>
+          <td class="govuk-table__cell">{{data['credits-number']}}</td>
+        </tr>
+      </tbody>
+    </table>
     </div>
   </div>
 
