@@ -43,6 +43,19 @@
     </div>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
+
+        <p>
+          {{ data | dump }}
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          {% for item in credit %}
+            <li>{{item}}</li>
+          {% else %}
+            <li>Back to the drawing board</li>
+          {% endfor %}
+          </ul>
+
         <table class="govuk-table">
           <caption class="govuk-table__caption govuk-table__caption--l">Credit cost estimate</caption>
           <thead class="govuk-table__head">
