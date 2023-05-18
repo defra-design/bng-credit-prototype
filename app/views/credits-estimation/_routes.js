@@ -30,6 +30,8 @@ router.post('/credits-number', function (req, res) {
 });
 
 router.post('/credits-add-more', function (req, res) {
+  
+  let updatedCreditChoices = []
   let credit = {
     type: req.session.data['credits-type'],
     tier: req.session.data['credits-tier'],
@@ -37,8 +39,18 @@ router.post('/credits-add-more', function (req, res) {
     habitat: req.session.data['credits-habitat-type'],
     number: req.session.data['credits-number']
   }
-  req.session.data.creditChoices.push(credit);
-  console.log('CreditChoices Array' +JSON.stringify(creditChoices));
+
+  // set up an empty array in case the creditChoices object doesn't exist yet
+  let currentCreditChoices = []
+  if (req.session.data['credit-choices']) {
+    currentCreditChoices = req.session.data['credit-choices']
+  }
+
+  updatedCreditChoices = currentCreditChoices.push(credit)
+
+  // update the credit choices in the session data
+  req.session.data['credit-choices'] = updatedCreditChoices
+  console.log('CreditChoices Array ' + JSON.stringify(req.session.data['credit-choices']))
   
   if (req.session.data['add-more-credits'] == 'yes') {
     //req.session.data = {}
