@@ -3,7 +3,7 @@ const router = express.Router()
 
 
 const version = 'credits-estimation';
-const creditChoices = [];
+// const creditChoices = [];
 const credit = {}
 
 
@@ -31,29 +31,28 @@ router.post('/credits-number', function (req, res) {
 
 router.post('/credits-add-more', function (req, res) {
   
-  let updatedCreditChoices = []
   let credit = {
-    type: req.session.data['credits-type'],
-    tier: req.session.data['credits-tier'],
-    broad: req.session.data['credits-broad-habitat-type'],
-    habitat: req.session.data['credits-habitat-type'],
-    number: req.session.data['credits-number']
+    'type': req.session.data['credits-type'],
+    'tier': req.session.data['credits-tier'],
+    'broad': req.session.data['credits-broad-habitat-type'],
+    'habitat': req.session.data['credits-habitat-type'],
+    'number': req.session.data['credits-number']
   }
 
-  // set up an empty array in case the creditChoices object doesn't exist yet
+  // set up an empty array in case the credit choices object doesn't exist yet
   let currentCreditChoices = []
   if (req.session.data['credit-choices']) {
     currentCreditChoices = req.session.data['credit-choices']
   }
 
-  updatedCreditChoices = currentCreditChoices.push(credit)
+  currentCreditChoices.push(credit)
 
   // update the credit choices in the session data
-  req.session.data['credit-choices'] = updatedCreditChoices
+  req.session.data['credit-choices'] = currentCreditChoices
   console.log('CreditChoices Array ' + JSON.stringify(req.session.data['credit-choices']))
   
   if (req.session.data['add-more-credits'] == 'yes') {
-    //req.session.data = {}
+    req.session.data = {}
     res.redirect('credits-type');
     
   }
@@ -63,7 +62,6 @@ router.post('/credits-add-more', function (req, res) {
 });
 
 module.exports = router
-
 
 
 

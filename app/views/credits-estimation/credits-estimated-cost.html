@@ -44,17 +44,9 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <p>
+        <!-- <p>
           {{ data | dump }}
-        </p>
-
-        <ul class="govuk-list govuk-list--bullet">
-          {% for item in credit %}
-            <li>{{item}}</li>
-          {% else %}
-            <li>Back to the drawing board</li>
-          {% endfor %}
-          </ul>
+        </p> -->
 
         <table class="govuk-table">
           <caption class="govuk-table__caption govuk-table__caption--l">Credit cost estimate</caption>
@@ -69,15 +61,17 @@
             </tr>
           </thead>
           <tbody class="govuk-table__body">
+            {% for item in data['credit-choices'] %}
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Area</td>
-              <td class="govuk-table__cell">A3</td>
-              <td class="govuk-table__cell">Intertidal sediment</td>
-              <td class="govuk-table__cell">Littoral seagrass</td>
-              <td class="govuk-table__cell">2.89</td>
+              <td class="govuk-table__cell">{{item.type}}</td>
+              <td class="govuk-table__cell">{{item.tier}}</td>
+              <td class="govuk-table__cell">{{item.broad}}</td>
+              <td class="govuk-table__cell">{{item.habitat}}</td>
+              <td class="govuk-table__cell">{{item.number}}</td>
               <td class="govuk-table__cell">£7,000</td>
             </tr>
-            <tr class="govuk-table__row">
+            {% endfor %}
+            <!-- <tr class="govuk-table__row">
               <td class="govuk-table__cell">Linear</td>
               <td class="govuk-table__cell">L3</td>
               <td class="govuk-table__cell">Rivers and streams</td>
@@ -100,7 +94,7 @@
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell">11.78</td>
               <td class="govuk-table__cell">£21,000</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
 
