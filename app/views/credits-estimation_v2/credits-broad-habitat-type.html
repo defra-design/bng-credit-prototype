@@ -1,0 +1,297 @@
+{% extends "layout.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set serviceName %}
+  Estimate the cost of biodiversity gain credits
+{% endset%}
+
+
+{% set pageHeading = "Select broad habitat type" %} 
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+  
+      <form method="post">
+
+        <!-- <p>
+          {{ data | dump }}
+        </p> -->
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">Question 3 of 6</span>
+            <h1 class="govuk-fieldset__heading">
+                {{ pageHeading }}
+            </h1>
+          </legend>
+          <p class="govuk-body">A broad habitat is how we group habitat areas.</p>
+
+          {% if data['credits-type']=="Area" %}
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Coastal salt marsh</li>
+            <li>Cropland</li>
+            <li>Grassland</li>
+            <li>Heathland and shrub</li>
+            <li>Intertidal hard structures</li>
+            <li>Intertidal sediment</li>
+            <li>Lakes</li>
+            <li>Orchards</li>
+            <li>Ponds</li>
+            <li>Reedbeds</li>
+            <li>Rocky shore</li>
+            <li>Sparsely vegetated land</li>
+            <li>Urban</li>
+            <li>Urban mosaic</li>
+            <li>Wetland mosaic</li>
+            <li>Woodland and forest</li>
+          </ul>
+          {% else %}
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Hedgerow</li>
+            <li>Rivers</li>
+            <li>Rivers & streams</li>
+          </ul>
+          {% endif %}
+
+          {% if data['credits-tier']=="A1" %}
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="coastal-saltmarsh" name="credits-broad-habitat-type" type="radio" value="Coastal saltmarsh" {{ checked("credits-broad-habitat-type", "Coastal saltmarsh") }}>
+              <label class="govuk-label govuk-radios__label" for="coastal-saltmarsh">
+                Coastal saltmarsh
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="cropland" name="credits-broad-habitat-type" type="radio" value="Cropland" {{ checked("credits-broad-habitat-type", "Cropland") }}>
+                <label class="govuk-label govuk-radios__label" for="cropland">
+                  Cropland
+                </label>
+            </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="grassland" name="credits-broad-habitat-type" type="radio" value="Grassland" {{ checked("credits-broad-habitat-type", "Grassland") }}>
+                <label class="govuk-label govuk-radios__label" for="grassland">
+                  Grassland 
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="heathland-shrub" name="credits-broad-habitat-type" type="radio" value="Heathland and shrub" {{ checked("credits-broad-habitat-type", "Heathland and shrub") }}>
+                <label class="govuk-label govuk-radios__label" for="heathland-shrub">
+                  Heathland and shrub
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="intertidal-hard-structures" name="credits-broad-habitat-type" type="radio" value="Intertidal hard structures" {{ checked("credits-broad-habitat-type", "Intertidal hard structures") }}>
+                <label class="govuk-label govuk-radios__label" for="intertidal-hard-structures">
+                  Intertidal hard structures
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="intertidal-sediment" name="credits-broad-habitat-type" type="radio" value="Intertidal sediment" {{ checked("credits-broad-habitat-type", "Intertidal sediment") }}>
+                <label class="govuk-label govuk-radios__label" for="intertidal-sediment">
+                  Intertidal sediment 
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="orchards" name="credits-broad-habitat-type" type="radio" value="Orchards" {{ checked("credits-broad-habitat-type", "Orchards") }}>
+                <label class="govuk-label govuk-radios__label" for="orchards">
+                  Orchards 
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="reedbeds" name="credits-broad-habitat-type" type="radio" value="Reedbeds" {{ checked("credits-broad-habitat-type", "Reedbeds") }}>
+                <label class="govuk-label govuk-radios__label" for="reedbeds">
+                  Reedbeds
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="sparsely-vegetated-land" name="credits-broad-habitat-type" type="radio" value="Sparsely vegetated land" {{ checked("credits-broad-habitat-type", "Sparsely vegetated land") }}>
+                <label class="govuk-label govuk-radios__label" for="sparsely-vegetated-land">
+                  Sparsely vegetated land
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="urban" name="credits-broad-habitat-type" type="radio" value="Urban" {{ checked("credits-broad-habitat-type", "Urban") }}>
+                <label class="govuk-label govuk-radios__label" for="urban">
+                  Urban 
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="urban-mosaic" name="credits-broad-habitat-type" type="radio" value="Urban Mosaic" {{ checked("credits-broad-habitat-type", "Urban Mosaic") }}>
+                <label class="govuk-label govuk-radios__label" for="">
+                  Urban Mosaic 
+                </label>
+              </div>
+
+              
+              {% elif data['credits-tier']=="A2" %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="grassland" name="credits-broad-habitat-type" type="radio" value="Grassland" {{ checked("credits-broad-habitat-type", "Grassland") }}>
+                <label class="govuk-label govuk-radios__label" for="grassland">
+                  Grassland
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="heathland-and-shrub" name="credits-broad-habitat-type" type="radio" value="Heathland and shrub" {{ checked("credits-broad-habitat-type", "Heathland and shrub") }}>
+                <label class="govuk-label govuk-radios__label" for="heathland-and-shrub">
+                  Heathland and shrub
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="intertidal-sediment" name="credits-broad-habitat-type" type="radio" value="Intertidal sediment" {{ checked("credits-broad-habitat-type", "Intertidal sediment") }}>
+                <label class="govuk-label govuk-radios__label" for="intertidal-sediment">
+                  Intertidal sediment
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="woodland-and-forest" name="credits-broad-habitat-type" type="radio" value="Woodland and forest" {{ checked("credits-broad-habitat-type", "Woodland and forest") }}>
+                <label class="govuk-label govuk-radios__label" for="woodland-and-forest">
+                  Woodland and forest
+                </label>
+              </div>
+              {% elif data['credits-tier']=="A3" %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="intertidal-sediment" name="credits-broad-habitat-type" type="radio" value="Intertidal sediment" {{ checked("credits-broad-habitat-type", "Intertidal sediment") }}>
+                <label class="govuk-label govuk-radios__label" for="intertidal-sediment">
+                  Intertidal sediment
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="woodland-and-forest" name="credits-broad-habitat-type" type="radio" value="Woodland and forest" {{ checked("credits-broad-habitat-type", "Woodland and forest") }}>
+                <label class="govuk-label govuk-radios__label" for="woodland-and-forest">
+                  Woodland and forest
+                </label>
+              </div>
+              {% elif data['credits-tier']=="A4" %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="ponds" name="credits-broad-habitat-type" type="radio" value="Ponds" {{ checked("credits-broad-habitat-type", "Ponds") }}>
+                <label class="govuk-label govuk-radios__label" for="ponds">
+                  Ponds
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rocky-shore" name="credits-broad-habitat-type" type="radio" value="Rocky shore" {{ checked("credits-broad-habitat-type", "Rocky shore") }}>
+                <label class="govuk-label govuk-radios__label" for="rocky-shore">
+                  Rocky shore
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="sparsely-vegetated-land" name="credits-broad-habitat-type" type="radio" value="Sparsely vegetated land" {{ checked("credits-broad-habitat-type", "Sparsely vegetated land") }}>
+                <label class="govuk-label govuk-radios__label" for="sparsely-vegetated-land">
+                  Sparsely vegetated land
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="wetland-mosaic" name="credits-broad-habitat-type" type="radio" value="Wetland Mosaic" {{ checked("credits-broad-habitat-type", "Wetland Mosaic") }}>
+                <label class="govuk-label govuk-radios__label" for="wetland-mosaic">
+                  Wetland Mosaic
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="woodland-and-forest" name="credits-broad-habitat-type" type="radio" value="Woodland and forest" {{ checked("credits-broad-habitat-type", "Woodland and forest") }}>
+                <label class="govuk-label govuk-radios__label" for="woodland-and-forest">
+                  Woodland and forest
+                </label>
+              </div>
+              {% elif data['credits-tier']=="A5" %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="lakes" name="credits-broad-habitat-type" type="radio" value="Lakes" {{ checked("credits-broad-habitat-type", "Lakes") }}>
+                <label class="govuk-label govuk-radios__label" for="lakes">
+                  Lakes
+                </label>
+              </div>
+              {% elif data['credits-tier']=="L1" %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="hedgerow" name="credits-broad-habitat-type" type="radio" value="Hedgerow" {{ checked("credits-broad-habitat-type", "Hedgerow") }}>
+                <label class="govuk-label govuk-radios__label" for="hedgerow">
+                  Hedgerow
+                </label>
+              </div>
+              {% elif data['credits-tier']=="L2" %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rivers" name="credits-broad-habitat-type" type="radio" value="Rivers" {{ checked("credits-broad-habitat-type", "Rivers") }}>
+                <label class="govuk-label govuk-radios__label" for="rivers">
+                  Rivers
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rivers-and-streams" name="credits-broad-habitat-type" type="radio" value="Rivers and streams" {{ checked("credits-broad-habitat-type", "Rivers and streams") }}>
+                <label class="govuk-label govuk-radios__label" for="rivers-and-streams">
+                  Rivers and streams
+                </label>
+              </div>
+              {% else %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rivers" name="credits-broad-habitat-type" type="radio" value="Rivers" {{ checked("credits-broad-habitat-type", "Rivers") }}>
+                <label class="govuk-label govuk-radios__label" for="rivers">
+                  Rivers
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rivers-and-streams" name="credits-broad-habitat-type" type="radio" value="Rivers and streams" {{ checked("credits-broad-habitat-type", "Rivers and streams") }}>
+                <label class="govuk-label govuk-radios__label" for="rivers-and-streams">
+                  Rivers and streams
+                </label>
+              </div>
+              {% endif %}
+        </fieldset>
+      </div>
+
+        {{ govukButton({ text: 'Continue'}) }}
+
+      </form>
+
+    </div>
+    <div class="govuk-grid-column-one-third">
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Credit</caption>
+      <!-- <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date</th>
+          <th scope="col" class="govuk-table__header">Amount</th>
+        </tr>
+      </thead> -->
+      <tbody class="govuk-table__body">
+        {% if data['credits-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Type</th>
+          <td class="govuk-table__cell">{{data['credits-type']}}</td>
+        </tr>
+        {% endif %}       
+        {% if data['credits-tier'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Tier</th>
+          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
+        </tr>
+        {% endif %}
+        {% if data['credits-broad-habitat-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Broad habitat</th>
+          <td class="govuk-table__cell">{{data['credits-broad-habitat-type']}}</td>
+        </tr>
+        {% endif %}
+        {% if data['credits-habitat-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Habitat</th>
+          <td class="govuk-table__cell">{{data['credits-habitat-type']}}</td>
+        </tr>
+        {% endif %}
+        {% if data['credits-number'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Number</th>
+          <td class="govuk-table__cell">{{data['credits-number']}}</td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+{% endblock %}

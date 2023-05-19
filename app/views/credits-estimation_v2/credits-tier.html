@@ -1,0 +1,284 @@
+{% extends "layout.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set serviceName %}
+  Estimate the cost of biodiversity gain credits
+{% endset%}
+
+
+{% set pageHeading = "Select credit tier" %} 
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- <div class="govuk-breadcrumbs">
+        <ol class="govuk-breadcrumbs__list">
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="credits-type">Type of credit</a>
+          </li>
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Credit tier</a>
+          </li>
+        </ol>
+      </div> -->
+
+      <form method="post">
+
+        <!-- <p>
+          {{ data | dump }}
+        </p> -->
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">Question 2 of 6</span>
+            <h1 class="govuk-fieldset__heading">
+                {{ pageHeading }}
+            </h1>
+          </legend>
+
+          {% if data['credits-type']=="Area" %}
+
+          <div id="changed-name-hint" class="govuk-hint">
+            The credit tier is calculated by broad type. For example, Grassland is A1 and Woodland and Forest is A2. For a full list of broad habitat types, go to <a href="#">xxxxx</a>.
+          </div>
+
+          {% else %}
+
+          <div id="changed-name-hint" class="govuk-hint">
+            The credit tier is calculated by broad habitat type. For example, Hedgerow is L1 and Rivers and Stream is L2. For a full list of broad habitat types, go to <a href="#">xxxxx</a>.
+          </div>
+
+          {% endif %}
+
+
+          {% if data['credits-type']=="Area" %}
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="A1" name="credits-tier" type="radio" value="A1" {{ checked("credits-tier", "A1") }}>
+              <label class="govuk-label govuk-radios__label" for="A1">
+                A1
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="A2" name="credits-tier" type="radio" value="A2" {{ checked("credits-tier", "A2") }}>
+              <label class="govuk-label govuk-radios__label" for="A2">
+                A2
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="A3" name="credits-tier" type="radio" value="A3" {{ checked("credits-tier", "A3") }}>
+                <label class="govuk-label govuk-radios__label" for="A3">
+                  A3
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="A4" name="credits-tier" type="radio" value="A4" {{ checked("credits-tier", "A4") }}>
+                <label class="govuk-label govuk-radios__label" for="A4">
+                  A4
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="A5" name="credits-tier" type="radio" value="A5" {{ checked("credits-tier", "A5") }}>
+                <label class="govuk-label govuk-radios__label" for="A5">
+                  A5
+                </label>
+              </div>
+
+          {% else %}
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="L1" name="credits-tier" type="radio" value="L1" {{ checked("credits-tier", "L1") }}>
+              <label class="govuk-label govuk-radios__label" for="L1">
+                L1
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="L2" name="credits-tier" type="radio" value="L2" {{ checked("credits-tier", "L2") }}>
+              <label class="govuk-label govuk-radios__label" for="L2">
+                L2
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="L3" name="credits-tier" type="radio" value="L3" {{ checked("credits-tier", "L3") }}>
+              <label class="govuk-label govuk-radios__label" for="L3">
+                L3
+              </label>
+            </div>
+
+          {% endif %}
+
+         
+        </fieldset>
+      </div>
+      
+      {{ govukButton({ text: 'Continue'}) }}
+
+      </form>
+
+      <!-- <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Broad habitat types in Area tiers
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">A1</h2>
+          <ul class="govuk-list">
+            <li>Coastal saltmarsh</li>
+            <li>Cropland</li>
+            <li>Grassland</li>
+            <li>Heathland and shrub</li>
+            <li>Intertidal Hard Structures</li>
+            <li>Intertidal sediment</li>
+            <li>Orchards</li>
+            <li>Reedbeds</li>
+            <li>Sparsely vegetated land</li>
+            <li>Urban</li>
+            <li>Urban Mosaic</li>
+          </ul>  
+          <h2 class="govuk-heading-s">A2</h2>
+          <ul class="govuk-list">
+            <li>Grassland</li>
+            <li>Heathland and shrub</li>
+            <li>Intertidal sediment</li>
+            <li>Woodland and forest</li>            
+          </ul>
+          <h2 class="govuk-heading-s">A3</h2>
+          <ul class="govuk-list">
+            <li>Intertidal sediment</li>
+            <li>Woodland and forest</li>            
+          </ul>
+          <h2 class="govuk-heading-s">A4</h2>
+          <ul class="govuk-list">
+            <li>Ponds</li>
+            <li>Rocky shore</li> 
+            <li>Sparsely vegetated land</li> 
+            <li>Wetland Mosaic</li> 
+            <li>Woodland and forest</li>            
+          </ul>
+          <h2 class="govuk-heading-s">A5</h2>
+          <ul class="govuk-list">
+            <li>Lakes</li>          
+          </ul>
+        </div>
+      </details> -->
+
+
+      
+
+
+
+
+    </div>
+    <div class="govuk-grid-column-one-third">
+   <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Credit</h2>
+      <ul class="govuk-list">       
+      {% if data['credits-type'] %}
+      <li><span class="govuk-!-font-weight-bold">Type:</span> {{data['credits-type']}}</li>
+      {% endif %}
+
+      {% if data['credits-tier'] %}
+      <li><span class="govuk-!-font-weight-bold">Tier:</span> {{data['credits-tier']}}</li>
+      {% endif %}
+
+      {% if data['credits-broad-habitat-type'] %}
+      <li><span class="govuk-!-font-weight-bold">Broad habitat:</span> {{data['credits-broad-habitat-type']}}</li>    
+      {% endif %}
+
+      {% if data['credits-habitat-type'] %}
+      <li><span class="govuk-!-font-weight-bold">Habitat:</span> {{data['credits-habitat-type']}}</li>
+      {% endif %}
+
+      {% if data['credits-number'] %}
+      <li><span class="govuk-!-font-weight-bold">Number:</span> {{data['credits-number']}}</li>
+      {% endif %}
+      
+    </ul> -->
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Credit</caption>
+      <!-- <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date</th>
+          <th scope="col" class="govuk-table__header">Amount</th>
+        </tr>
+      </thead> -->
+      <tbody class="govuk-table__body">
+        {% if data['credits-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Type</th>
+          <td class="govuk-table__cell">{{data['credits-type']}}</td>
+        </tr>
+        {% endif %}       
+        {% if data['credits-tier'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Tier</th>
+          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
+        </tr>
+        {% endif %}
+        {% if data['credits-broad-habitat-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Broad habitat</th>
+          <td class="govuk-table__cell">{{data['credits-broad-habitat-type']}}</td>
+        </tr>
+        {% endif %}
+        {% if data['credits-habitat-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Habitat</th>
+          <td class="govuk-table__cell">{{data['credits-habitat-type']}}</td>
+        </tr>
+        {% endif %}
+        {% if data['credits-number'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Number</th>
+          <td class="govuk-table__cell">{{data['credits-number']}}</td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table>
+
+
+    <!-- <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Credit</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date</th>
+          <th scope="col" class="govuk-table__header">Amount</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Type</th>
+          <td class="govuk-table__cell">{{data['credits-type']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Tier</th>
+          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Broad habitat</th>
+          <td class="govuk-table__cell">{{data['credits-broad-habitat-type']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Habitat</th>
+          <td class="govuk-table__cell">{{data['credits-habitat-type']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Number</th>
+          <td class="govuk-table__cell">{{data['credits-number']}}</td>
+        </tr>
+      </tbody>
+    </table> -->
+    </div>
+  </div>
+
+{% endblock %}
