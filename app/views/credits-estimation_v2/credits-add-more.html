@@ -116,12 +116,6 @@
           <td class="govuk-table__cell">{{data['credits-type']}}</td>
         </tr>
         {% endif %}       
-        {% if data['credits-tier'] %}
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Tier</th>
-          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
-        </tr>
-        {% endif %}
         {% if data['credits-broad-habitat-type'] %}
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Broad habitat</th>
@@ -132,6 +126,12 @@
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Habitat</th>
           <td class="govuk-table__cell">{{data['credits-habitat-type']}}</td>
+        </tr>
+        {% endif %}
+        {% if data['credits-tier'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Tier</th>
+          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
         </tr>
         {% endif %}
         {% if data['credits-number'] %}

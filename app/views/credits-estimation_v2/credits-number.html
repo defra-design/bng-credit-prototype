@@ -76,10 +76,27 @@
                 Enter number of credits
               </label>
             </h1>
+
+            {% if data['credits-type']=="Area" %}
             <div id="event-name-hint" class="govuk-hint">
-              Credits amount hint.
+              Number of hectares hint.
             </div>
-            <input class="govuk-input govuk-input--width-4" id="credit-amount-needed" name="credits-number" type="text" aria-describedby="event-name-hint" value="{{ data['credits-number'] }}" {{ checked("credits-number", "") }}>
+            <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-4" id="credit-amount-needed" name="credits-number" type="text" aria-describedby="event-name-hint" value="{{ data['credits-number'] }}" {{ checked("credits-number", "") }}>
+              <div class="govuk-input__suffix" aria-hidden="true">ha</div>
+            </div>
+
+            <!-- <input class="govuk-input govuk-input--width-4" id="credit-amount-needed" name="credits-number" type="text" aria-describedby="event-name-hint" value="{{ data['credits-number'] }}" {{ checked("credits-number", "") }}> -->
+
+            {% else %}
+            <div id="event-name-hint" class="govuk-hint">
+              Number of kilometers hint.
+            </div>
+              <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-4" id="credit-amount-needed" name="credits-number" type="text" aria-describedby="event-name-hint" value="{{ data['credits-number'] }}" {{ checked("credits-number", "") }}>
+                <div class="govuk-input__suffix" aria-hidden="true">km</div>
+              </div> 
+  
+            {% endif %}
+
           </div>
 
           <div class="govuk-button-group">
@@ -87,6 +104,7 @@
               Continue
             </button>
           </div>
+
 
       </form>
 
@@ -132,12 +150,6 @@
           <td class="govuk-table__cell">{{data['credits-type']}}</td>
         </tr>
         {% endif %}       
-        {% if data['credits-tier'] %}
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Tier</th>
-          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
-        </tr>
-        {% endif %}
         {% if data['credits-broad-habitat-type'] %}
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Broad habitat</th>
@@ -148,6 +160,12 @@
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Habitat</th>
           <td class="govuk-table__cell">{{data['credits-habitat-type']}}</td>
+        </tr>
+        {% endif %}
+        {% if data['credits-tier'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Tier</th>
+          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
         </tr>
         {% endif %}
         {% if data['credits-number'] %}

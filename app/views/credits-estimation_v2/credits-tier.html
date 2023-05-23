@@ -7,7 +7,7 @@
 {% endset%}
 
 
-{% set pageHeading = "Select credit tier" %} 
+{% set pageHeading = "Confirmation of credit tier" %} 
 {% block pageTitle %}
   {{ pageHeading }}
 {% endblock %}
@@ -28,16 +28,16 @@
         </ol>
       </div> -->
 
-      <form method="post">
+      <!-- <form method="post"> -->
 
-        <!-- <p>
+        <p>
           {{ data | dump }}
-        </p> -->
+        </p>
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <span class="govuk-caption-l">Question 2 of 6</span>
+            <span class="govuk-caption-l">Question 3 of 6</span>
             <h1 class="govuk-fieldset__heading">
                 {{ pageHeading }}
             </h1>
@@ -57,8 +57,56 @@
 
           {% endif %}
 
+          {% if data['credits-type']=="Area" and data['credits-broad-habitat-type']=="Urban" %}
 
-          {% if data['credits-type']=="Area" %}
+          <p class="govuk-body govuk-!-font-size-36">A1</p>
+
+
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Grassland" 
+          and data['credits-habitat-type']=="Bracken" 
+          or data['credits-habitat-type']=="Modified grassland"
+          or data['credits-habitat-type']=="Other lowland acid grassland"
+          or data['credits-habitat-type']=="Bracken"
+          or data['credits-habitat-type']=="Upland acid grassland"
+          %}
+          <p class="govuk-body govuk-!-font-size-36">A1</p>
+
+          <form method="post">
+
+            <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A1">
+              A1
+            </button>
+
+          </form>
+
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Grassland" 
+          and data['credits-habitat-type']=="Lowland calcareous grassland" 
+          or data['credits-habitat-type']=="Tall herb communities (H6430)"
+          or data['credits-habitat-type']=="Upland calcareous grassland" 
+          %}
+          <p class="govuk-body govuk-!-font-size-36">A2</p>
+
+          <form method="post">
+
+            <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A2">
+              A2
+            </button>
+
+          </form>
+          
+          {% else %}
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>L1</li>
+            <li>L2</li>
+            <li>L3</li>
+          </ul>
+
+          {% endif %}
+
+          <!-- {% if data['credits-type']=="Area" %}
 
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
@@ -114,15 +162,16 @@
               </label>
             </div>
 
-          {% endif %}
+          {% endif %} -->
 
          
         </fieldset>
       </div>
-      
+      <form method="post">
       {{ govukButton({ text: 'Continue'}) }}
+    </form>
 
-      </form>
+      <!-- </form> -->
 
       <!-- <details class="govuk-details" data-module="govuk-details">
         <summary class="govuk-details__summary">

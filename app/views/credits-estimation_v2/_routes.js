@@ -54,7 +54,7 @@ router.post('/credits-add-more', function (req, res) {
   console.log('CreditChoices Array ' + JSON.stringify(req.session.data['credit-choices']))
   
   if (req.session.data['add-more-credits'] == 'yes') {
-    req.session.data = {}
+    //req.session.data = {}
     res.redirect('credits-type');
     
   }
