@@ -157,6 +157,7 @@
             <li>Inland rock outcrop and scree</li>
             <li>Maritime cliff and slopes</li>
             <li>Other inland rock and scree</li>
+            <li>Ruderal / ephemeral</li>
             <li>Tall forbs</li>
           </ul>
                    
@@ -516,12 +517,12 @@
                 Artificial littoral mixed sediments
               </label>
             </div>
-            <!-- <div class="govuk-radios__item">
+            <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="artificial-littoral-mud" name="credits-habitat-type" type="radio" value="Artificial littoral mud" {{ checked("credits-habitat-type", "Artificial littoral mud") }}>
               <label class="govuk-label govuk-radios__label" for="artificial-littoral-mud">
                 Artificial littoral mud
               </label>
-            </div> -->
+            </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="artificial-littoral-muddy-sand" name="credits-habitat-type" type="radio" value="Artificial littoral muddy sand" {{ checked("credits-habitat-type", "Artificial littoral muddy sand") }}>
               <label class="govuk-label govuk-radios__label" for="artificial-littoral-muddy-sand">
@@ -732,6 +733,12 @@
               </label>
             </div>
             <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ruderal-ephemeral" name="credits-habitat-type" type="radio" value="Ruderal / ephemeral" {{ checked("credits-habitat-type", "Ruderal / ephemeral") }}>
+              <label class="govuk-label govuk-radios__label" for="ruderal-ephemeral">
+                Ruderal / ephemeral
+              </label>
+            </div>
+            <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="tall-forbs" name="credits-habitat-type" type="radio" value="Tall forbs" {{ checked("credits-habitat-type", "Tall forbs") }}>
               <label class="govuk-label govuk-radios__label" for="tall-forbs">
                 Tall forbs
@@ -901,7 +908,7 @@
             {% elif data['credits-type']=="Area" and data['credits-broad-habitat-type']=="Watercourse footprint" %}
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="watercourse-footprint" name="credits-habitat-type" type="radio" value="Grassland - floodplain (CFGM)" {{ checked("credits-habitat-type", "Watercourse footprint") }}>
+              <input class="govuk-radios__input" id="watercourse-footprint" name="credits-habitat-type" type="radio" value="Watercourse footprint" {{ checked("credits-habitat-type", "Watercourse footprint") }}>
               <label class="govuk-label govuk-radios__label" for="watercourse-footprint">
                 Watercourse footprint
               </label>
