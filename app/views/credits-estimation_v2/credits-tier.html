@@ -7,7 +7,7 @@
 {% endset%}
 
 
-{% set pageHeading = "Confirmation of credit tier" %} 
+{% set pageHeading = "We've calculated the credit tier" %} 
 {% block pageTitle %}
   {{ pageHeading }}
 {% endblock %}
@@ -43,19 +43,21 @@
             </h1>
           </legend>
 
-          {% if data['credits-type']=="Area" %}
+          <!-- {% if data['credits-type']=="Area" %} -->
 
-          <div id="changed-name-hint" class="govuk-hint">
-            The credit tier is calculated by broad type. For example, Grassland is A1 and Woodland and Forest is A2. For a full list of broad habitat types, go to <a href="#">xxxxx</a>.
-          </div>
+          <!-- <div id="changed-name-hint" class="govuk-hint">
+            A credit tier is calculated by both broad and specific habitat types.
+          </div> -->
 
-          {% else %}
+          <p>We calculate the credit tier using the broad habitat type you chose.</p>
+
+          <!-- {% else %}
 
           <div id="changed-name-hint" class="govuk-hint">
             The credit tier is calculated by broad habitat type. For example, Hedgerow is L1 and Rivers and Stream is L2. For a full list of broad habitat types, go to <a href="#">xxxxx</a>.
           </div>
 
-          {% endif %}
+          {% endif %} -->
 
           {% if data['credits-type']=="Area" and data['credits-broad-habitat-type']=="Coastal lagoons" %}
 
