@@ -9,6 +9,11 @@ const credit = {}
 
 
 // Credits
+router.post('/index', function (req, res) {
+  //res.redirect('credits-tier');
+  res.redirect('credits-type');
+});
+
 router.post('/credits-type', function (req, res) {
   //res.redirect('credits-tier');
   res.redirect('credits-broad-habitat-type');
