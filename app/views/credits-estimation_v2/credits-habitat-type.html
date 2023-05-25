@@ -1121,22 +1121,22 @@
           <td class="govuk-table__cell">{{data['credits-type']}}</td>
         </tr>
         {% endif %}       
-        {% if data['credits-tier'] %}
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Tier</th>
-          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
-        </tr>
-        {% endif %}
         {% if data['credits-broad-habitat-type'] %}
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Broad habitat</th>
           <td class="govuk-table__cell">{{data['credits-broad-habitat-type']}}</td>
         </tr>
         {% endif %}
-        {% if data['credits-habitat-type'] %}
+        <!-- {% if data['credits-habitat-type'] %}
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Habitat</th>
           <td class="govuk-table__cell">{{data['credits-habitat-type']}}</td>
+        </tr>
+        {% endif %}
+        {% if data['credits-tier'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Tier</th>
+          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
         </tr>
         {% endif %}
         {% if data['credits-number'] %}
@@ -1144,7 +1144,7 @@
           <th scope="row" class="govuk-table__header">Number</th>
           <td class="govuk-table__cell">{{data['credits-number']}}</td>
         </tr>
-        {% endif %}
+        {% endif %} -->
       </tbody>
     </table>
     </div>

@@ -136,8 +136,8 @@
         {% endif %}
         {% if data['credits-number'] %}
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Number</th>
-          <td class="govuk-table__cell">{{data['credits-number']}}</td>
+          <th scope="row" class="govuk-table__header">Number of credits</th>
+          <td class="govuk-table__cell">{{data['credits-number']}} {% if data['credits-type']=="Area" %} ha {% else %} km {% endif %}</td>
         </tr>
         {% endif %}
       </tbody>
@@ -145,5 +145,6 @@
 
     </div>
   </div>
+
 
 {% endblock %}

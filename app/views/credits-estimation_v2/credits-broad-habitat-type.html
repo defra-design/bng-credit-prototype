@@ -214,12 +214,6 @@
     <div class="govuk-grid-column-one-third">
     <table class="govuk-table">
       <caption class="govuk-table__caption govuk-table__caption--m">Credit</caption>
-      <!-- <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Date</th>
-          <th scope="col" class="govuk-table__header">Amount</th>
-        </tr>
-      </thead> -->
       <tbody class="govuk-table__body">
         {% if data['credits-type'] %}
         <tr class="govuk-table__row">
@@ -227,13 +221,7 @@
           <td class="govuk-table__cell">{{data['credits-type']}}</td>
         </tr>
         {% endif %}       
-        {% if data['credits-tier'] %}
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Tier</th>
-          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
-        </tr>
-        {% endif %}
-        {% if data['credits-broad-habitat-type'] %}
+        <!-- {% if data['credits-broad-habitat-type'] %}
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Broad habitat</th>
           <td class="govuk-table__cell">{{data['credits-broad-habitat-type']}}</td>
@@ -245,12 +233,18 @@
           <td class="govuk-table__cell">{{data['credits-habitat-type']}}</td>
         </tr>
         {% endif %}
-        {% if data['credits-number'] %}
+        {% if data['credits-tier'] %}
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Number</th>
-          <td class="govuk-table__cell">{{data['credits-number']}}</td>
+          <th scope="row" class="govuk-table__header">Tier</th>
+          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
         </tr>
         {% endif %}
+        {% if data['credits-number'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Number of credits</th>
+          <td class="govuk-table__cell">{{data['credits-number']}}</td>
+        </tr>
+        {% endif %} -->
       </tbody>
     </table>
     </div>
