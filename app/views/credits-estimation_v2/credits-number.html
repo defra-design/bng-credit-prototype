@@ -7,7 +7,7 @@
 {% endset%}
 
 
-{% set pageHeading = "Credits amount" %} 
+{% set pageHeading = "Enter number of credits" %} 
 {% block pageTitle %}
   {{ pageHeading }}
 {% endblock %}
@@ -73,13 +73,13 @@
             <span class="govuk-caption-l">Question 5 of 6</span>
             <h1 class="govuk-label-wrapper">
               <label class="govuk-label govuk-label--l" for="event-name">
-                Enter number of credits
+                Enter number of credits in {% if data['credits-type']=="Area" %} hectares {% else %}kilometres{% endif %}
               </label>
             </h1>
 
             {% if data['credits-type']=="Area" %}
             <div id="event-name-hint" class="govuk-hint">
-              Number of hectares hint.
+              Hectares are measured to two decimal places. For example, a smaller site could be 0.27 hectares while a larger one could be 17.65 hectares.
             </div>
             <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-4" id="credit-amount-needed" name="credits-number" type="text" aria-describedby="event-name-hint" value="{{ data['credits-number'] }}" {{ checked("credits-number", "") }}>
               <div class="govuk-input__suffix" aria-hidden="true">ha</div>
