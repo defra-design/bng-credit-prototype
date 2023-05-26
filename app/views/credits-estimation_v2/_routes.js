@@ -68,6 +68,11 @@ router.post('/credits-add-more', function (req, res) {
   }
 });
 
+router.post('/credits-estimated-cost', function (req, res) {
+  req.session.data = {}
+  res.redirect('credits-type');
+});
+
 module.exports = router
 
 
