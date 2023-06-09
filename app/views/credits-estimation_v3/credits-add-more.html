@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set serviceName %}
+  Estimate the cost of biodiversity gain credits
+{% endset%}
+
+
+{% set pageHeading = "Credits amount" %} 
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <!-- <div class="govuk-breadcrumbs">
+            <ol class="govuk-breadcrumbs__list">
+              <li class="govuk-breadcrumbs__list-item">
+                <a class="govuk-breadcrumbs__link" href="credits-type">Type of credit</a>
+              </li>
+              <li class="govuk-breadcrumbs__list-item">
+                <a class="govuk-breadcrumbs__link" href="credits-tier">Credit tier</a>
+              </li>
+              <li class="govuk-breadcrumbs__list-item">
+                <a class="govuk-breadcrumbs__link" href="credits-broad-habitat-type">Broad habitat type</a>
+              </li>
+              <li class="govuk-breadcrumbs__list-item">
+                <a class="govuk-breadcrumbs__link" href="credits-habitat-type">Habitat type</a>
+              </li>
+              <li class="govuk-breadcrumbs__list-item">
+                <a class="govuk-breadcrumbs__link" href="credits-amount">Amount of credits</a>
+              </li>
+              <li class="govuk-breadcrumbs__list-item">
+                <a class="govuk-breadcrumbs__link" href="#">Cost of credits</a>
+              </li>
+            </ol>
+          </div> -->
+
+        
+      <p>
+        {{ data | dump }}
+      </p>
+      
+            
+            <form method="post">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <span class="govuk-caption-l">Question 5 of 5</span>
+                  <h1 class="govuk-fieldset__heading">
+                    Do you want to add more credits?
+                  </h1>
+                </legend>
+                <div id="changed-name-hint" class="govuk-hint">
+                  If you want to add more credits, select yes
+                </div>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="add-more-credits-yes" name="add-more-credits" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="add-more-credits-yes">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="add-more-credits-no" name="add-more-credits" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="add-more-credits-no">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            {{ govukButton({ text: 'Continue' }) }}
+        </form>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Credit</h2>
+      <ul class="govuk-list">       
+      {% if data['credits-type'] %}
+      <li><span class="govuk-!-font-weight-bold">Type:</span> {{data['credits-type']}}</li>
+      {% endif %}
+
+      {% if data['credits-tier'] %}
+      <li><span class="govuk-!-font-weight-bold">Tier:</span> {{data['credits-tier']}}</li>
+      {% endif %}
+
+      {% if data['credits-broad-habitat-type'] %}
+      <li><span class="govuk-!-font-weight-bold">Broad habitat:</span> {{data['credits-broad-habitat-type']}}</li>    
+      {% endif %}
+
+      {% if data['credits-habitat-type'] %}
+      <li><span class="govuk-!-font-weight-bold">Habitat:</span> {{data['credits-habitat-type']}}</li>
+      {% endif %}
+
+      {% if data['credits-number'] %}
+      <li><span class="govuk-!-font-weight-bold">Number:</span> {{data['credits-number']}}</li>
+      {% endif %}
+      
+    </ul> -->
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Credit summary</caption>
+      <!-- <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date</th>
+          <th scope="col" class="govuk-table__header">Amount</th>
+        </tr>
+      </thead> -->
+      <tbody class="govuk-table__body">
+        {% if data['credits-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Type</th>
+          <td class="govuk-table__cell">{{data['credits-type']}}</td>
+        </tr>
+        {% endif %}       
+        {% if data['credits-broad-habitat-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Broad habitat</th>
+          <td class="govuk-table__cell">{{data['credits-broad-habitat-type']}}</td>
+        </tr>
+        {% endif %}
+        {% if data['credits-habitat-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Habitat type</th>
+          <td class="govuk-table__cell">{{data['credits-habitat-type']}}</td>
+        </tr>
+        {% endif %}
+        <!-- {% if data['credits-tier'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Tier</th>
+          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
+        </tr>
+        {% endif %} -->
+        {% if data['credits-number'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Credit units</th>
+          <td class="govuk-table__cell">{{data['credits-number']}}</td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table>
+
+    </div>
+  </div>
+
+
+{% endblock %}

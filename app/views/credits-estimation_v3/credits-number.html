@@ -1,0 +1,564 @@
+{% extends "layout.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set serviceName %}
+  Estimate the cost of biodiversity gain credits
+{% endset%}
+
+
+{% set pageHeading = "Enter number of credit units" %} 
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- <div class="govuk-breadcrumbs">
+        <ol class="govuk-breadcrumbs__list">
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="credits-type">Type of credit</a>
+          </li>
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="credits-tier">Credit tier</a>
+          </li>
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="credits-broad-habitat-type">Broad habitat type</a>
+          </li>
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="credits-habitat-type">Habitat type</a>
+          </li>
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Amount of credits</a>
+          </li>
+        </ol>
+      </div> -->
+
+      <form method="post">
+
+        <!-- <p>
+          {{ data | dump }}
+        </p> -->
+
+        <!-- <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--l">Amount of credits needed</caption>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Type</th>
+                <td class="govuk-table__cell">{{data['credits-type']}}</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Tier</th>
+                <td class="govuk-table__cell">{{data['credits-tier']}}</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Broad habitat type</th>
+                <td class="govuk-table__cell">{{data['credits-broad-habitat-type']}}</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Habitat type</th>
+                <td class="govuk-table__cell">{{data['credits-habitat-type']}}</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Amount</th>
+                <td class="govuk-table__cell"><input class="govuk-input govuk-input--width-4" id="width-4" name="credits-amount" type="text" value="{{ data['credits-amount'] }}"></td>
+              </tr>
+            </tbody>
+          </table> -->
+
+          <div class="govuk-form-group">
+            <span class="govuk-caption-l">Question 4 of 5</span>
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="event-name">
+                Enter number of credit units
+              </label>
+            </h1>
+            <div id="event-name-hint" class="govuk-hint">
+              Credit units hint.
+            </div>
+              <input class="govuk-input govuk-input--width-4" id="credit-amount-needed" name="credits-number" type="text" aria-describedby="event-name-hint" value="{{ data['credits-number'] }}" {{ checked("credits-number", "") }}>
+                 
+  
+
+          </div>
+
+          <!-- <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+          </div> -->
+
+          {% if data['credits-type']=="Area" and data['credits-broad-habitat-type']=="Coastal lagoons" %}
+
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A4">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Coastal saltmarsh" 
+          and data['credits-habitat-type']=="Artificial saltmarshes and saline reedbeds" %}
+
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A1">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Coastal saltmarsh" 
+          and data['credits-habitat-type']=="Saltmarshes and saline reedbeds" %}
+
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A4">
+              Continue
+          </button>
+
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Cropland" 
+          and data['credits-habitat-type']=="Arable field margins cultivated annually" 
+          or data['credits-habitat-type']=="Arable field margins game bird mix" 
+          or data['credits-habitat-type']=="Arable field margins pollen and nectar" 
+          or data['credits-habitat-type']=="Arable field margins tussocky" 
+          or data['credits-habitat-type']=="Cereal crops" 
+          or data['credits-habitat-type']=="Horticulture" 
+          or data['credits-habitat-type']=="Intensive orchards" 
+          or data['credits-habitat-type']=="Non-cereal crops" 
+          or data['credits-habitat-type']=="Temporary grass and clover leys" 
+          or data['credits-habitat-type']=="Winter stubble" 
+          %}
+
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A1">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Grassland" 
+          and data['credits-habitat-type']=="Other neutral grassland" 
+          or data['credits-habitat-type']=="Other lowland acid grassland"
+          or data['credits-habitat-type']=="Upland acid grassland" 
+          or data['credits-habitat-type']=="Bracken"
+          or data['credits-habitat-type']=="Modified grassland"
+          %}
+
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A1">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Grassland" 
+          and data['credits-habitat-type']=="Lowland calcareous grassland" 
+          or data['credits-habitat-type']=="Tall herb communities (H6430)"
+          or data['credits-habitat-type']=="Upland calcareous grassland" 
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A2">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Heathland and shrub" 
+          and data['credits-habitat-type']=="Mixed scrub" 
+          or data['credits-habitat-type']=="Blackthorn scrub"
+          or data['credits-habitat-type']=="Bramble scrub" 
+          or data['credits-habitat-type']=="Gorse scrub" 
+          or data['credits-habitat-type']=="Hawthorn scrub" 
+          or data['credits-habitat-type']=="Hazel scrub" 
+          or data['credits-habitat-type']=="Rhododendron scrub" 
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A1">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Heathland and shrub" 
+          and data['credits-habitat-type']=="Other sea buckthorn scrub" 
+          or data['credits-habitat-type']=="Dunes with sea buckthorn" 
+          or data['credits-habitat-type']=="Lowland Heathland"
+          or data['credits-habitat-type']=="Upland Heathland"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A2">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Individual trees" 
+          and data['credits-habitat-type']=="Rural tree" 
+          or data['credits-habitat-type']=="Urban tree" 
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A2">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Intertidal hard structures" 
+          and data['credits-habitat-type']=="Artificial features of hard structures" 
+          or data['credits-habitat-type']=="Artificial hard structures with integrated greening of grey infrastructure (IGGI)" 
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A1">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Intertidal sediment" 
+          and data['credits-habitat-type']=="Artificial littoral coarse sediment" 
+          or data['credits-habitat-type']=="Artificial littoral sand" 
+          or data['credits-habitat-type']=="Artificial littoral mud" 
+          or data['credits-habitat-type']=="Artificial littoral muddy sand" 
+          or data['credits-habitat-type']=="Artificial littoral mixed sediments" 
+          or data['credits-habitat-type']=="Artificial littoral seagrass" 
+          or data['credits-habitat-type']=="Artificial littoral biogenic reefs" 
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A1">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Intertidal sediment" 
+          and data['credits-habitat-type']=="Littoral coarse sediment" 
+          or data['credits-habitat-type']=="Littoral sand"  
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A2">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Intertidal sediment" 
+          and data['credits-habitat-type']=="Littoral mud" 
+          or data['credits-habitat-type']=="Littoral mixed sediments"  
+          or data['credits-habitat-type']=="Littoral biogenic reefs, mussels" 
+          or data['credits-habitat-type']=="Littoral biogenic reefs, sabellaria"
+          or data['credits-habitat-type']=="Features of littoral sediment" 
+          or data['credits-habitat-type']=="Littoral muddy sand"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A3">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Intertidal sediment" 
+          and data['credits-habitat-type']=="Littoral seagrass"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A4">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Lakes" 
+          and data['credits-habitat-type']=="Reservoirs"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A4">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Lakes" 
+          and data['credits-habitat-type']=="High alkalinity lakes"
+          or data['credits-habitat-type']=="Low alkalinity lakes"
+          or data['credits-habitat-type']=="Marl Lakes"
+          or data['credits-habitat-type']=="Moderate alkalinity lakes"
+          or data['credits-habitat-type']=="Peat Lakes"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A5">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Orchards" 
+          and data['credits-habitat-type']=="Traditional orchards"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A1">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Ponds" 
+          and data['credits-habitat-type']=="Ponds (non-priority habitat)"
+          or data['credits-habitat-type']=="Ponds (priority habitat)"
+          or data['credits-habitat-type']=="Temporary lakes, ponds and pools"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A4">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Reedbeds" 
+          and data['credits-habitat-type']=="Wetland reedbeds"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A1">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Rocky shore" 
+          and data['credits-habitat-type']=="Features of littoral rock"
+          or data['credits-habitat-type']=="High energy littoral rock"
+          or data['credits-habitat-type']=="Low energy littoral rock"
+          or data['credits-habitat-type']=="Moderate energy littoral rock"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A4">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Sparsely vegetated land" 
+          and data['credits-habitat-type']=="Ruderal / ephemeral"
+          or data['credits-habitat-type']=="Tall forbs"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A1">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Sparsely vegetated land" 
+          and data['credits-habitat-type']=="Coastal sand dunes"
+          or data['credits-habitat-type']=="Coastal vegetated shingle"
+          or data['credits-habitat-type']=="Inland rock outcrop and scree"
+          or data['credits-habitat-type']=="Maritime cliff and slopes"
+          or data['credits-habitat-type']=="Other inland rock and scree"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A4">
+              Continue
+          </button>
+            
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Urban" 
+          and data['credits-habitat-type']=="Actively worked sand pit quarry or open cast mine"
+          or data['credits-habitat-type']=="Allotments"
+          or data['credits-habitat-type']=="Artificial unvegetated, unsealed surface"
+          or data['credits-habitat-type']=="Bare ground"
+          or data['credits-habitat-type']=="Biodiverse green roof"
+          or data['credits-habitat-type']=="Bioswale"
+          or data['credits-habitat-type']=="Built linear features"
+          or data['credits-habitat-type']=="Cemeteries and churchyards"
+          or data['credits-habitat-type']=="Developed land; sealed surface"
+          or data['credits-habitat-type']=="Facade-bound green wall"
+          or data['credits-habitat-type']=="Ground based green wall"
+          or data['credits-habitat-type']=="Ground level planters"
+          or data['credits-habitat-type']=="Intensive green roof"
+          or data['credits-habitat-type']=="Introduced shrub"
+          or data['credits-habitat-type']=="Ornamental lake or pond"
+          or data['credits-habitat-type']=="Other green roof"
+          or data['credits-habitat-type']=="Rain garden"
+          or data['credits-habitat-type']=="Sustainable urban drainage feature"
+          or data['credits-habitat-type']=="Un-vegetated garden"
+          or data['credits-habitat-type']=="Vacant or derelict land"
+          or data['credits-habitat-type']=="Vegetated garden"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A1">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Urban Mosaic" 
+          and data['credits-habitat-type']=="Open mosaic habitats on previously developed land"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A2">
+              Continue
+          </button>
+
+          </form>
+
+
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Watercourse footprint" 
+          and data['credits-habitat-type']=="Watercourse footprint"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A1">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Wetland Mosaic" 
+          and data['credits-habitat-type']=="Grassland - floodplain (CFGM)"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A4">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Woodland and forest" 
+          and data['credits-habitat-type']=="Other coniferous woodland"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A1">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Woodland and forest" 
+          and data['credits-habitat-type']=="Other woodland; broadleaved"
+          or data['credits-habitat-type']=="Other scot's pine woodland"
+          or data['credits-habitat-type']=="Other woodland; mixed"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A2">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Woodland and forest" 
+          and data['credits-habitat-type']=="Wet woodland"
+          or data['credits-habitat-type']=="Felled"
+          or data['credits-habitat-type']=="Lowland beech and yew woodland"
+          or data['credits-habitat-type']=="Upland birchwoods"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A3">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Area" 
+          and data['credits-broad-habitat-type']=="Woodland and forest" 
+          and data['credits-habitat-type']=="Upland mixed ash woods"
+          or data['credits-habitat-type']=="Native pine woodlands"
+          or data['credits-habitat-type']=="Lowland mixed deciduous woodland"
+          or data['credits-habitat-type']=="Upland oakwood"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="A4">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Linear" 
+          and data['credits-broad-habitat-type']=="Hedgerow" 
+          and data['credits-habitat-type']=="Hedge ornamental non native"
+          or data['credits-habitat-type']=="Line of trees"
+          or data['credits-habitat-type']=="Line of trees - associated with bank or ditch"
+          or data['credits-habitat-type']=="Line of trees (EV)"
+          or data['credits-habitat-type']=="Line of trees (EV) - bank/ditch"
+          or data['credits-habitat-type']=="Native hedgerow"
+          or data['credits-habitat-type']=="Native hedgerow - bank/ditch"
+          or data['credits-habitat-type']=="Native hedgerow with trees"
+          or data['credits-habitat-type']=="Native hedgerow with trees - bank/ditch"
+          or data['credits-habitat-type']=="Native species hedgerow with trees - bank/ditch"
+          or data['credits-habitat-type']=="Native species rich hedgerow"
+          or data['credits-habitat-type']=="Native species rich hedgerow with trees"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="L1">
+              Continue
+          </button>
+          
+          {% elif data['credits-type']=="Linear" 
+          and data['credits-broad-habitat-type']=="Hedgerow" 
+          and data['credits-habitat-type']=="Hedge ornamental non native"
+          or data['credits-habitat-type']=="Line of trees"
+          or data['credits-habitat-type']=="Line of trees - associated with bank or ditch"
+          or data['credits-habitat-type']=="Line of trees (EV)"
+          or data['credits-habitat-type']=="Line of trees (EV) - bank/ditch"
+          or data['credits-habitat-type']=="Native hedgerow"
+          or data['credits-habitat-type']=="Native hedgerow - bank/ditch"
+          or data['credits-habitat-type']=="Native hedgerow with trees"
+          or data['credits-habitat-type']=="Native hedgerow with trees - bank/ditch"
+          or data['credits-habitat-type']=="Native species hedgerow with trees - bank/ditch"
+          or data['credits-habitat-type']=="Native species rich hedgerow"
+          or data['credits-habitat-type']=="Native species rich hedgerow with trees"
+          %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="L1">
+              Continue
+          </button>
+          
+          {% else %}
+          
+          <button class="govuk-button" name="credits-tier" data-module="govuk-button" value="L2">
+              Continue
+          </button>
+
+          {% endif %}
+
+
+      </form>
+
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+   <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Credit</h2>
+      <ul class="govuk-list">       
+      {% if data['credits-type'] %}
+      <li><span class="govuk-!-font-weight-bold">Type:</span> {{data['credits-type']}}</li>
+      {% endif %}
+
+      {% if data['credits-tier'] %}
+      <li><span class="govuk-!-font-weight-bold">Tier:</span> {{data['credits-tier']}}</li>
+      {% endif %}
+
+      {% if data['credits-broad-habitat-type'] %}
+      <li><span class="govuk-!-font-weight-bold">Broad habitat:</span> {{data['credits-broad-habitat-type']}}</li>    
+      {% endif %}
+
+      {% if data['credits-habitat-type'] %}
+      <li><span class="govuk-!-font-weight-bold">Habitat:</span> {{data['credits-habitat-type']}}</li>
+      {% endif %}
+
+      {% if data['credits-number'] %}
+      <li><span class="govuk-!-font-weight-bold">Number:</span> {{data['credits-number']}}</li>
+      {% endif %}
+      
+    </ul> -->
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Credit summary</caption>
+      <!-- <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date</th>
+          <th scope="col" class="govuk-table__header">Amount</th>
+        </tr>
+      </thead> -->
+      <tbody class="govuk-table__body">
+        {% if data['credits-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Type</th>
+          <td class="govuk-table__cell">{{data['credits-type']}}</td>
+        </tr>
+        {% endif %}       
+        {% if data['credits-broad-habitat-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Broad habitat</th>
+          <td class="govuk-table__cell">{{data['credits-broad-habitat-type']}}</td>
+        </tr>
+        {% endif %}
+        {% if data['credits-habitat-type'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Habitat type</th>
+          <td class="govuk-table__cell">{{data['credits-habitat-type']}}</td>
+        </tr>
+        {% endif %}
+        <!-- {% if data['credits-tier'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Tier</th>
+          <td class="govuk-table__cell">{{data['credits-tier']}}</td>
+        </tr>
+        {% endif %} -->
+        <!-- {% if data['credits-number'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Number</th>
+          <td class="govuk-table__cell">{{data['credits-number']}}</td>
+        </tr>
+        {% endif %} -->
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+{% endblock %}
