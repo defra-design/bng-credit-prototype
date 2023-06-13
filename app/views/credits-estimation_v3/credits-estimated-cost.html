@@ -14,6 +14,10 @@
 
 {% block content %}
 
+        <!-- <p>
+          {{ data | dump }}
+        </p> -->
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-5" style="background-color: #1d70b8;">
@@ -24,16 +28,10 @@
           <strong>£134,000</strong>
         </div>
       </div>
-
     </div>
-    </div>
+  </div>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-
-        <!-- <p>
-          {{ data | dump }}
-        </p> -->
-
         <table class="govuk-table">
           <caption class="govuk-table__caption govuk-table__caption--m">Credits breakdown</caption>
           <thead class="govuk-table__head">
@@ -59,22 +57,6 @@
               <td class="govuk-table__cell"><a href="#">Delete</a></td>
             </tr>
             {% endfor %}
-            <!-- <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Linear</td>
-              <td class="govuk-table__cell">L3</td>
-              <td class="govuk-table__cell">Rivers and streams</td>
-              <td class="govuk-table__cell">Other rivers and streams</td>
-              <td class="govuk-table__cell">6</td>
-              <td class="govuk-table__cell">£6,000</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Area</td>
-              <td class="govuk-table__cell">A1</td>
-              <td class="govuk-table__cell">Heathland and shrub</td>
-              <td class="govuk-table__cell">Mixed scrub</td>
-              <td class="govuk-table__cell">2.89</td>
-              <td class="govuk-table__cell">£8,000</td>
-            </tr> -->
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Totals</th>
               <td class="govuk-table__cell"></td>
@@ -86,25 +68,33 @@
             </tr>
           </tbody>
         </table>
-
+        
         <form method="post">
-
           <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
             Start a new credits estimate
           </button>
   
-          </form>
-
-          <h2 class="govuk-heading-m">Content needed</h2>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>Legal estimation requirements</li>
-            <li>Explanation of what tiers are and do</li>
-            <li>Credit prices will change</li>
-          </ul>
-
+        </form>
       </div>
     </div>
+  
+        
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-three-quarters">
+              <h2 class="govuk-heading-m">Credit tier</h2>
 
-  </div>
+              <p>If your credit type is Area, your credit tier will be A1 to A5, which is calculated by the service. It is worked out by the broad habitat type, habitat type, and credit tier.</p>
+              <p>If your credit type is Linear, your credit tier will be L1 or L2, which is calculated by the service. It is worked out by the broad habitat type, habitat type, and credit tier.</p>
+              
+              <h2 class="govuk-heading-m">Credit prices</h2>
+              <p>This service provides an estimation. Credit prices are liable to change so the figure we suggest must be checked and verified by xxxx.</p>
+            </div>
+          </div>
+</div>
+    
+
+  
+
+
 
 {% endblock %}
