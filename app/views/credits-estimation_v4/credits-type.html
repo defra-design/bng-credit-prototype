@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set serviceName %}
+  Estimate the cost of biodiversity gain credits
+{% endset%}
+
+{% set pageHeading = "Estimate the cost of biodiversity gain credits" %} 
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <p>
+        {{ data | dump }}
+      </p>
+
+      <form method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">Question 1 of 5</span>
+            <h1 class="govuk-fieldset__heading">
+              Select credit type
+            </h1>
+            <div id="credit-type-hint" class="govuk-hint">
+              You can only select one credit type at a time 
+            </div>
+          </legend>
+          <!-- <p class="govuk-body">We need to know which credit type you intend to use for your biodiversity gain credits. Your credit type will either be Area or Linear.</p>
+
+          <p class="govuk-body">Area measurements are categorised in tiers from A1 to A5. Linear measurements are categorised in tiers from L1 to L2.</p>
+    
+          <p class="govuk-body">The credit tiers, and your biodiversity gain credits, are calculated as you answer the six questions in this service.</p> -->
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="credits-type-area" name="credits-type" type="radio" value="Area" {{ checked("credits-type", "Area") }}>
+              <label class="govuk-label govuk-radios__label" for="credits-type-area">
+                Area
+              </label>
+              <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                Area credit types are urban, intertidal sediment, woodland and forest, heathland and shrub, cropland, grassland and are recorded as hectares. 
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="credits-type-liner" name="credits-type" type="radio" value="Linear" {{ checked("credits-type", "Linear") }}>
+              <label class="govuk-label govuk-radios__label" for="credits-type-liner">
+                Linear
+              </label>
+              <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">
+                Linear credit types are hedgerow, rivers or rivers and streams, and are recorded in kilometres
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+        {{ govukButton({ text: 'Continue'}) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
