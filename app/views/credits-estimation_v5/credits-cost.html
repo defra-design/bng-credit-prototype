@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set serviceName %}
+  Estimate the cost of biodiversity gain credits
+{% endset%}
+
+
+{% set pageHeading = "Credits amount" %} 
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+
+{% block content %}
+
+        <p>
+          {{ data | dump }}
+        </p>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-5" style="background-color: #1d70b8;">
+        <h1 class="govuk-panel__title govuk-!-text-align-left">
+          Total estimated cost of biodiversity gain credits
+        </h1>
+        <div class="govuk-panel__body govuk-!-text-align-left">
+          <strong>£134,000</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Credits breakdown</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Tier</th>
+              <th scope="col" class="govuk-table__header">Credit units</th>
+              <th scope="col" class="govuk-table__header">Estimated cost</th>
+              <th scope="col" class="govuk-table__header"></th>              
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <!-- {% for item in data['credit-choices'] %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">{{item.type}}</td>
+              <td class="govuk-table__cell">{{item.distinctiveness}}</td>
+              <td class="govuk-table__cell">{{item.tier}}</td>
+              <td class="govuk-table__cell">{{item.broad}}</td>
+              <td class="govuk-table__cell">{{item.habitat}}</td>
+              <td class="govuk-table__cell">{{item.number}}</td>
+              <td class="govuk-table__cell">£67,000</td>
+              <td class="govuk-table__cell"><a href="#">Delete</a></td>
+            </tr>
+            {% endfor %} -->
+            
+            
+            {% for item in data['tier'] %}
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">{{item}}</td>
+                <td class="govuk-table__cell"></td>
+                <td class="govuk-table__cell">£67,000</td>
+                <td class="govuk-table__cell"><a href="#">Delete</a></td>
+            </tr>
+            {% endfor %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Totals</th>
+              <td class="govuk-table__cell">40</td>
+              <td class="govuk-table__cell">£134,000</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <form method="post">
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Start a new credits estimate
+          </button>
+  
+        </form>
+      </div>
+    </div>
+  
+        
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-three-quarters">
+              <h2 class="govuk-heading-m">Credit tier</h2>
+
+              <p>If your credit type is Area, your credit tier will be A1 to A5, which is calculated by the service. It is worked out by the broad habitat type, habitat type, and credit tier.</p>
+              <p>If your credit type is Linear, your credit tier will be L1 or L2, which is calculated by the service. It is worked out by the broad habitat type, habitat type, and credit tier.</p>
+              
+              <h2 class="govuk-heading-m">Credit prices</h2>
+              <p>This service provides an estimation. Credit prices are liable to change so the figure we suggest must be checked and verified by xxxx.</p>
+            </div>
+          </div>
+</div>
+    
+
+  
+
+
+
+{% endblock %}
