@@ -3,7 +3,7 @@
 {% set hideSaveLink = true %}
 
 {% set serviceName %}
-  Estimate the cost of biodiversity gain credits
+  Estimate the cost of biodiversity statutory credits
 {% endset%}
 
 
@@ -18,7 +18,7 @@
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-5" style="background-color: #1d70b8;">
         <h1 class="govuk-panel__title govuk-!-text-align-left">
-          Total estimated cost of biodiversity gain credits
+          Total estimated cost of biodiversity statutory credits
         </h1>
         <div class="govuk-panel__body govuk-!-text-align-left">
           <strong>£134,000</strong>
@@ -28,7 +28,7 @@
   </div>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <!-- <table class="govuk-table">
+        <table class="govuk-table">
           <caption class="govuk-table__caption govuk-table__caption--m">Credits breakdown</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -41,13 +41,27 @@
           <tbody class="govuk-table__body">            
             {% for item in data['credit-choices'] %}
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">{{item.tier[loop.index0]}}</td>
+              <!-- <td class="govuk-table__cell">{{item.tier[loop.index0]}}</td> -->
               <td class="govuk-table__cell">{{item.tier}}</td>
               <td class="govuk-table__cell">{{item.number}}</td>
               <td class="govuk-table__cell">£67,000</td>
               <td class="govuk-table__cell"><a href="#">Delete</a></td>
             </tr>
             {% endfor %}
+
+            <!-- {% for item in data['credit-amount'] %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">{{item}}</td>
+              <td class="govuk-table__cell">{{item}}</td>
+              <td class="govuk-table__cell">£67,000</td>
+              <td class="govuk-table__cell"><a href="#">Delete</a></td>
+            </tr>
+            {% endfor %} -->
+
+            {% for item in data['credit-choices'] %} 
+           <p>{{item}} {{tier[loop.index0]}} </p> 
+            {% endfor %}
+
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Totals</th>
               <td class="govuk-table__cell">40</td>
@@ -55,9 +69,9 @@
               <td class="govuk-table__cell"></td>
             </tr>
           </tbody>
-        </table> -->
+        </table>
 
-        <table class="govuk-table">
+        <!-- <table class="govuk-table">
             <caption class="govuk-table__caption govuk-table__caption--m">Credits breakdown</caption>
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
@@ -108,7 +122,7 @@
                 <td class="govuk-table__cell">£134,000</td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
         
         <!-- <form method="post">
           <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
@@ -122,9 +136,9 @@
         
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-three-quarters">
-              <!-- <p>
+              <p>
                 {{ data | dump }}
-              </p> -->
+              </p>
               <h2 class="govuk-heading-m">Credit tier</h2>
 
               <p>If your credit type is Area, your credit tier will be A1 to A5, which is calculated by the service. It is worked out by the broad habitat type, habitat type, and credit tier.</p>
