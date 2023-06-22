@@ -39,15 +39,15 @@
             </tr>
           </thead>
           <tbody class="govuk-table__body">            
-            {% for item in data['credit-choices'] %}
+            <!-- {% for item in data['credit-choices'] %}
             <tr class="govuk-table__row">
-              <!-- <td class="govuk-table__cell">{{item.tier[loop.index0]}}</td> -->
+              <td class="govuk-table__cell">{{item.tier[loop.index0]}}</td>
               <td class="govuk-table__cell">{{item.tier}}</td>
               <td class="govuk-table__cell">{{item.number}}</td>
               <td class="govuk-table__cell">£67,000</td>
               <td class="govuk-table__cell"><a href="#">Delete</a></td>
             </tr>
-            {% endfor %}
+            {% endfor %} -->
 
             <!-- {% for item in data['credit-amount'] %}
             <tr class="govuk-table__row">
@@ -58,7 +58,7 @@
             </tr>
             {% endfor %} -->
 
-            {% for item in data['credit-choices'] %} 
+            <!-- {% for item in data['credit-choices'] %} 
            <p>{{item}} {{tier[loop.index0]}} </p> 
             {% endfor %}
 
@@ -69,9 +69,9 @@
               <td class="govuk-table__cell"></td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
 
-        <!-- <table class="govuk-table">
+        <table class="govuk-table">
             <caption class="govuk-table__caption govuk-table__caption--m">Credits breakdown</caption>
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
@@ -129,16 +129,16 @@
             Start a new credits estimate
           </button>
   
-        </form> -->
+        </form>
       </div>
     </div>
   
         
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-three-quarters">
-              <p>
+              <!-- <p>
                 {{ data | dump }}
-              </p>
+              </p> -->
               <h2 class="govuk-heading-m">Credit tier</h2>
 
               <p>If your credit type is Area, your credit tier will be A1 to A5, which is calculated by the service. It is worked out by the broad habitat type, habitat type, and credit tier.</p>
