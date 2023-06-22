@@ -8,8 +8,28 @@ const credit = {}
 
 
 // Credits
-router.post('/credits-purchase', function (req, res) {
+router.post('/credits-tier', function (req, res) {
   //res.redirect('credits-tier');
+  let credit = {
+    //'type': req.session.data['credits-type'],
+    'tier': req.session.data['tier'],
+    //'distinctiveness': req.session.data['credits-distinctiveness'],
+    //'broad': req.session.data['credits-broad-habitat-type'],
+    //'habitat': req.session.data['credits-habitat-type'],
+    'number': req.session.data['credit-amount']
+  }
+
+  // set up an empty array in case the credit choices object doesn't exist yet
+  let currentCreditChoices = []
+  if (req.session.data['credit-choices']) {
+    currentCreditChoices = req.session.data['credit-choices']
+  }
+
+  currentCreditChoices.push(credit)
+
+  // update the credit choices in the session data
+  req.session.data['credit-choices'] = currentCreditChoices
+  console.log('CreditChoices Array ' + JSON.stringify(req.session.data['credit-choices']))
   res.redirect('credits-cost');
 });
 
@@ -17,7 +37,7 @@ router.post('/credits-purchase', function (req, res) {
 // Credits
 router.post('/start', function (req, res) {
   //res.redirect('credits-tier');
-  res.redirect('credits-type');
+  res.redirect('credits-tier');
 });
 
 router.post('/credits-type', function (req, res) {

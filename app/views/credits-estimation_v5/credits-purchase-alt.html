@@ -3,9 +3,8 @@
 {% set hideSaveLink = true %}
 
 {% set serviceName %}
-    Estimate the cost of biodiversity statutory credits
+Estimate the cost of biodiversity statutory credits
 {% endset%}
-
 
 {% set pageHeading = "Estimate the cost of biodiversity statutory credits" %} 
 {% block pageTitle %}
@@ -14,16 +13,22 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Add biodiversity statutory credit units</h1>
-        <p class="govuk-hint">Select all options that are relevant to you.</p>
+
+      <!-- <p>
+        {{ data | dump }}
+      </p> -->
+
+      <h1 class="govuk-heading-xl">Estimate the cost of biodiversity statutory credits</h1>
+      <p class="govuk-hint">Select all options that are relevant to you.</p>
+
     </div>
-  </div>
-  
-  <form method="post">
-  <div class="govuk-grid-row">
+</div>
+
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
+        <form method="post">
         <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -135,8 +140,8 @@
                 </div>
             </fieldset>
         </div>
-    </div>
-      <div class="govuk-grid-column-one-third">
+      </div>
+    <div class="govuk-grid-column-one-third">
         <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -162,9 +167,20 @@
                 </div>
             </fieldset>
         </div>
-      </div>
+          
+
+
+
+
+
+
+    </div>
+
+    
   </div>
+
   {{ govukButton({ text: 'Continue'}) }}
-  </form>
+        
+</form> 
 
 {% endblock %}
