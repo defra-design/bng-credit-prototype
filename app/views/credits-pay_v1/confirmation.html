@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Purchase Order 
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Application complete
+            </h1>
+            <div class="govuk-panel__body">
+              Your reference number<br><strong>HDJ2123F</strong>
+            </div>
+          </div>
+          <p class="govuk-body">We have sent you a confirmation email.</p>
+          <h2 class="govuk-heading-m">What happens next</h2>
+          <p class="govuk-body">
+            Inform the user that they will receive a total price via a proforma invoice following successfully passing checks, alongside payment info. (copy on this can be finalised alongside Lizzie who is covering the details within the pay epic).
+          </p>
+
+      <!-- <form method="post">
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+    </form> -->
+
+    </div>
+  </div>
+
+
+{% endblock %}

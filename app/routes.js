@@ -32,6 +32,7 @@ router.use('/credits-estimation_v2', require('./views/credits-estimation_v2/_rou
 router.use('/credits-estimation_v3', require('./views/credits-estimation_v3/_routes'))
 router.use('/credits-estimation_v4', require('./views/credits-estimation_v4/_routes'))
 router.use('/credits-estimation_v5', require('./views/credits-estimation_v5/_routes'))
+router.use('/credits-pay_v1', require('./views/credits-pay_v1/_routes'))
 
 router.post('/set-credit-amounts', function (req, res) {
   res.redirect('/' + req.query.version + '/start-page?journey=' + req.query.journey);
