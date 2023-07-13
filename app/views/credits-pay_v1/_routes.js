@@ -30,22 +30,30 @@ router.post('/credits-development-location', function (req, res) {
 });
 
 router.post('/purchase-order', function (req, res) {
-    res.redirect('individual-or-organisation');
+    res.redirect('credits-individual-or-organisation');
 });
 
-router.post('/individual-or-organisation', function (req, res) {
+router.post('/credits-individual-or-organisation', function (req, res) {
+    res.redirect('credits-individual-or-organisation-details');
+});
+
+router.post('/credits-individual-or-organisation-details', function (req, res) {
     res.redirect('credits-tier');
 });
 
 router.post('/credits-tier', function (req, res) {
-    res.redirect('credits-cost');
-});
-
-router.post('/credits-cost', function (req, res) {
     res.redirect('terms-and-conditions');
 });
 
+// router.post('/credits-cost', function (req, res) {
+//     res.redirect('terms-and-conditions');
+// });
+
 router.post('/terms-and-conditions', function (req, res) {
+    res.redirect('credits-check-your-answers');
+});
+
+router.post('/credits-check-your-answers', function (req, res) {
     res.redirect('confirmation');
 });
 

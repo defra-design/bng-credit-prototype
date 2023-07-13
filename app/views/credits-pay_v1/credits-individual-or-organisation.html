@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Purchase Order 
+  Are you purchasing statutory biodiversity credits as an individual or an organisation? 
 {% endblock %}
 
 {% block beforeContent %}
@@ -17,31 +17,24 @@
   <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
       <h1 class="govuk-fieldset__heading">
-        Will you be using a purchase order?
+        Are you purchasing statutory biodiversity credits as an individual or an organisation?
       </h1>
     </legend>
+    <p>Ask the user if they are an individual or an organisation. If the user is individual, present the National Insurance Screen. If the user is an organisation, skip to Area or Linear Screen,</p>
     <div id="contact-hint" class="govuk-hint">
       Select one option.
     </div>
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="purchase-order" name="purchase-order" type="radio" value="Yes" data-aria-controls="conditional-po">
-        <label class="govuk-label govuk-radios__label" for="purchase-order">
-          Yes
+        <input class="govuk-radios__input" id="ind" name="ind-or-org" type="radio" value="Individual">
+        <label class="govuk-label govuk-radios__label" for="ind">
+          Individual
         </label>
       </div>
-      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-po">
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="po-yes">
-            Purchase order number
-          </label>
-          <input class="govuk-input govuk-!-width-one-third" id="po-yes" name="po-yes" type="text" spellcheck="false">
-        </div>
-      </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="purchase-order-2" name="purchase-order" type="radio" value="No">
-        <label class="govuk-label govuk-radios__label" for="purchase-order-2">
-          No
+        <input class="govuk-radios__input" id="org" name="ind-or-org" type="radio" value="Organisation">
+        <label class="govuk-label govuk-radios__label" for="org">
+          Organisation
         </label>
       </div>                     
     </div>

@@ -1,0 +1,167 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Add additional anti money laundering information 
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+        <h1 class="govuk-heading-l">Add additional anti money laundering information</h1>
+        <!-- <p>
+            {{ data | dump }}
+          </p> -->
+                  <form method="post">
+                    {% if data['ind-or-org']=="Organisation" %}
+                    <h2 class="govuk-heading-m">Personal details</h1>
+                    {% endif %}
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s" for="subject">
+                          Nationality
+                        </label>
+                        <!-- <div id="subject-hint" class="govuk-hint">
+                          This can be different to where you went before
+                        </div> -->
+                        <select class="govuk-select" id="subject" name="subject" aria-describedby="subject-hint">
+                          <option value="choose" selected>Choose nationality</option>
+                          <option value="eastmidlands">East Midlands</option>
+                          <option value="eastofengland">East of England</option>
+                          <option value="london">London</option>
+                          <option value="northeast">North East</option>
+                          <option value="northwest">North West</option>
+                          <option value="southeast">South East</option>
+                          <option value="southwest">South West</option>
+                          <option value="westmidlands">West Midlands</option>
+                          <option value="yorkshire">Yorkshire and the Humber</option>
+                        </select>
+                      </div>
+                    <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset" role="group" aria-describedby="expiry-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                          Date of birth
+                        </legend>
+                        <div id="expiry-hint" class="govuk-hint">
+                          For example, 31 3 1980
+                        </div>
+                        <div class="govuk-date-input" id="expiry">
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="expiry-day">
+                                Day
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-day" name="expiry-day" type="text" inputmode="numeric">
+                            </div>
+                          </div>
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="expiry-month">
+                                Month
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-month" name="expiry-month" type="text" inputmode="numeric">
+                            </div>
+                          </div>
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="expiry-year">
+                                Year
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-year" name="expiry-year" type="text" inputmode="numeric">
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    {% if data['ind-or-org']=="Organisation" %}
+                    <h2 class="govuk-heading-m">Company details</h1>
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" role="group" aria-describedby="expiry-hint">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            Date of incorporation
+                          </legend>
+                          <div id="expiry-hint" class="govuk-hint">
+                            For example, 31 3 1980
+                          </div>
+                          <div class="govuk-date-input" id="expiry">
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="expiry-day">
+                                  Day
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-day" name="expiry-day" type="text" inputmode="numeric">
+                              </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="expiry-month">
+                                  Month
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-month" name="expiry-month" type="text" inputmode="numeric">
+                              </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="expiry-year">
+                                  Year
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-year" name="expiry-year" type="text" inputmode="numeric">
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                          <h1 class="govuk-fieldset__heading">
+                            Registered company address
+                          </h1>
+                        </legend>
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="address-line-1">
+                            Address line 1
+                          </label>
+                          <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1">
+                        </div>
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="address-line-2">
+                            Address line 2 (optional)
+                          </label>
+                          <input class="govuk-input" id="address-line-2" name="address-line-2" type="text" autocomplete="address-line2">
+                        </div>
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="address-town">
+                            Town or city
+                          </label>
+                          <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text" autocomplete="address-level2">
+                        </div>
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="address-county">
+                            County (optional)
+                          </label>
+                          <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text">
+                        </div>
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="address-postcode">
+                            Postcode
+                          </label>
+                          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code">
+                        </div>
+                      </fieldset>
+                      
+                      {% endif %}
+                
+                    <button class="govuk-button" data-module="govuk-button">
+                      Continue
+                    </button>
+                  </form>
+
+    </div>
+  </div>
+
+{% endblock %}

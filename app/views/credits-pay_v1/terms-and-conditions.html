@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Purchase Order 
+  Terms and conditions 
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,7 +13,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Terms and conditions</h1>
+      <h1 class="govuk-heading-l">Terms and conditions</h1>
 
       <form method="post">
 
@@ -21,7 +21,20 @@
 
         <p>This also includes T&C’s regarding refunds. This is also with Lizzie and legal as refunds come in later.</p>
 
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        
+
+      <div class="govuk-form-group">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                I confirm I have read the T&C's
+              </label>
+            </div>
+          </div>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
 
       </form>
 
