@@ -22,14 +22,14 @@ router.post('/credits-metric-upload-check', function (req, res) {
 
 router.post('/credits-development-location', function (req, res) {
     if (req.session.data['development-data'] == 'yes') {
-        res.redirect('purchase-order');
+        res.redirect('credits-purchase-order');
     }
     else if (req.session.data['development-data'] == 'no') {
         res.redirect('credits-metric-upload');
     }
 });
 
-router.post('/purchase-order', function (req, res) {
+router.post('/credits-purchase-order', function (req, res) {
     res.redirect('credits-individual-or-organisation');
 });
 
@@ -46,10 +46,10 @@ router.post('/credits-tier', function (req, res) {
 });
 
 router.post('/credits-cost', function (req, res) {
-    res.redirect('terms-and-conditions');
+    res.redirect('credits-terms-and-conditions');
 });
 
-router.post('/terms-and-conditions', function (req, res) {
+router.post('/credits-terms-and-conditions', function (req, res) {
     res.redirect('credits-check-your-answers');
 });
 

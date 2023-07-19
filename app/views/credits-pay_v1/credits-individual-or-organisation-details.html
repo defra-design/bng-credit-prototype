@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
 
+{% set serviceName %}
+  Purchase statutory biodiversity credits
+{% endset%}
+
 {% block pageTitle %}
     Add additional anti money laundering information 
 {% endblock %}
@@ -20,7 +24,7 @@
           </p> -->
                   <form method="post">
                     {% if data['ind-or-org']=="Individual" %}
-                    <p>Enter your nationality, then your date of birth.</p>
+                    <p>We need your nationality and your date of birth.</p>
                     {% endif %}
 
                     {% if data['ind-or-org']=="Organisation" %}
