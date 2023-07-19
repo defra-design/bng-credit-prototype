@@ -14,12 +14,17 @@
     <div class="govuk-grid-column-two-thirds">
 
         
-        <h1 class="govuk-heading-l">Add additional anti money laundering information</h1>
+        <h1 class="govuk-heading-l">Add additional anti-money laundering information</h1>
         <!-- <p>
             {{ data | dump }}
           </p> -->
                   <form method="post">
+                    {% if data['ind-or-org']=="Individual" %}
+                    <p>Enter your nationality, then your date of birth.</p>
+                    {% endif %}
+
                     {% if data['ind-or-org']=="Organisation" %}
+                    <p>As you are representing an organisation, we need your nationality, date of birth and company details to pass our anti-money laundering checks.</p>
                     <h2 class="govuk-heading-m">Personal details</h1>
                     {% endif %}
                     <div class="govuk-form-group">

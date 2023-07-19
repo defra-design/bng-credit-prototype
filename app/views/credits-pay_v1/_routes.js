@@ -42,19 +42,19 @@ router.post('/credits-individual-or-organisation-details', function (req, res) {
 });
 
 router.post('/credits-tier', function (req, res) {
-    res.redirect('terms-and-conditions');
+    res.redirect('credits-cost');
 });
 
-// router.post('/credits-cost', function (req, res) {
-//     res.redirect('terms-and-conditions');
-// });
+router.post('/credits-cost', function (req, res) {
+    res.redirect('terms-and-conditions');
+});
 
 router.post('/terms-and-conditions', function (req, res) {
     res.redirect('credits-check-your-answers');
 });
 
 router.post('/credits-check-your-answers', function (req, res) {
-    res.redirect('confirmation');
+    res.redirect('credits-confirmation');
 });
 
 
