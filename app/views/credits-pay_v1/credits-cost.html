@@ -3,7 +3,7 @@
 {% set hideSaveLink = true %}
 
 {% set serviceName %}
-  Purchase statutory biodiversity credits
+  Estimate the cost of statutory biodiversity credits
 {% endset%}
 
 
@@ -21,7 +21,7 @@
           Estimated cost of statutory biodiversity credits
         </h1>
         <div class="govuk-panel__body govuk-!-text-align-left">
-          <strong>£134,000</strong>
+          <strong>£134,000 (Excluding VAT)</strong>
         </div>
       </div>
     </div>
@@ -29,9 +29,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">
-          Estimated cost of statutory biodiversity credits
-        </h1>
+        <h1 class="govuk-heading-xl">Estimated cost of statutory biodiversity credits</h1>
 
 
         <table class="govuk-table">
@@ -39,76 +37,82 @@
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">Tier</th>
-                <th scope="col" class="govuk-table__header">Credit units</th>
-                <th scope="col" class="govuk-table__header">Estimated cost</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Credit units</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Estimated cost</th>
               </tr>
             </thead>
             <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                  <td class="govuk-table__cell">A1</td>
-                  <td class="govuk-table__cell">41.84</td>
-                  <td class="govuk-table__cell">£19,166</td>
+                  <td class="govuk-table__cell govuk-table__header">A1</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">16.34</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">£19,166</td>
                 </tr>
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">A2</td>
-                    <td class="govuk-table__cell">3.69</td>
-                    <td class="govuk-table__cell">£19,166</td>
+                    <td class="govuk-table__cell govuk-table__header">A2</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">1.76</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£19,166</td>
                 </tr>
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">A3</td>
-                    <td class="govuk-table__cell">0.00</td>
-                    <td class="govuk-table__cell">£0.00</td>
+                    <td class="govuk-table__cell govuk-table__header">A3</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
                 </tr>
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">A4</td>
-                    <td class="govuk-table__cell">8.37</td>
-                    <td class="govuk-table__cell">£19,166</td>
+                    <td class="govuk-table__cell govuk-table__header">A4</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">8.37</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£19,166</td>
                 </tr>
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">A5</td>
-                    <td class="govuk-table__cell">0.00</td>
-                    <td class="govuk-table__cell">£0.00</td>
+                    <td class="govuk-table__cell govuk-table__header">A5</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
                 </tr>
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">H</td>
-                    <td class="govuk-table__cell">7.39</td>
-                    <td class="govuk-table__cell">£19,166</td>
+                    <td class="govuk-table__cell govuk-table__header">H</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">5.78</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£19,166</td>
                 </tr>
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">W</td>
-                    <td class="govuk-table__cell">8.80</td>
-                    <td class="govuk-table__cell">£19,166</td>
+                    <td class="govuk-table__cell govuk-table__header">W</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£19,166</td>
                 </tr>
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Total</th>
-                <td class="govuk-table__cell">70.09</td>
-                <td class="govuk-table__cell">£134,000</td>
+                <th scope="row" class="govuk-table__header">Total estimated cost</th>
+                <td class="govuk-table__cell govuk-table__cell--numeric"></td>
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">70.09</td> -->
+                <td class="govuk-table__cell govuk-table__cell--numeric">£134,000</td>
               </tr>
             </tbody>
           </table>
         
-        <form method="post">
-          <button class="govuk-button" data-module="govuk-button">
-            Continue
-          </button>
-  
-        </form>
+
       </div>
     </div>
   
         
-        <!-- <div class="govuk-grid-row">
-            <div class="govuk-grid-column-three-quarters">
-              
-              <h2 class="govuk-heading-m">Habitat delivery</h2>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <!-- <p>
+                {{ data | dump }}
+              </p> -->
 
-              <p>The revenue from credits will be invested in habitat delivery in England.</p>
-              <p>The digital sales service is currently being built and guidance will be published before BNG becomes mandatory across England.</p>
               
               <h2 class="govuk-heading-m">Credit prices</h2>
-              <p>This service provides an estimation. Credit prices are liable to change so the figure we suggest must be checked and verified by xxxx.</p>
+              <p>This service provides an estimation.</p>
+              <p>All credit prices are a guide.</p>
+              <p>Check <a href="#">the price list</a> for more information.</p>
             </div>
-          </div> -->
+
+
+          </div>
+          <form method="post">
+
+            <button class="govuk-button" data-module="govuk-button">
+              Save and continue
+            </button>
+    
+          </form>
 </div>
     
 

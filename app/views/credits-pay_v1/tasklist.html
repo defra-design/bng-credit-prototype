@@ -1,0 +1,299 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        <!-- <span class="govuk-caption-xl">Planning reference: 22/01976/RJL</span> 
+        {{ serviceName }}-->
+        Record off-site biodiversity gains for a development project
+      </h1>
+
+      <!-- <p>
+        {{ data | dump }}
+      </p> -->
+
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed {{sectioncomplete}} of {{data['sections']}} sections.</p>
+
+      <ol class="app-task-list">
+        <li>
+          <h2 class="app-task-list__section">
+            Your details
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="details-confirm">
+                  Add your details
+                </a>
+              </span>
+              {% if data['task1'] == "complete" %}
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+              {% elseif  data['task1'] == "inprogress"%}
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+              {% endif %}
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">Biodiversity 4.0 Metric calculations</h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <!-- <a href="metric-upload" aria-describedby="eligibility-status">
+                  Upload Metric 4.0 file
+                </a> -->
+                <a href="biodiversity-gain-site-number" aria-describedby="eligibility-status">
+                  Upload Metric 4.0 file
+                </a>
+              </span>
+              {% if data['metric-correct'] == "yes" %}
+              <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="development-location" aria-describedby="read-declaration-status">
+                  Confirm development details
+                </a>
+              </span>
+              {% if data['task2'] == "complete" %}
+              <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+              {% endif %}
+              <!-- <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong> -->
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="confirm-off-site-gain" aria-describedby="read-declaration-status">
+                  Confirm off-site gain
+                </a>
+              </span>
+              {% if data['task2'] == "complete" %}
+              <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+              {% endif %}
+              <!-- <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong> -->
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            Consent to use a biodiversity gain site for off-site gain
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="consent-agreement-upload">
+                  Upload the consent document
+                </a>
+              </span>
+              {% if data['task3'] == "complete" %}
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+              {% elseif  data['task3'] == "inprogress"%}
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+              {% endif %}
+            </li>
+          </ul>
+        </li>
+
+        <li>
+            <h2 class="app-task-list__section">
+                Statutory biodiversity credits
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="credits-metric-upload">
+                    Purchase statutory biodiversity credits
+                  </a>
+                </span>
+                {% if data['task3'] == "complete" %}
+                  <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+                {% elseif  data['task3'] == "inprogress"%}
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                {% endif %}
+              </li>
+            </ul>
+          </li>
+
+
+        {% if data['onsite'] == "true" %}
+        <li>
+          <h2 class="app-task-list__section">
+            On-site land
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="onsite">
+                  Confirm the total amount of on-site gain or loss
+                </a>
+              </span>
+              {% if data['task4'] == "complete" %}
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+              {% elseif  data['task4'] == "inprogress"%}
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+              {% endif %}
+          </ul>
+        </li>
+        {% endif %}
+
+        {% if data['offsite'] == "true" or data['multiple-offsite'] == "true"  %}
+        <li>
+          <h2 class="app-task-list__section">
+            Off-site land
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                {% if data['offsite'] == "true" %}
+                  <a href="offsite1">
+                {% else %}
+                  <a href="offsite-total">
+                {% endif %}
+                  Confirm the total amount of off-site gain
+                </a>
+              </span>
+              {% if data['task5'] == "complete" %}
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+              {% elseif  data['task5'] == "inprogress"%}
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+              {% endif %}
+              </li>
+              {%if data['multiple-offsite'] == "true"%}
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+
+                    <a href="offsite1">
+
+                    Confirm the habitat details for each off-site you're using
+                  </a>
+                </span>
+                {% if data['task5'] == "complete" %}
+                  <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+                {% elseif  data['task5'] == "inprogress"%}
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                {% endif %}
+                </li>
+              {%endif%}
+          </ul>
+        </li>
+        {% endif %}
+
+        {% if data['credits'] == "true" %}
+        <li>
+          <h2 class="app-task-list__section">
+            Biodiversity Payment
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="credits">
+                  Confirm any Biodiversity Payment you need to make
+                </a>
+              </span>
+              {% if data['task6'] == "complete" %}
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+              {% elseif  data['task5'] == "inprogress"%}
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+              {% endif %}
+          </ul>
+        </li>
+        {% endif %}
+
+        <li>
+          <h2 class="app-task-list__section">
+            Submit your biodiversity gain information
+          </h2>
+          <ul class="app-task-list__items">
+            <!-- <li class="app-task-list__item">
+              {% if data['task1'] == "complete" and data['task2'] == "complete"%}
+
+                {% if data['task5'] == "complete" %}
+                  <a href="check-answers">
+                    Check your answers before you submit them
+                  </a>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+
+                {% elseif data['task4'] == "complete" and data['credits']!='true'%}
+                  <a href="check-answers">
+                    Check your answers before you submit them to us
+                  </a>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+
+                {% elseif data['task3'] == "complete"  and data['credits']!='true'  and data['offsite']!='true'  and data['multiple-offsite']!='true'%}
+                  <a href="check-answers">
+                    Check your answers before you submit them to us
+                  </a>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+
+                {% else %}
+                  <span class="app-task-list__task-name">
+                    Check your answers before you submit them to us
+                  </span>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+                {% endif %}
+
+              {% else %}
+              <span class="app-task-list__task-name">
+                Check your answers before you submit them to us
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+
+              {%endif%}
+
+            </li> -->
+            <li class="app-task-list__item">
+              {% if data['task1'] == "complete" and data['task2'] == "complete" and data['task3'] == "complete" %}
+
+                
+                  <a href="email-entry">
+                    Check your answers before you submit them
+                  </a>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+
+
+
+              {% else %}
+              <span class="app-task-list__task-name">
+                Check your answers before you submit them to us
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+
+              {%endif%}
+
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+{% endblock %}

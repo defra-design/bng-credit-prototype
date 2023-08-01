@@ -38,10 +38,10 @@ router.post('/credits-individual-or-organisation', function (req, res) {
 });
 
 router.post('/credits-individual-or-organisation-details', function (req, res) {
-    res.redirect('credits-tier');
+    res.redirect('credits-tier-alt');
 });
 
-router.post('/credits-tier', function (req, res) {
+router.post('/credits-tier-alt', function (req, res) {
     res.redirect('credits-cost');
 });
 
