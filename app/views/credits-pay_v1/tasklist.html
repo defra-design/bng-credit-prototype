@@ -30,18 +30,11 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="details-confirm">
+                <a href="#">
                   Add your details
                 </a>
               </span>
-              {% if data['task1'] == "complete" %}
-                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
-              {% elseif  data['task1'] == "inprogress"%}
-                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
-              {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
-              {% endif %}
-            </li>
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong></li>
           </ul>
         </li>
         <li>
@@ -52,42 +45,25 @@
                 <!-- <a href="metric-upload" aria-describedby="eligibility-status">
                   Upload Metric 4.0 file
                 </a> -->
-                <a href="biodiversity-gain-site-number" aria-describedby="eligibility-status">
+                <a href="#" aria-describedby="eligibility-status">
                   Upload Metric 4.0 file
                 </a>
               </span>
-              {% if data['metric-correct'] == "yes" %}
-              <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
-              {% else %}
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
-              {% endif %}
-            </li>
+              <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong></li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="development-location" aria-describedby="read-declaration-status">
+                <a href="#" aria-describedby="read-declaration-status">
                   Confirm development details
                 </a>
               </span>
-              {% if data['task2'] == "complete" %}
-              <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
-              {% else %}
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
-              {% endif %}
-              <!-- <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong> -->
-            </li>
+              <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong></li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="confirm-off-site-gain" aria-describedby="read-declaration-status">
+                <a href="#" aria-describedby="read-declaration-status">
                   Confirm off-site gain
                 </a>
               </span>
-              {% if data['task2'] == "complete" %}
-              <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
-              {% else %}
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
-              {% endif %}
-              <!-- <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong> -->
-            </li>
+              <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong></li>
           </ul>
         </li>
 
@@ -98,18 +74,11 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="consent-agreement-upload">
+                <a href="#">
                   Upload the consent document
                 </a>
               </span>
-              {% if data['task3'] == "complete" %}
-                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
-              {% elseif  data['task3'] == "inprogress"%}
-                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
-              {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
-              {% endif %}
-            </li>
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong></li>
           </ul>
         </li>
 
