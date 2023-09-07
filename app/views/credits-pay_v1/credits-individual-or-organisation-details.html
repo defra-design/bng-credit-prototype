@@ -5,7 +5,7 @@
 {% endset%}
 
 {% block pageTitle %}
-    Add additional anti money laundering information 
+  Add additional customer due diligence (CDD) information 
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,7 +18,7 @@
     <div class="govuk-grid-column-two-thirds">
 
         
-        <h1 class="govuk-heading-xl">Add additional anti-money laundering information</h1>
+        <h1 class="govuk-heading-xl">Add additional customer due diligence (CDD) information</h1>
         <!-- <p>
             {{ data | dump }}
           </p> -->
@@ -28,7 +28,7 @@
                     {% endif %}
 
                     {% if data['ind-or-org']=="Organisation" %}
-                    <p>You are representing an organisation, so we need to do anti-money laundering checks.</p>
+                    <p>You are representing an organisation, so we need to do customer due diligence checks.</p>
                     <p>To pass the checks we need to know your nationality, date of birth and company details.</p>
                     <h2 class="govuk-heading-m">Personal details</h1>
                     {% endif %}
