@@ -1,0 +1,181 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Purchase statutory biodiversity credits
+{% endset%}
+
+{% set hideSaveLink = true %}
+
+
+
+{% set pageHeading = "Estimate the cost of biodiversity statutory credits" %} 
+{% block pageTitle %}
+  {{ pageHeading }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Add statutory biodiversity credit units</h1>
+        <p class="govuk-body">Enter the credit unit from the Metric into the relevant tier box below. You can choose more than one tier.</p>
+        <p>The credit unit must be entered up to two decimal places, like 23.75.</p>
+    </div>
+  </div>
+  
+  <form method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                <span class="govuk-caption-m">Area</span>
+                  Tier A
+                </h1>
+              </legend>
+              <!-- <div id="waste-hint" class="govuk-hint">
+                Enter the credit unit up to two decimal places, like 23.75
+              </div> -->
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="tier-1" name="tier" type="checkbox" value="A1" data-aria-controls="conditional-tier">
+                  <label class="govuk-label govuk-checkboxes__label" for="tier-1">
+                    A1
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-tier">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="tier-A1-number">
+                      Enter credit units
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" id="tier-A1-number" name="credit-amount" type="text">
+                  </div>
+                </div>
+  
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="tier-2" name="tier" type="checkbox" value="A2" data-aria-controls="conditional-tier-2">
+                  <label class="govuk-label govuk-checkboxes__label" for="tier-2">
+                    A2
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-tier-2">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="tier-A2-number">
+                      Enter credit units
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" id="tier-A2-number" name="credit-amount" type="text">
+                  </div>
+                </div>
+  
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="tier-3" name="tier" type="checkbox" value="A3" data-aria-controls="conditional-tier-3">
+                  <label class="govuk-label govuk-checkboxes__label" for="tier-3">
+                    A3
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-tier-3">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="tier-A3-number">
+                      Enter credit units
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" id="tier-A3-number" name="credit-amount" type="text">
+                  </div>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="tier-4" name="tier" type="checkbox" value="A4" data-aria-controls="conditional-tier-4">
+                  <label class="govuk-label govuk-checkboxes__label" for="tier-4">
+                    A4
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-tier-4">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="tier-A4-number">
+                      Enter credit units
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" id="tier-A4-number" name="credit-amount" type="text">
+                  </div>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="tier-5" name="tier-A5" type="checkbox" value="A5" data-aria-controls="conditional-tier-5">
+                  <label class="govuk-label govuk-checkboxes__label" for="tier-5">
+                    A5
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-tier-5">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="tier-A5-number">
+                      Enter credit units
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" id="tier-A5-number" name="tier-A5" type="text">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                <span class="govuk-caption-m">Hedgerow</span>
+                  Tier H
+                </h1>
+              </legend>
+              <!-- <div id="waste-hint" class="govuk-hint">
+                Enter the credit unit up to two decimal places, like 23.75
+              </div> -->
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="tier-6" name="tier" type="checkbox" value="H1" data-aria-controls="conditional-tier-6">
+                  <label class="govuk-label govuk-checkboxes__label" for="tier-6">
+                    H
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-tier-6">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="tier-H1-number">
+                      Enter credit units
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" id="tier-H1-number" name="credit-amount" type="text">
+                  </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                <span class="govuk-caption-m">Watercourse</span>
+                  Tier W
+                </h1>
+              </legend>
+              <!-- <div id="waste-hint" class="govuk-hint">
+                Enter the credit unit up to two decimal places, like 23.75
+              </div> -->
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="tier-7" name="tier" type="checkbox" value="W1" data-aria-controls="conditional-tier-7">
+                  <label class="govuk-label govuk-checkboxes__label" for="tier-7">
+                    W
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-tier-7">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="tier-W1-number">
+                      Enter credit units
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" id="tier-W1-number" name="credit-amount" type="text">
+                  </div>
+                </div>
+            </fieldset>
+        </div>
+      </div>
+  </div>
+  {{ govukButton({ text: 'Continue'}) }}
+  </form>
+
+{% endblock %}
