@@ -33,8 +33,49 @@ router.post('/credits-purchase-order', function (req, res) {
     res.redirect('credits-individual-or-organisation');
 });
 
+// router.post('/credits-individual-or-organisation', function (req, res) {
+//     res.redirect('credits-individual-or-organisation-details');
+// });
+
 router.post('/credits-individual-or-organisation', function (req, res) {
-    res.redirect('credits-individual-or-organisation-details');
+    if (req.session.data['ind-or-org'] == 'Individual') {
+        res.redirect('credits-individual-dob');
+    }
+    else {
+        res.redirect('credits-individual-or-organisation-details');
+    }
+});
+
+router.post('/credits-individual-dob', function (req, res) {
+    res.redirect('credits-individual-uk-citizen');
+});
+
+router.post('/credits-individual-uk-citizen', function (req, res) {
+    res.redirect('credits-individual-dual-nationality');
+});
+
+// router.post('/credits-individual-dual-nationality', function (req, res) {
+//     res.redirect('credits-tier-alt');
+// });
+
+// router.post('/credits-individual-dual-nationality', function (req, res) {
+//     if (req.session.data['uk-citizen'] == 'yes') {
+//         if (req.session.data['dual-nationality'] == 'no')
+//             res.redirect('credits-tier-alt');
+//     }
+//     else {
+//         res.redirect('credits-individual-nationality');
+//     }
+// });
+
+router.post('/credits-individual-dual-nationality', function (req, res) {
+    if (req.session.data['uk-citizen'] == 'yes' && req.session.data['dual-nationality'] == 'no') {
+        // if (req.session.data['dual-nationality'] == 'no')
+        res.redirect('credits-tier-alt');
+    }
+    else {
+        res.redirect('credits-individual-nationality');
+    }
 });
 
 router.post('/credits-individual-or-organisation-details', function (req, res) {
