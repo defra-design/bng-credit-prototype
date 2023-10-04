@@ -54,23 +54,9 @@ router.post('/credits-individual-uk-citizen', function (req, res) {
     res.redirect('credits-individual-dual-nationality');
 });
 
-// router.post('/credits-individual-dual-nationality', function (req, res) {
-//     res.redirect('credits-tier-alt');
-// });
-
-// router.post('/credits-individual-dual-nationality', function (req, res) {
-//     if (req.session.data['uk-citizen'] == 'yes') {
-//         if (req.session.data['dual-nationality'] == 'no')
-//             res.redirect('credits-tier-alt');
-//     }
-//     else {
-//         res.redirect('credits-individual-nationality');
-//     }
-// });
 
 router.post('/credits-individual-dual-nationality', function (req, res) {
     if (req.session.data['uk-citizen'] == 'yes' && req.session.data['dual-nationality'] == 'no') {
-        // if (req.session.data['dual-nationality'] == 'no')
         res.redirect('credits-tier-alt');
     }
     else {
@@ -78,7 +64,7 @@ router.post('/credits-individual-dual-nationality', function (req, res) {
     }
 });
 
-router.post('/credits-individual-or-organisation-details', function (req, res) {
+router.post('/credits-individual-nationality', function (req, res) {
     res.redirect('credits-tier-alt');
 });
 
