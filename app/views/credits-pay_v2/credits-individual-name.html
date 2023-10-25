@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Purchase statutory biodiversity credits
+{% endset%}
+
+{% block pageTitle %}
+  Add additional customer due diligence (CDD) information 
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+        <h1 class="govuk-heading-xl">What is your full name?</h1>
+        <!-- <p>
+            {{ data | dump }}
+          </p> -->
+                  <form method="post">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="full-name">
+                        First name
+                      </label>
+                      <input class="govuk-input" id="full-name" name="fullName" type="text" spellcheck="false" autocomplete="name">
+                    </div>
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="full-name">
+                        Middle name
+                      </label>
+                      <input class="govuk-input" id="full-name" name="fullName" type="text" spellcheck="false" autocomplete="name">
+                    </div>
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="full-name">
+                        Last name
+                      </label>
+                      <input class="govuk-input" id="full-name" name="fullName" type="text" spellcheck="false" autocomplete="name">
+                    </div>
+
+
+                      
+                
+                    <button class="govuk-button" data-module="govuk-button">
+                      Save and continue
+                    </button>
+                  </form>
+
+    </div>
+  </div>
+
+{% endblock %}
