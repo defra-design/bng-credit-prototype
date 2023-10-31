@@ -51,7 +51,7 @@ router.post('/credits-individual-name', function (req, res) {
 });
 
 router.post('/credits-individual-dob', function (req, res) {
-    res.redirect('credits-individual-uk-citizen');
+    res.redirect('credits-individual-nationality');
 });
 
 router.post('/credits-individual-uk-citizen', function (req, res) {
