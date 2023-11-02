@@ -33,20 +33,20 @@ router.post('/credits-purchase-order', function (req, res) {
     res.redirect('credits-individual-or-organisation');
 });
 
-// router.post('/credits-individual-or-organisation', function (req, res) {
-//     res.redirect('credits-individual-or-organisation-details');
-// });
-
 router.post('/credits-individual-or-organisation', function (req, res) {
+    res.redirect('credits-applicant-details-confirm');
+});
+
+router.post('/credits-applicant-details-confirm', function (req, res) {
     if (req.session.data['ind-or-org'] == 'Individual') {
-        res.redirect('credits-individual-name');
+        res.redirect('credits-individual-middle-name');
     }
     else {
         res.redirect('credits-tier-alt');
     }
 });
 
-router.post('/credits-individual-name', function (req, res) {
+router.post('/credits-individual-middle-name', function (req, res) {
     res.redirect('credits-individual-dob');
 });
 
