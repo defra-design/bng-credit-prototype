@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Purchase statutory biodiversity credits
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Terms and Conditions for the purchase of Statutory Biodiversity Credits</h1>
+
+      <h2 class="govuk-heading-m">Introduction</h2>
+
+      <!-- <p>The statutory biodiversity credit scheme is run by Natural England on behalf of the Department for Environment, Food and Rural Affairs (Defra) as part of the Environment Act 2021.</p>
+
+      <p>The scheme enables developers or landowners to purchase credits if they are unable to meet their BNG (Biodiversity Net Gain) obligation. This could be either through on-site, off-site on other landholdings, or by purchasing biodiversity units.</p>
+
+      <p>The credits will go towards achieving their BNG obligation.</p>
+
+      <h2 class="govuk-heading-m">Not transferable</h2>
+
+      <p>The issued Statutory Biodiversity Credits may not be sold, transferred or moved to any third party (whether a person, company or other organisation).</p>
+
+      <h2 class="govuk-heading-m">Liability</h2>
+
+      <p>It is your responsibility to ensure you have purchased the correct number, and tier, of Statutory Biodiversity Credits to meet your BNG obligation.</p>
+
+      <p>Full terms and conditions can be found in <a href="#">guidance</a>.</p> -->
+
+      <p>The statutory biodiversity credit scheme is run by Natural England on behalf of the Department for Environment, Food and Rural Affairs (Defra) as part of the Environment Act 2021.</p>
+
+      <p>You should read the full <a href="#">terms and conditions</a>.</p>
+
+      <form method="post">
+        <div class="govuk-form-group">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                I confirm I have read the terms and conditions.
+              </label>
+            </div>
+          </div>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

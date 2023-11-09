@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Purchase statutory biodiversity credits
+{% endset%}
+
+{% set hideSaveLink = true %}
+
+{% set pageH1 = "Check your Secretary of State Metric file" %}
+
+{% block pageTitle %}
+  {{ pageH1 }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ pageH1 }}
+      </h1>
+
+      <!-- <p>
+        {{ data | dump }}
+      </p> -->
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added",
+              classes: "app-summary-list__key--narrow",
+              classes: "govuk-!-width-one-quarter"
+            },
+            value: {
+              html: 'SoS_Emmer_Green_PP_version.XLSM, 4.1MB'
+            }
+          }
+        ]
+      }) }}
+
+      <form method="post">
+
+        {{ govukRadios({
+          idPrefix: "metric-correct",
+          name: "metric-correct",
+          fieldset: {
+            legend: {
+              text: "Is this the correct file?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, this is the Secretary of State Metric file my local planning authority reviewed"
+            },
+            {
+              value: "no",
+              text: "No, upload a different file"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({ text: 'Save and continue' }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

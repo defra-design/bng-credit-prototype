@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+
+{% set hideSaveSection = true %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        <!-- <span class="govuk-caption-xl">Planning reference: 22/01976/RJL</span> 
+        {{ serviceName }}-->
+        Purchase statutory biodiversity credits
+      </h1>
+
+      <!-- <p>
+        {{ data | dump }}
+      </p> -->
+
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed {{sectioncomplete}} of {{data['sections']}} sections.</p>
+
+      <ol class="app-task-list">
+        <li>
+          <h2 class="app-task-list__section">Biodiversity 4.0 Metric</h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="credits-metric-upload" aria-describedby="eligibility-status">
+                  Upload Metric 4.0 file
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong></li>
+            <!-- <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="read-declaration-status">
+                  Confirm development details
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong></li> -->
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            Purchase order
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="credits-purchase-order">
+                  Add a purchase order number
+                </a>
+              </span>
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong></li>
+          </ul>
+        </li>
+        <li>
+            <h2 class="app-task-list__section">
+              Customer due diligence (CDD)
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="credits-individual-middle-name">
+                    Complete customer due diligence
+                  </a>
+                </span>
+                  <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong></li>
+            </ul>
+          </li>
+          <li>
+            <h2 class="app-task-list__section">
+                Statutory biodiversity credits
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="credits-tier-alt">
+                    Add statutory biodiversity credits
+                  </a>
+                </span>
+                {% if data['task3'] == "complete" %}
+                  <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+                {% elseif  data['task3'] == "inprogress"%}
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                {% endif %}
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h2 class="app-task-list__section">
+              Terms and conditions
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="credits-terms-and-conditions">
+                    Accept terms and conditions
+                  </a>
+                </span>
+                  <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong></li>
+            </ul>
+          </li>
+        <li>
+          <h2 class="app-task-list__section">
+            Submit your biodiversity gain information
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              {% if data['task1'] == "complete" and data['task2'] == "complete" and data['task3'] == "complete" %}
+
+                
+                  <a href="email-entry">
+                    Check your answers before you submit them
+                  </a>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+
+
+
+              {% else %}
+              <span class="app-task-list__task-name">
+                Check your answers before you submit them to us
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+
+              {%endif%}
+
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+{% endblock %}

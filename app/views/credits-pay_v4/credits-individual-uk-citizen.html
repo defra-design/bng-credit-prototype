@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Purchase statutory biodiversity credits
+{% endset%}
+
+{% block pageTitle %}
+  Add additional customer due diligence (CDD) information 
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form method="post">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                    <h1 class="govuk-fieldset__heading">
+                        Are you a British citizen?
+                    </h1>
+                  </legend>
+                  <!-- <div id="changedName-hint" class="govuk-hint">
+                    This includes changing your last name or spelling your name differently.
+                  </div> -->
+                  <div class="govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="uk-citizen-y" name="uk-citizen" type="radio" value="yes">
+                      <label class="govuk-label govuk-radios__label" for="uk-citizen-y">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="uk-citizen-n" name="uk-citizen" type="radio" value="no">
+                      <label class="govuk-label govuk-radios__label" for="uk-citizen-n">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            <button class="govuk-button" data-module="govuk-button">
+                Save and continue
+            </button>
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}
