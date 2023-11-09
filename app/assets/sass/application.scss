@@ -9,6 +9,7 @@ $govuk-assets-path: '/govuk/assets/';
 @import "lib/extensions/extensions";
 
 // Patterns that aren't in Frontend
+@import "patterns/login-nav";
 @import "patterns/step-by-step-header";
 @import "patterns/step-by-step-nav";
 @import "patterns/step-by-step-related";
@@ -67,4 +68,30 @@ float: left;
 
 .con-attachment-details {
   padding-left: 134px;
+}
+
+// Dashboard 
+.inset-dashboard {
+  border-left-color: #d53880;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.dashboard-panel {
+  background: #f3f2f1;
+  padding: 10px 25px 15px;
+  flex-basis: 40%;
+  flex-grow: 2;
+
+  @media (max-width: 40.0625em) {
+    flex-basis: 100%;
+    padding: 10px 15px;
+  }
+
 }
