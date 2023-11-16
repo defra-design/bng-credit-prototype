@@ -34,14 +34,14 @@
                   Upload Metric 4.0 file
                 </a>
               </span>
-              <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong></li>
-            <!-- <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="#" aria-describedby="read-declaration-status">
-                  Confirm development details
-                </a>
-              </span>
-              <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong></li> -->
+              {% if data['development-data'] == "yes" %}
+              <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+              {% elseif  data['development-data'] == "no"%}
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+              {% endif %}
+            </li>
           </ul>
         </li>
 
@@ -56,7 +56,12 @@
                   Add a purchase order number
                 </a>
               </span>
-                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong></li>
+              {% if data['purchase-order'] == "Yes" or data['purchase-order'] == "No" %}
+              <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+              {% endif %}
+            </li>
           </ul>
         </li>
         <li>
@@ -70,7 +75,12 @@
                     Complete customer due diligence
                   </a>
                 </span>
-                  <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong></li>
+                {% if data['ind-or-org'] == "Individual" or data['ind-or-org'] == "Organisation" %}
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+                {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                {% endif %}
+              </li>
             </ul>
           </li>
           <li>
@@ -84,13 +94,12 @@
                     Add statutory biodiversity credits
                   </a>
                 </span>
-                {% if data['task3'] == "complete" %}
-                  <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
-                {% elseif  data['task3'] == "inprogress"%}
-                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
+                {% if data['credits-cost'] == "seen" %}
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
                 {% else %}
-                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
                 {% endif %}
+              </li>
               </li>
             </ul>
           </li>
@@ -105,7 +114,13 @@
                     Accept terms and conditions
                   </a>
                 </span>
-                  <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong></li>
+                {% if data['terms-and-conditons'] == "checked" %}
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+                {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                {% endif %}
+                
+                </li>
             </ul>
           </li>
         <!-- <li>
@@ -115,15 +130,8 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               {% if data['task1'] == "complete" and data['task2'] == "complete" and data['task3'] == "complete" %}
-
-                
-                  <a href="email-entry">
-                    Check your answers before you submit them
-                  </a>
+              <a href="email-entry">Check your answers before you submit them</a>
                   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
-
-
-
               {% else %}
               <span class="app-task-list__task-name">
                 Check your answers before you submit them to us
@@ -141,8 +149,13 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              <a href="credits-check-your-answers">Check your answers before you submit them</a>
-                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+              {% if data['terms-and-conditons'] == "checked" %}
+                <a href="credits-check-your-answers">Check your answers before you submit them</a>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+              {% else %}
+                Check your answers before you submit them
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+              {% endif %}
             </li>
           </ul>
         </li>
