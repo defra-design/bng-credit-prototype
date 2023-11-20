@@ -15,11 +15,14 @@
 
       <h1 class="govuk-heading-xl">Check your Defra account details are up to date</h1>
 
-      <p>We will use the information in your Defra account to identify you and to contact you about this application.</p>
-
-    {% if data['ind-or-org']=="Organisation" %}
-        <p>SEABARLEY LIMITED is the organisation you are purchasing credits on behalf of.</p>
-    {% endif %}
+      {% if data['ind-or-org']=="Individual" %}
+      <p>We will use this information to identify you and assist with our customer due diligence checks.</p>
+      {% endif %}
+      
+      {% if data['ind-or-org']=="Organisation" %}
+      <p>We will use this information to identify you and your organisation, and to assist with our customer due diligence checks.</p>
+      <p>SEABARLEY LIMITED is the organisation you are purchasing credits for.</p>
+      {% endif %}
 
       <p><a href="#">Check your Defra account details (opens in new tab)</a></p>
 
