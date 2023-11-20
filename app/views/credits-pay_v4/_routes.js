@@ -1,6 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
+router.post('/sign-in', function (req, res) {
+    res.redirect('credits-dashboard');
+});
+
 
 // Credits Pay
 // router.post('/metric-upload', function (req, res) {
