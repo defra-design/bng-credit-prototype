@@ -1,5 +1,5 @@
-const express = require('express')
-const router = express.Router()
+const govukPrototypeKit = require('govuk-prototype-kit')
+const router = govukPrototypeKit.requests.setupRouter()
 
 router.post('/sign-in', function (req, res) {
     res.redirect('credits-dashboard');
