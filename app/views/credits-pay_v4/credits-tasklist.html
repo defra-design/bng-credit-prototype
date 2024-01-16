@@ -45,44 +45,8 @@
           </ul>
         </li>
 
-        <li>
-          <h2 class="app-task-list__section">
-            Purchase order
-          </h2>
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="credits-purchase-order">
-                  Add a purchase order number
-                </a>
-              </span>
-              {% if data['purchase-order'] == "Yes" or data['purchase-order'] == "No" %}
-              <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
-              {% else %}
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
-              {% endif %}
-            </li>
-          </ul>
-        </li>
-        <li>
-            <h2 class="app-task-list__section">
-              Customer due diligence (CDD)
-            </h2>
-            <ul class="app-task-list__items">
-              <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="credits-individual-or-organisation">
-                    Complete customer due diligence
-                  </a>
-                </span>
-                {% if data['ind-or-org'] == "Individual" or data['ind-or-org'] == "Organisation" %}
-                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
-                {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
-                {% endif %}
-              </li>
-            </ul>
-          </li>
+
+
           <li>
             <h2 class="app-task-list__section">
                 Statutory biodiversity credits
@@ -100,6 +64,44 @@
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
                 {% endif %}
               </li>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h2 class="app-task-list__section">
+              Purchase order
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="credits-purchase-order">
+                    Add a purchase order number
+                  </a>
+                </span>
+                {% if data['purchase-order'] == "Yes" or data['purchase-order'] == "No" %}
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+                {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                {% endif %}
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h2 class="app-task-list__section">
+              Customer due diligence (CDD)
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="credits-individual-or-organisation">
+                    Complete customer due diligence
+                  </a>
+                </span>
+                {% if data['ind-or-org'] == "Individual" or data['ind-or-org'] == "Organisation" %}
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+                {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                {% endif %}
               </li>
             </ul>
           </li>
