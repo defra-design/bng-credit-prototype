@@ -14,7 +14,7 @@
       <h1 class="govuk-heading-xl">
         <!-- <span class="govuk-caption-xl">Planning reference: 22/01976/RJL</span> 
         {{ serviceName }}-->
-        Purchase statutory biodiversity credits
+        Buy statutory biodiversity credits
       </h1>
 
       <!-- <p>
@@ -26,12 +26,12 @@
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 6 sections.</p>
       <ol class="app-task-list">
         <li>
-          <h2 class="app-task-list__section">Biodiversity 4.1 Metric</h2>
+          <h2 class="app-task-list__section">Statutory biodiversity metric</h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="credits-metric-upload" aria-describedby="eligibility-status">
-                  Upload Metric 4.1 file
+                  Upload statutory biodiversity metric
                 </a>
               </span>
               {% if data['development-data'] == "yes" %}
@@ -153,7 +153,7 @@
             <li class="app-task-list__item">
               {% if data['terms-and-conditons'] == "checked" %}
                 <a href="credits-check-your-answers">Check your answers before you submit them</a>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
               {% else %}
                 Check your answers before you submit them
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
