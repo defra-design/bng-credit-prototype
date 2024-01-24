@@ -127,6 +127,28 @@
               {% endif %}
             </td>
           </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__cell">
+              {% if data['answers-checked'] == 'true' %}
+                BGS-150322001
+              {% else %}
+              BNGCRD-GH67D-A-JK23
+              {% endif %}
+            </th>
+            <td class="govuk-table__cell">
+              Ockley Park 
+            </td>
+            <td class="govuk-table__cell">
+              {% include "includes/todays-date.html" %}
+            </td>
+            <td class="govuk-table__cell">
+              {% if data['answers-checked'] == 'true' %}
+                <strong class="govuk-tag govuk-tag--blue">RECEIVED</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--blue">Submitted</strong>
+              {% endif %}
+            </td>
+          </tr>
           {% if data.showReceivedItem == "yes" %}
           <tr class="govuk-table__row">
             <th class="govuk-table__cell">
